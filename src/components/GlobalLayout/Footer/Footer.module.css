@@ -1,0 +1,10 @@
+.wrapper {
+    font-family: 'Comfortaa', sans-serif;
+    display: flex;
+    width: 100%;
+    background: #005da9;
+
+    .phrase {
+        color: white;
+    }
+}
