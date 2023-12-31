@@ -14,20 +14,14 @@ export const Header = () => {
   return (
     <header className={styles.wrapper}>
       <Head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossOrigin="anonymous"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Fira+Sans:wght@400;500;700&family=Montserrat:wght@900&display=swap"
-          rel="stylesheet"
-        />
-
         <title>БФЧКП — Белорусская Федерация Чирлидинга и Команд Поддержки</title>
+        {/* ЭТО НЕ РАБОТАЕТ
+        
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="og:image" content={image} /> */}
       </Head>
       <div className={styles.container}>
         <div className={styles.row}>
@@ -35,9 +29,9 @@ export const Header = () => {
             <img src="images/bfchkp_emblem.jpg" className={styles.emblem} />
           </a>
           <ul className={styles.list_header}>
-            <li><a href="<?php echo BASE_URL . 'admin/members/index.php' ?>" target="_blank">ЧЛЕНЫ</a></li>
-            <li><a href="<?php echo BASE_URL . 'admin/comp/index.php' ?>" target="_blank">Соревнования</a></li>
-            <li><a href="<?php echo BASE_URL . 'admin/coaches/index.php' ?>" target="_blank">Тренеры</a></li>
+            <li><a href="/members" target="_blank">ЧЛЕНЫ</a></li>
+            <li><a href="/comp" target="_blank">Соревнования</a></li>
+            <li><a href="/coaches/" target="_blank">Тренеры</a></li>
             <li><a href="<?php echo BASE_URL . 'o_nas.php' ?>" target="_blank">О нас</a></li>
             {/* ToDo: */}
             {/* <li>
