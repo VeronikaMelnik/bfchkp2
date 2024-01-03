@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const comfortaa = Comfortaa({
   weight: ['400', '700'],
   style: ['normal'],
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   display: 'swap',
 })
 
