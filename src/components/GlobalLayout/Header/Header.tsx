@@ -14,11 +14,11 @@ export const Header = () => {
   return (
     <header className={styles.wrapper}>
       <Head>
-        <meta property="og:title" content={БФЧКП} />
-        <meta property="og:description" content={— Белорусская Федерация Чирлидинга и Команд Поддержки} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="og:image" content={image} />
+        <meta property="og:title" content={"БФЧКП"} />
+        <meta property="og:description" content={"— Белорусская Федерация Чирлидинга и Команд Поддержки"} />
+        <meta name="twitter:title" content={"БФЧКП"} />
+        <meta name="twitter:description" content={"— Белорусская Федерация Чирлидинга и Команд Поддержки"} />
+        <meta name="og:image" content={"images/bfchkp.jpg"} />
       </Head>
       <div className={styles.container}>
         <div className={styles.row}>
