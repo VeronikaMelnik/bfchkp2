@@ -1,14 +1,5 @@
-
-import { Header } from '@/components/GlobalLayout/Header/Header'
-import styles from './page.module.scss'
-import { GlobalLayout } from '@/components/GlobalLayout/GlobalLayout'
+import styles from "./page.module.scss";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <GlobalLayout>
-
-      </GlobalLayout>
-    </main>
-  )
+  return <div className={styles.main}></div>;
 }
