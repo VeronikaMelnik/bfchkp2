@@ -1,17 +1,17 @@
-import { Header } from "./Header/Header"
-import styles from './GlobalLayout.module.scss'
+import { Header } from "./Header/Header";
+import styles from "./GlobalLayout.module.scss";
+import { Footer } from "./Footer/Footer";
 
 type Props = {
-	children?: JSX.Element | Array<JSX.Element>
-	isHideFooter?: boolean
-}
+  children?: React.ReactNode;
+};
 
-export const GlobalLayout = ({ children, isHideFooter }: Props) => {
-	return (
-		<div className={styles.wrapper}>
-			<Header />
-			{children}
-			{!isHideFooter && <p>footer</p>}
-		</div>
-	)
-}
+export const GlobalLayout = ({ children }: Props) => {
+  return (
+    <main className={styles.wrapper}>
+      <Header />
+      {children}
+      <Footer />
+    </main>
+  );
+};
