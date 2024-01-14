@@ -1,3 +1,3 @@
 export const ImagesBlock = () => {
-  return <div>images</div>;
+    return <div>images</div>;
 };

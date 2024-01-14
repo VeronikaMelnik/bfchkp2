@@ -1,0 +1,45 @@
+.wrapper {
+  width: 25%;
+  display: flex;
+  font-size: 14px;
+  flex-wrap: wrap;
+  margin-left: 80px;
+
+  .socials1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .a {
+      margin-bottom: 7px;
+      transition: all .5s;
+
+      .icon {
+        width: 17px;
+        height: auto;
+      }
+    }
+  }
+
+  .a:hover {
+    font-size: 16px;
+  }
+
+  .socials2 {
+    .icon {
+      border: 1px solid rgb(57, 137, 236);
+      border-radius: 9px;
+      width: 45px;
+      height: 45px;
+      padding: 10px 10px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      margin-right: 8px;
+      transition: all .3s;
+    }
+
+    .icon:hover {
+      border: 1px solid white;
+    }
+  }
+}
