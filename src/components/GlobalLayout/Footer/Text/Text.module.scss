@@ -1,17 +1,12 @@
 .wrapper {
   width: 40%;
 
-  span {
-    display: flex;
-    flex-direction: column;
-  }
-
   .text {
     font-size: 13px;
+    margin-bottom: 35px;
   }
 
   .phrase {
-    padding-top: 35px;
     font-size: 16px;
   }
 }
