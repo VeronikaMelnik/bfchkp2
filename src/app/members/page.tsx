@@ -1,6 +1,6 @@
-import { Sidebar } from "@/components/Sidebar/sidebar";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
 import styles from "./page.module.scss";
-import { Search } from "@/components/Search/search";
+import { Search } from "@/components/Search/Search";
 
 export default function Home() {
   return (
