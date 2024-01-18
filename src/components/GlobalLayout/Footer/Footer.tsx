@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Contacts } from './Contacts/Contacts';
 import { Text } from './Text/Text';
 import styles from './Footer.module.scss';
