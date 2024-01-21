@@ -10,10 +10,13 @@
   .input {
     font-family: inherit;
     background-color: rgb(255, 255, 255);
-    color: rgb(var(--header-background-rgb));
+    color: rgb(146, 175, 209);
     border-radius: 9px;
     word-wrap: break-word;
     padding: 10px;
     margin: 5px 0;
+    outline: none;
+    border: 1px solid rgb(var(--header-background-rgb));
+    box-shadow: none;
   }
 }
