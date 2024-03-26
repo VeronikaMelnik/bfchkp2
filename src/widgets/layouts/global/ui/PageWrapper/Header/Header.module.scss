@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  font-family: var(--font-mono);
+  width: 100%;
+  justify-content: space-between;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  background-color: rgba(var(--callout-rgb), 0.5);
+  padding: var(--padding-sm) var(--padding-md);
+  height: fit-content;
+  color: rgb(var(--foreground-rgb));
+  font-size: medium;
+  line-height: normal;
+}

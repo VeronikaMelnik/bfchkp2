@@ -1,7 +1,7 @@
-"use client";
-import { LanguageEnum } from "@entities/constants";
+import { DEFAULT_LANGUAGE, LanguageEnum } from "@entities/constants";
 import { LocalesLayout } from "./locales/LocalesLayout";
 import { ThemeLayout } from "./ui";
+import { PageWrapper } from "./ui/PageWrapper";
 
 interface Props {
   className: string;
@@ -9,11 +9,17 @@ interface Props {
   lang?: LanguageEnum;
 }
 
-export const GlobalLayout = ({ className, children, lang }: Props) => {
+export const GlobalLayout = ({
+  className,
+  children,
+  lang = DEFAULT_LANGUAGE,
+}: Props) => {
   return (
     <ThemeLayout className={className}>
-      <LocalesLayout lang={lang} />
-      {children}
+      <PageWrapper lang={lang}>
+        <LocalesLayout lang={lang} />
+        {children}
+      </PageWrapper>
     </ThemeLayout>
   );
 };
