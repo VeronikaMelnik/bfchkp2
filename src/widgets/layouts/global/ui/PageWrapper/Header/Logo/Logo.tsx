@@ -13,8 +13,9 @@ export const Logo = ({ className }: Props) => {
       <Link href={"/"}>
         <Image
           className={styles.image}
-          width={136}
-          height={85}
+          width={0}
+          height={0}
+          sizes="100%"
           src={"/images/bfchkp_emblem.jpg"}
           alt="bfchkp-logo"
         />

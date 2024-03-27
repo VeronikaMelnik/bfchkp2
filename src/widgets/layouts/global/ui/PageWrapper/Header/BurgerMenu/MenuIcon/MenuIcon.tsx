@@ -12,8 +12,8 @@ export const MenuIcon = ({ className }: Props) => {
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"
-        width="50"
-        height="50"
+        width="3vw"
+        height="3vw"
         viewBox="0,0,256,256"
         style={{ fill: "#000000" }}
       >

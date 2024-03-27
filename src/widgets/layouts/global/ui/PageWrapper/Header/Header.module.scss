@@ -3,11 +3,11 @@
   font-family: var(--font-mono);
   width: 100%;
   justify-content: space-between;
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  background-color: rgba(var(--callout-rgb), 0.5);
-  padding: var(--padding-sm) var(--padding-md);
+  background-color: rgb(var(--foreground-rgb));
+  padding: var(--padding-sm) calc(2 * var(--padding-xl));
   height: fit-content;
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--background-rgb));
   font-size: medium;
   line-height: normal;
+  align-items: center;
 }

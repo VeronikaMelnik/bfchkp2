@@ -1,6 +1,17 @@
-import { useState } from "react";
+"use client";
 
-export const Registration = () => {
+import { useState } from "react";
+import { getRegistrationDictionary } from "features/server/localization/registration";
+import { DEFAULT_LANGUAGE, LanguageEnum } from "@entities/constants";
+import { Button, TextField } from "@entities/ui";
+
+type Props = Readonly<{
+  params: { lang: LanguageEnum };
+}>;
+
+export const Registration = async ({
+  params: { lang = DEFAULT_LANGUAGE },
+}: Props) => {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -21,22 +32,23 @@ export const Registration = () => {
       .catch((error) => console.error("Error:", error));
   };
 
+  const dict = await getRegistrationDictionary(lang);
   return (
     <div>
-      <input
+      <TextField
         type="string"
         value={login}
         onChange={(ev) => {
           setLogin(ev.target.value);
         }}
       />
-      <input
+      <TextField
         type="string"
         onChange={(ev) => {
           setPassword(ev.target.value);
         }}
       />
-      <button onClick={onSubmit}>Зарегитсрироваться</button>
+      <Button onClick={onSubmit}>{dict.button}</Button>
     </div>
   );
 };

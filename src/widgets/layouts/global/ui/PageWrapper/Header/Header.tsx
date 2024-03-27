@@ -5,6 +5,7 @@ import { LanguageEnum } from "@entities/constants";
 import { BurgerMenu } from "./BurgerMenu";
 import styles from "./Header.module.scss";
 import { Logo } from "./Logo";
+import { MiddleMenu } from "./MiddleMenu";
 
 interface Props {
   className?: string;
@@ -16,8 +17,8 @@ export const Header = async ({ className, lang }: Props) => {
   return (
     <header className={classNames(styles.wrapper, className)}>
       <Logo />
-      {dict.title}
-      <BurgerMenu />
+      <MiddleMenu lang={lang} />
+      <BurgerMenu lang={lang} />
     </header>
   );
 };
