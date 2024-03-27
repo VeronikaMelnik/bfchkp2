@@ -1,3 +1,8 @@
 {
-  "button": "Register"
+  "registration": "Registration",
+  "name": "Name",
+  "surname": "Surname",
+  "login": "Login",
+  "password": "Password",
+  "button": "Button"
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { getRegistrationDictionary } from "features/server/localization/registration";
 import { DEFAULT_LANGUAGE, LanguageEnum } from "@entities/constants";
 import { Button, TextField } from "@entities/ui";
+import styles from "./Registration.module.scss";
 
 type Props = Readonly<{
   params: { lang: LanguageEnum };
@@ -14,6 +15,8 @@ export const Registration = async ({
 }: Props) => {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [surname, setSurname] = useState<string>("");
 
   const onSubmit = () => {
     fetch("/api/form", {
@@ -34,20 +37,47 @@ export const Registration = async ({
 
   const dict = await getRegistrationDictionary(lang);
   return (
-    <div>
-      <TextField
-        type="string"
-        value={login}
-        onChange={(ev) => {
-          setLogin(ev.target.value);
-        }}
-      />
-      <TextField
-        type="string"
-        onChange={(ev) => {
-          setPassword(ev.target.value);
-        }}
-      />
+    <div className={styles.wrapper}>
+      <h1>{dict.registration}</h1>
+      <div className={styles.field}>
+        <label>{dict.name}</label>
+        <TextField
+          type="string"
+          value={name}
+          onChange={(ev) => {
+            setName(ev.target.value);
+          }}
+        />
+      </div>
+      <div className={styles.field}>
+        <label>{dict.surname}</label>
+        <TextField
+          type="string"
+          value={surname}
+          onChange={(ev) => {
+            setSurname(ev.target.value);
+          }}
+        />
+      </div>
+      <div className={styles.field}>
+        <label>{dict.login}</label>
+        <TextField
+          type="string"
+          value={login}
+          onChange={(ev) => {
+            setLogin(ev.target.value);
+          }}
+        />
+      </div>
+      <div className={styles.field}>
+        <label>{dict.password}</label>
+        <TextField
+          type="string"
+          onChange={(ev) => {
+            setPassword(ev.target.value);
+          }}
+        />
+      </div>
       <Button onClick={onSubmit}>{dict.button}</Button>
     </div>
   );
