@@ -2,27 +2,28 @@
 
 import { useState } from "react";
 import { Button, TextField } from "@entities/ui";
-import styles from "./RegistrationInfo.module.scss";
+import styles from "./LofinInfo.module.scss";
 
 type Props = Readonly<{
   dict: any;
 }>;
 
-export const RegistrationInfo = ({ dict }: Props) => {
-  const [name, setName] = useState<string>("");
-  const [surname, setSurname] = useState<string>("");
+export const LoginInfo = ({ dict }: Props) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const onSubmit = () => {
-    fetch("/api/form", {
+    fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, surname, email, password }),
+      body: JSON.stringify({ email, password }),
     })
       .then((response) => {
+        if (!response.ok) {
+          throw new Error("Email or password is incorrect");
+        }
         return response.json();
       })
       .then((data: { token: string }) => {
@@ -33,31 +34,11 @@ export const RegistrationInfo = ({ dict }: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <h1>{dict.registration}</h1>
-      <div className={styles.field}>
-        <label>{dict.name}</label>
-        <TextField
-          type="string"
-          value={name}
-          onChange={(ev) => {
-            setName(ev.target.value);
-          }}
-        />
-      </div>
-      <div className={styles.field}>
-        <label>{dict.surname}</label>
-        <TextField
-          type="string"
-          value={surname}
-          onChange={(ev) => {
-            setSurname(ev.target.value);
-          }}
-        />
-      </div>
+      <h1>{dict.login}</h1>
       <div className={styles.field}>
         <label>{dict.email}</label>
         <TextField
-          type="string"
+          type="email"
           value={email}
           onChange={(ev) => {
             setEmail(ev.target.value);
@@ -67,13 +48,14 @@ export const RegistrationInfo = ({ dict }: Props) => {
       <div className={styles.field}>
         <label>{dict.password}</label>
         <TextField
-          type="string"
+          type="password"
+          value={password}
           onChange={(ev) => {
             setPassword(ev.target.value);
           }}
         />
       </div>
-      <Button onClick={onSubmit}>{dict.buttonRegister}</Button>
+      <Button onClick={onSubmit}>{dict.buttonLogin}</Button>
     </div>
   );
 };

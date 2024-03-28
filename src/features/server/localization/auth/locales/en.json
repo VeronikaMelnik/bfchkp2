@@ -1,3 +1,11 @@
 {
-  "title": "title"
+  "title": "title",
+  "registration": "Registration",
+  "name": "Name",
+  "surname": "Surname",
+  "email": "Email",
+  "password": "Password",
+  "buttonRegister": "Зарегистрироваться",
+  "login": "Authorization",
+  "buttonLogin": "Login"
 }
