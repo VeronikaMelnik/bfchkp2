@@ -2,18 +2,18 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "sqltools.connections": [
-    {
-      "pgOptions": {
-        "ssl": true
-      },
-      "previewLimit": 50,
-      "server": "https://bfchkp-server.onrender.com",
-      "driver": "PostgreSQL",
-      "database": "bfchkp",
-      "username": "veronika",
-      "name": "bfchkp_db",
-      "connectString": "postgres://veronika:LvFedYX6C7pIXHu8nBzx4HFSorCc0AMx@dpg-co5tfa6v3ddc7396f9rg-a.frankfurt-postgres.render.com/bfchkp_w1ae"
-    }
-  ],
+  // "sqltools.connections": [
+  //   {
+  //     "pgOptions": {
+  //       "ssl": true
+  //     },
+  //     "previewLimit": 50,
+  //     "server": "https://bfchkp-server.onrender.com",
+  //     "driver": "PostgreSQL",
+  //     "database": "bfchkp",
+  //     "username": "veronika",
+  //     "name": "bfchkp_db",
+  //     "connectString": "postgres://veronika:LvFedYX6C7pIXHu8nBzx4HFSorCc0AMx@dpg-co5tfa6v3ddc7396f9rg-a.frankfurt-postgres.render.com/bfchkp_w1ae"
+  //   }
+  // ],
 }
