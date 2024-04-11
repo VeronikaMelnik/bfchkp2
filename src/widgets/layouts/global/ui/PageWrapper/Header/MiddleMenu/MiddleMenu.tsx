@@ -10,9 +10,12 @@ interface Props {
 
 export const MiddleMenu = async ({ className, lang }: Props) => {
   const dict = await getHeaderDictionary(lang);
-  return (
-    <div className={classNames(styles.wrapper, className)}>
-      {dict.competitions}
-    </div>
-  );
+  if (dict === undefined) {
+  } else {
+    return (
+      <div className={classNames(styles.wrapper, className)}>
+        {dict.competitions}
+      </div>
+    );
+  }
 };

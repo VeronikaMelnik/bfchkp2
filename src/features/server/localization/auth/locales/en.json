@@ -7,5 +7,7 @@
   "password": "Password",
   "buttonRegister": "Зарегистрироваться",
   "login": "Authorization",
-  "buttonLogin": "Login"
+  "buttonLogin": "Login",
+  "loginSuccess": "Authorization succeed!",
+  "loginError": "Error!"
 }

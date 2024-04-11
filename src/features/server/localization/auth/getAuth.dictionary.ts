@@ -7,5 +7,9 @@ const dictionaryConfig = {
 };
 
 export const getAuthDictionary = async (lang: LanguageEnum) => {
-  return dictionaryConfig[lang]();
-};
+  if (typeof lang === 'string' && Object.keys(dictionaryConfig).includes(lang)) {
+    const dictionary = dictionaryConfig[lang];
+    return dictionary();
+  }
+}
+

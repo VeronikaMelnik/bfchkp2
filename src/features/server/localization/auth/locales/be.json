@@ -7,5 +7,7 @@
   "password": "Пароль",
   "buttonRegister": "Зарэгістравацца",
   "login": "Уваход",
-  "buttonLogin": "Увайсці"
+  "buttonLogin": "Увайсці",
+  "loginSuccess": "Уваход прайшоў паспяхова!",
+  "loginError": "Памылка!"
 }

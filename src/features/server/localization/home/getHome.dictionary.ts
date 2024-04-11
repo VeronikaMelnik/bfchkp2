@@ -7,5 +7,8 @@ const dictionaryConfig = {
 };
 
 export const getHomeDictionary = async (lang: LanguageEnum) => {
-  return dictionaryConfig[lang]();
-};
+  if (typeof lang === 'string' && Object.keys(dictionaryConfig).includes(lang)) {
+    const dictionary = dictionaryConfig[lang];
+    return dictionary();
+  }
+}

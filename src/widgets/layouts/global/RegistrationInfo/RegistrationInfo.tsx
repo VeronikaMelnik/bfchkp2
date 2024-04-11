@@ -15,7 +15,7 @@ export const RegistrationInfo = ({ dict }: Props) => {
   const [password, setPassword] = useState<string>("");
 
   const onSubmit = () => {
-    fetch("/api/form", {
+    fetch(`${process.env.API_URL}/auth/registration`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
