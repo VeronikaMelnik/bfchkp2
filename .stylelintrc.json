@@ -1,0 +1,28 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "indentation": [
+      2
+    ],
+    "media-feature-range-notation": "context",
+    "color-function-notation": null,
+    "selector-class-pattern": null,
+    "scss/at-rule-no-unknown": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "font-family-no-duplicate-names": true,
+    "no-duplicate-selectors": true,
+    "block-no-empty": true,
+    "no-descending-specificity": null,
+    "scss/dollar-variable-pattern": "^foo",
+    "number-max-precision": [
+      5,
+      {
+        "ignoreUnits": [
+          "em"
+        ],
+        "severity": "warning"
+      }
+    ]
+  }
+}

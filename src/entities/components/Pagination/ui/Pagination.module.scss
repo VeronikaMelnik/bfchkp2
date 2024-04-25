@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.element {
+  display: flex;
+  border-radius: var(--radius-sm);
+  background-color: var(--dark-10);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--dark-20);
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.active {
+  background-color: var(--dark-20);
+}
+
+.disabled {
+  color: var(--gray-50);
+  pointer-events: none;
+}
+
+.icon {
+  padding: 0;
+}

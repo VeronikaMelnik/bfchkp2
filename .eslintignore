@@ -1,8 +1,9 @@
-*.config.js
-*.config.ts
+build/*
+node_modules/*
+
 *.setup.js
 *.setup.ts
 *.test.js
 *.test.ts
-*.dictionary.js
-*.dictionary.ts
+*.d.ts
+*.example.tsx

@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 12px;
+  flex-shrink: 0;
+  user-select: none;
+  cursor: pointer;
+  color: var(--dark-60);
+
+  & path,
+  rect {
+    transition: fill var(--animation-duration) ease;
+    fill: var(--dark-60);
+  }
+
+  &:active {
+    color: var(--dark-100);
+  }
+
+  &:hover {
+    background-color: var(--dark-10);
+    color: var(--dark-100);
+
+    & path,
+    rect {
+      fill: var(--dark-100);
+    }
+  }
+}
+
+.active {
+  color: var(--dark-100) !important;
+
+  & path,
+  rect {
+    fill: var(--dark-100) !important;
+    transform: scale(1.5) translate(-12.5%, -12.5%);
+  }
+}

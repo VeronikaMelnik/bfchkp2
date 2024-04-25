@@ -1,0 +1,48 @@
+{
+  "sidebar": {
+    "main": "Main",
+    "admin": "Administration",
+    "news": "News",
+    "events": "Events",
+    "meetings": "Meetings",
+    "notifications": "Notifications",
+    "voting": "Voting",
+    "technicalWorks": "Technical Works",
+    "loyalty": "Loyalty Programs",
+    "poster": "Poster",
+    "activity": "Activities",
+    "services": "Services",
+    "invocation": "Requests and Appeals",
+    "requests": "Requests",
+    "applications": "Applications",
+    "shutdowns": "Shutdown Schedules",
+    "knowledge": "Knowledge Base",
+    "settings": "Settings",
+    "accounting": "Accounting",
+    "statistic": "Reporting and Statistics",
+    "security": "Security",
+    "engineering": "Engineering Systems",
+    "inform": "Informing",
+    "passport": "Passport Desk",
+    "users": "Users",
+    "access": "Access Control",
+    "intercom": "Intercom",
+    "video": "Video Surveillance"
+  },
+  "header": {
+    "login": "Log In",
+    "logout": "Logout"
+  },
+  "poster": "Poster",
+  "not_found": {
+    "title": "Page Not Found",
+    "back": "Go Back"
+  },
+  "errors": {
+    "required": "Field is required",
+    "max256": "Title must not be longer than 256 characters",
+    "invalidFormat": "Incorrect format",
+    "getError": "Failed to retrieve data from the server",
+    "video": "Sorry, your browser does not support embedded video."
+  }
+}

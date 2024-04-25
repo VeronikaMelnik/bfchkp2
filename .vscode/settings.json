@@ -2,18 +2,19 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "sqltools.connections": [
-    {
-      "pgOptions": {
-        "ssl": true
-      },
-      "previewLimit": 50,
-      "server": "https://bfchkp-server.onrender.com",
-      "driver": "PostgreSQL",
-      "database": "bfchkp",
-      "username": "veronika",
-      "name": "bfchkp_db",
-      "connectString": "postgres://veronika:LvFedYX6C7pIXHu8nBzx4HFSorCc0AMx@dpg-co5tfa6v3ddc7396f9rg-a.frankfurt-postgres.render.com/bfchkp_w1ae"
-    }
+  "stylelint.snippet": [
+    "css",
+    "postcss",
+    "scss"
   ],
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "scss"
+  ],
+  "stylelint.packageManager": "pnpm",
+  "stylelint.ignoreDisables": true,
+  "stylelint.reportDescriptionlessDisables": true,
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
 }

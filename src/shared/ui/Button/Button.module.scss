@@ -1,0 +1,172 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all var(--animation-duration) ease;
+  height: fit-content;
+  gap: 10px;
+
+  &:disabled {
+    pointer-events: none;
+    background-color: var(--gray-30);
+    color: var(--gray-50);
+
+    path {
+      fill: var(--gray-50);
+    }
+  }
+}
+
+.primary {
+  background-color: var(--primary-100);
+  color: var(--light-color);
+
+  path {
+    fill: var(--light-color);
+  }
+
+  .loader {
+    color: var(--light-color);
+  }
+
+  &:hover {
+    background-color: var(--primary-semi-dark);
+  }
+
+  &:active {
+    background-color: var(--primary-dark);
+  }
+
+  &:disabled {
+    color: var(--light-color);
+    background-color: var(--gray-50);
+  }
+}
+
+.secondary {
+  background-color: var(--primary-10);
+  color: var(--primary-100);
+
+  path {
+    fill: var(--primary-100);
+  }
+
+  .loader {
+    color: var(--primary-100);
+  }
+
+  &:hover {
+    background-color: var(--primary-20);
+  }
+
+  &:active {
+    background-color: var(--primary-20);
+  }
+}
+
+.light {
+  background-color: var(--gray-10);
+  color: var(--dark-80);
+
+  path {
+    fill: var(--dark-80);
+  }
+
+  .loader {
+    color: var(--dark-80);
+  }
+
+  &:hover {
+    background-color: var(--gray-20);
+  }
+
+  &:active {
+    background-color: var(--gray-50);
+  }
+}
+
+.white {
+  background-color: var(--white-100);
+  color: var(--dark-80);
+
+  path {
+    fill: var(--dark-80);
+  }
+
+  .loader {
+    color: var(--dark-80);
+  }
+
+  &:hover {
+    background-color: var(--gray-20);
+  }
+
+  &:active {
+    background-color: var(--gray-50);
+  }
+}
+
+.danger {
+  background-color: var(--red-10);
+  color: var(--red-100);
+
+  .loader {
+    color: var(--red-100);
+  }
+
+  path {
+    fill: var(--red-100);
+  }
+
+  &:hover {
+    background-color: var(--red-20);
+  }
+
+  &:active {
+    background-color: var(--red-30);
+  }
+
+  &:disabled {
+    background-color: var(--gray-30);
+    color: var(--gray-50);
+
+    path {
+      fill: var(--gray-50);
+    }
+  }
+}
+
+.large {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.small {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.loading {
+  color: transparent !important;
+
+  path {
+    fill: transparent !important;
+  }
+}
+
+.loader {
+  opacity: 0;
+  position: absolute;
+  transition: all var(--animation-duration) ease;
+}
+
+.show {
+  opacity: 1;
+}
