@@ -23,20 +23,24 @@ export const useUpdateMeetingPage = () => {
   const { handleUploadImage } = useUploadImage();
 
   type Values = {
-    title_en: string;
-    html_content_ru: string;
     title_ru: string;
+    html_content_ru: string;
+    title_en: string;
     html_content_en: string;
+    title_be: string;
+    html_content_be: string;
     cover: string | null;
     target_date: Date;
     meeting_link: string;
   };
 
   const initialValues = {
-    title_en: ' ',
-    html_content_ru: ' ',
     title_ru: ' ',
+    html_content_ru: ' ',
+    title_en: ' ',
     html_content_en: ' ',
+    title_be: ' ',
+    html_content_be: ' ',
     cover: null,
     target_date: new Date(),
     meeting_link: null as unknown as string,
@@ -74,10 +78,12 @@ export const useUpdateMeetingPage = () => {
             cover: data.cover || null,
             html_content_en: data.html_content.en,
             html_content_ru: data.html_content.ru,
+            html_content_be: data.html_content.be,
             meeting_link: data.meeting_link,
             target_date: new Date(data.target_date * 1000),
             title_en: data.title.en,
             title_ru: data.title.ru,
+            title_be: data.title.be,
           };
           setValues(newValues);
           setStatus(data.status || 0);

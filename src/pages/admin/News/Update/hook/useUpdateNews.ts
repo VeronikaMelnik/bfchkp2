@@ -20,18 +20,22 @@ export const useUpdateNewsPage = () => {
   const { handleUploadImage } = useUploadImage();
 
   type Values = {
-    title_en: string;
-    html_content_ru: string;
     title_ru: string;
+    html_content_ru: string;
+    title_en: string;
     html_content_en: string;
+    title_be: string;
+    html_content_be: string;
     cover: string | null;
   };
 
   const initialValues: Values = {
-    title_en: ' ',
-    html_content_ru: ' ',
     title_ru: ' ',
+    html_content_ru: ' ',
+    title_en: ' ',
     html_content_en: ' ',
+    title_be: ' ',
+    html_content_be: ' ',
     cover: null,
   };
 
@@ -67,8 +71,10 @@ export const useUpdateNewsPage = () => {
             cover: data.cover || null,
             html_content_en: data.html_content.en,
             html_content_ru: data.html_content.ru,
+            html_content_be: data.html_content.be,
             title_en: data.title.en,
             title_ru: data.title.ru,
+            title_be: data.title.be,
           };
           setValues(newValues);
           setStatus(data.status || 0);

@@ -31,6 +31,11 @@ const Page = () => {
       html: values.html_content_ru,
       title: values.title_ru,
     },
+    be: {
+      created_at: new Date(),
+      html: values.html_content_be,
+      title: values.title_be,
+    },
   };
   return (
     <PageSkeleton>

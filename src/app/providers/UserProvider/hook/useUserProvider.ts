@@ -13,7 +13,7 @@ export const useUserProvider = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const handleSetUser = useCallback((user?: IUser) => {
-    const isUserAdmin = (user && ROLES_ADMIN.includes(user?.group.id)) || false;
+    const isUserAdmin = (user && ROLES_ADMIN.includes(user?.id)) || false;
     setIsAdmin(isUserAdmin);
     setUser(user);
   }, []);

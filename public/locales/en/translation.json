@@ -31,7 +31,8 @@
   },
   "header": {
     "login": "Log In",
-    "logout": "Logout"
+    "logout": "Logout",
+    "registration": "Register"
   },
   "poster": "Poster",
   "not_found": {

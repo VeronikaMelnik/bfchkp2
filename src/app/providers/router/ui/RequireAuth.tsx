@@ -9,7 +9,7 @@ interface RequireAuthProps {
 export function RequireAuth({ children, roles }: RequireAuthProps) {
   const { user } = useUser();
   const auth = !!user;
-  if (!auth || (roles && !roles?.includes(user.group.id))) {
+  if (!auth || (roles && !roles?.includes(user.id))) {
     return <ForbiddenPage />;
   }
 

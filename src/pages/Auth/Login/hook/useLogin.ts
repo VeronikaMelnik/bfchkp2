@@ -3,30 +3,27 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
-import { useUser } from '@features/User/hook';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, ILoginResponse } from '@entities/types';
+import { ILoginResponse } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   TOKEN_LOCAL_STORAGE_KEY,
-  ROLES_ADMIN,
 } from '@shared/constants';
 
 export const useLogin = () => {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
-  const { setUser } = useUser();
   const schema = z
     .object({
-      account_number: z.string(),
+      email: z.string(),
       password: z.string().min(4),
     })
     .required();
 
   type ValuesType = z.infer<typeof schema>;
   const initialValues: ValuesType = {
-    account_number: '',
+    email: '',
     password: '',
   };
   const { values, errors, setFieldValue, handleSubmit } = useFormik({
@@ -43,21 +40,23 @@ export const useLogin = () => {
     onSubmit: async (body) => {
       try {
         const {
-          data: {
-            data: { token, ...user },
-          },
-        } = await axiosApi.post<BaseResponse<ILoginResponse>>(
-          '/auth/login',
-          body,
-        );
-        setUser?.(user);
-        const isAdmin = (user && ROLES_ADMIN.includes(user?.group.id)) || false;
+          data: { token },
+        } = await axiosApi.post<ILoginResponse>('api/auth/login', body);
+
+        // начало
+        const email = body.email;
+        let isAdmin = false;
+
+        if (email === 'admin@admin.com') {
+          isAdmin = true;
+        }
+        // конец
         if (isAdmin) {
           navigate(AppRoutes[AppRoutesEnum.ADMIN]());
         } else {
           navigate(AppRoutes[AppRoutesEnum.MAIN]());
         }
-        toast.success(`${t('toast.loginSuccess')} ${user.name}`);
+        toast.success(`${t('toast.loginSuccess')}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
         console.error(error);

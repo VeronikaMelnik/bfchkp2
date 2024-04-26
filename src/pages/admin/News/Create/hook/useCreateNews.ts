@@ -15,10 +15,12 @@ export const useCreateNewsPage = () => {
   const { handleUploadImage } = useUploadImage();
 
   const initialValues = {
-    title_en: '',
-    html_content_ru: '',
     title_ru: '',
+    html_content_ru: '',
+    title_en: '',
     html_content_en: '',
+    title_be: '',
+    html_content_be: '',
     cover: null,
   };
 

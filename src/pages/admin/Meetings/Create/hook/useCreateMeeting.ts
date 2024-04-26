@@ -15,20 +15,24 @@ export const useCreateMeetingPage = () => {
   const { handleUploadImage } = useUploadImage();
 
   type Values = {
-    title_en: string;
-    html_content_ru: string;
     title_ru: string;
+    html_content_ru: string;
+    title_en: string;
     html_content_en: string;
+    title_be: string;
+    html_content_be: string;
     cover: string;
     target_date: Date;
     meeting_link: string;
   };
 
   const initialValues: Values = {
-    title_en: '',
-    html_content_ru: '',
     title_ru: '',
+    html_content_ru: '',
+    title_en: '',
     html_content_en: '',
+    title_be: '',
+    html_content_be: '',
     cover: null as unknown as string,
     target_date: new Date(),
     meeting_link: null as unknown as string,

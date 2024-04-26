@@ -17,4 +17,18 @@
   "stylelint.reportDescriptionlessDisables": true,
   "stylelint.reportInvalidScopeDisables": true,
   "stylelint.reportNeedlessDisables": true,
+  "sqltools.connections": [
+    {
+      "pgOptions": {
+        "ssl": {
+          "rejectUnauthorized": true
+        }
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "driver": "PostgreSQL",
+      "name": "bfchkp_db",
+      "connectString": "postgres://veronika:LvFedYX6C7pIXHu8nBzx4HFSorCc0AMx@dpg-co5tfa6v3ddc7396f9rg-a.frankfurt-postgres.render.com/bfchkp_w1ae"
+    }
+  ],
 }

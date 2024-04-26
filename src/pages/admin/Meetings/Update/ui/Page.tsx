@@ -38,6 +38,13 @@ const Page = () => {
       date: values.target_date,
       link: values.meeting_link,
     },
+    be: {
+      created_at: new Date(),
+      html: values.html_content_be,
+      title: values.title_be,
+      date: values.target_date,
+      link: values.meeting_link,
+    },
   };
 
   return (

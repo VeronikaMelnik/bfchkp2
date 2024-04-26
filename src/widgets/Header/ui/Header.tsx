@@ -5,6 +5,7 @@ import { usePopup } from '@features/Popup/hook';
 import { useUser } from '@features/User/hook';
 import { AuthButton } from '@entities/AuthButton';
 import { UserIcon } from '@entities/components';
+import { RegistrationButton } from '@entities/RegistrationButton';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconBurger, IconLogo } from '@shared/icons';
 import { Button, Loader } from '@shared/ui';
@@ -21,7 +22,19 @@ export const Header = ({ className }: Props) => {
 
   // i18n.changeLanguage()
   const toggle = async () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    switch (i18n.language) {
+      case 'ru':
+        i18n.changeLanguage('be');
+        break;
+      case 'be':
+        i18n.changeLanguage('en');
+        break;
+      case 'en':
+        i18n.changeLanguage('ru');
+        break;
+      default:
+        i18n.changeLanguage('ru');
+    }
   };
   return (
     <>
@@ -41,7 +54,10 @@ export const Header = ({ className }: Props) => {
             ) : user ? (
               <UserIcon userName={user.name} onClick={toggleUserMenu} />
             ) : (
-              <AuthButton logout={handleLogOut} isLogin={!!user} />
+              <>
+                <AuthButton logout={handleLogOut} isLogin={!!user} />
+                <RegistrationButton logout={handleLogOut} isLogin={!!user} />
+              </>
             )}
           </div>
           <IconBurger

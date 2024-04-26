@@ -10,10 +10,10 @@ export default () => {
       <form onSubmit={handleSubmit}>
         <Card padding={12} gap={20} flexDirection="column">
           <TextField
-            value={values.account_number}
-            onChange={(ev) => setFieldValue('account_number', ev.target.value)}
-            label={t('login.label')}
-            error={errors.account_number}
+            value={values.email}
+            onChange={(ev) => setFieldValue('email', ev.target.value)}
+            label={t('email.label')}
+            error={errors.email}
           />
           <PasswordField
             value={values.password}

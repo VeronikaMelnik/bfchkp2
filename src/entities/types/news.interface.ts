@@ -9,6 +9,7 @@ export type INews = {
   title: {
     en: string;
     ru: string;
+    be: string;
   };
   user_id: number;
   is_draft: 0 | 1;
@@ -18,6 +19,7 @@ export type INews = {
   html_content: {
     en: string;
     ru: string;
+    be: string;
   };
   published_at: number;
   target_date: number; //number of !!!SECONDS!!! since midnight, January 1, 1970 UTC

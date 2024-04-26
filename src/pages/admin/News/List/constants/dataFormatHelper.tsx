@@ -13,7 +13,7 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       status: <TableBadge status={status || 0} />,
       title: (
         <TableText
-          text={title[i18n.language as 'en' | 'ru']}
+          text={title[i18n.language as 'en' | 'ru' | 'be']}
           fontWeight="medium"
         />
       ),
