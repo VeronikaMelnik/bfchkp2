@@ -52,7 +52,7 @@ export const Header = ({ className }: Props) => {
             {isLoading ? (
               <Loader size={40} />
             ) : user ? (
-              <UserIcon userName={user.name} onClick={toggleUserMenu} />
+              <UserIcon userName={user.email} onClick={toggleUserMenu} />
             ) : (
               <>
                 <AuthButton logout={handleLogOut} isLogin={!!user} />

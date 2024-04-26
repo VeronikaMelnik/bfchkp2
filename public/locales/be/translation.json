@@ -32,7 +32,7 @@
   "header": {
     "login": "Увайсці",
     "logout": "Выйсці",
-    "registration": "Зарэгістравацца"
+    "register": "Зарэгістравацца"
   },
   "poster": "Афіша",
   "not_found": {

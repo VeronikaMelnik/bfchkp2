@@ -24,7 +24,7 @@ export const useUserProvider = () => {
         setToken(token);
         setIsLoading(true);
         axiosApi
-          .get<BaseResponse<IUser>>('/user')
+          .get<BaseResponse<IUser>>('/api/me')
           .then(({ data: { data } }) => {
             handleSetUser(data);
           })

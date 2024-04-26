@@ -32,7 +32,7 @@
   "header": {
     "login": "Войти",
     "logout": "Выйти",
-    "registration": "Зарегистрироваться"
+    "register": "Зарегистрироваться"
   },
   "poster": "Афиша",
   "not_found": {

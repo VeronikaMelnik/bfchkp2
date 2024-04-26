@@ -4,18 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
 import { axiosApi } from '@entities/api';
-import { ILoginResponse } from '@entities/types';
+import { IRegistrationResponse } from '@entities/types/registration.interface';
 import {
   AppRoutes,
   AppRoutesEnum,
   TOKEN_LOCAL_STORAGE_KEY,
 } from '@shared/constants';
 
-export const useLogin = () => {
+export const useRegistration = () => {
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const schema = z
     .object({
+      name: z.string(),
+      lastName: z.string(),
       email: z.string(),
       password: z.string().min(4),
     })
@@ -23,6 +25,8 @@ export const useLogin = () => {
 
   type ValuesType = z.infer<typeof schema>;
   const initialValues: ValuesType = {
+    name: '',
+    lastName: '',
     email: '',
     password: '',
   };
@@ -41,8 +45,10 @@ export const useLogin = () => {
       try {
         const {
           data: { token },
-        } = await axiosApi.post<ILoginResponse>('api/auth/login', body);
-
+        } = await axiosApi.post<IRegistrationResponse>(
+          'api/auth/registration',
+          body,
+        );
         const email = body.email;
         let isAdmin = false;
 

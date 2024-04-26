@@ -29,7 +29,7 @@ export const RegistrationButton = ({ className, isLogin, logout }: Props) => {
     <Link to={AppRoutes[AppRoutesEnum.REGISTRATION]()}>
       <Button size="small" variant="primary" className={className}>
         <IconHuman width={20} />
-        {t('header.registration')}
+        {t('header.register')}
       </Button>
     </Link>
   );

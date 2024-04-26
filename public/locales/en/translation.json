@@ -32,7 +32,7 @@
   "header": {
     "login": "Log In",
     "logout": "Logout",
-    "registration": "Register"
+    "register": "Register"
   },
   "poster": "Poster",
   "not_found": {
