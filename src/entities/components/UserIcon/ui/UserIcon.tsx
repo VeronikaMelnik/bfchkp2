@@ -10,7 +10,7 @@ interface Props {
 export const UserIcon = ({ className, userName, onClick }: Props) => {
   return (
     <div className={classNames(styles.wrapper, className)} onClick={onClick}>
-      {userName[0]}
+      {userName}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import classNames from 'classnames';
 import styles from './Page.module.scss';
 
