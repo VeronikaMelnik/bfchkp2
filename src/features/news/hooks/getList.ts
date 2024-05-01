@@ -3,16 +3,20 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import {
-  BaseResponse,
   INews,
   INewsFilter,
   INewsSort,
   ListParams,
+  PaginationResponse,
 } from '@entities/types';
 
 interface Params extends ListParams {
   sort: INewsSort;
   filter: INewsFilter;
+}
+
+interface Data extends PaginationResponse {
+  data: Array<INews>;
 }
 
 export const useGetUserNewsList = () => {
@@ -24,10 +28,12 @@ export const useGetUserNewsList = () => {
       setIsLoading(true);
       try {
         const {
-          data: { data },
-        } = await axiosApi.get<BaseResponse<Array<INews>>>('/news', { params });
+          data: { data, total },
+        } = await axiosApi.get<Data>('/api/news', {
+          params,
+        });
         // toDo: update from server
-        setTotal(data.length);
+        setTotal(Math.ceil(total / params.perPage));
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

@@ -1,9 +1,6 @@
-export interface IFile {
-  id: number;
+import { BaseEntity } from './global.interface';
+
+export interface IFile extends BaseEntity {
+  filePath: string;
   url: string;
-  name: string;
-  size: number;
-  user_id: number;
-  data_add: number;
-  filename: string;
 }

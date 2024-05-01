@@ -1,25 +1,10 @@
-import {
-  AdminNewsListPage,
-  CreateNewsPage,
-  UpdateMeetingPage,
-  CreateEventPage,
-  AdminEventsListPage,
-  UpdateEventPage,
-  CreateMeetingPage,
-  MeetingsListPage,
-  UpdateNewsPage,
-} from '@pages/admin';
+import { AdminNewsListPage, CreateNewsPage } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
-import { CurrentEventPage } from '@pages/events';
-import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
 import { RequestMainPage } from '@pages/invocation';
-// import { ApplicationsMainPage } from '@pages/invocation/applications';
-// import { CreateApplicationPage } from '@pages/invocation/applications/Create';
 import { CreateRequestPage } from '@pages/invocation/requests/Create';
 import { CurrentRequestPage } from '@pages/invocation/requests/Current';
 import { MainPage } from '@pages/Main';
-import { CurrentMeetingPage } from '@pages/meetings';
 import { CurrentNewsPage } from '@pages/news';
 import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
@@ -46,7 +31,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.UPDATE_NEWS]: {
     path: AppRoutes[AppRoutesEnum.UPDATE_NEWS](':id'),
-    element: <UpdateNewsPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
@@ -58,37 +43,37 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_EVENTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
-    element: <AdminEventsListPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.UPDATE_EVENT]: {
     path: AppRoutes[AppRoutesEnum.UPDATE_EVENT](':id'),
-    element: <UpdateEventPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.CREATE_EVENT]: {
     path: AppRoutes[AppRoutesEnum.CREATE_EVENT](),
-    element: <CreateEventPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.ADMIN_MEETINGS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](),
-    element: <MeetingsListPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.UPDATE_MEETINGS]: {
     path: AppRoutes[AppRoutesEnum.UPDATE_MEETINGS](':id'),
-    element: <UpdateMeetingPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.CREATE_MEETINGS]: {
     path: AppRoutes[AppRoutesEnum.CREATE_MEETINGS](),
-    element: <CreateMeetingPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
@@ -196,12 +181,12 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.EVENT_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.EVENT_CURRENT](':id'),
-    element: <CurrentEventPage />,
+    element: <NotFoundPage />,
     authOnly: false,
   },
   [AppRoutesEnum.MEETINGS_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.MEETINGS_CURRENT](':id'),
-    element: <CurrentMeetingPage />,
+    element: <NotFoundPage />,
     authOnly: false,
   },
   [AppRoutesEnum.LOGIN]: {
@@ -227,7 +212,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.POSTER]: {
     path: AppRoutes[AppRoutesEnum.POSTER](),
-    element: <EventsListPage />,
+    element: <NotFoundPage />,
     authOnly: false,
   },
   [AppRoutesEnum.ACTIVITY]: {

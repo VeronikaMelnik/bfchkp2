@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, IUser } from '@entities/types';
+import { IUser } from '@entities/types';
 import { TOKEN_LOCAL_STORAGE_KEY, ROLES_ADMIN } from '@shared/constants';
 
 export const useUserProvider = () => {
@@ -24,8 +24,8 @@ export const useUserProvider = () => {
         setToken(token);
         setIsLoading(true);
         axiosApi
-          .get<BaseResponse<IUser>>('/api/me')
-          .then(({ data: { data } }) => {
+          .get<IUser>('/api/me')
+          .then(({ data }) => {
             handleSetUser(data);
           })
           .catch((err) => {

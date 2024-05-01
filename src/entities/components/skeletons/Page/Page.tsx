@@ -4,9 +4,9 @@ import styles from './Page.module.scss';
 interface Props {
   className?: string;
   children?:
-    | JSX.Element
-    | string
-    | Array<JSX.Element | string | undefined | null>;
+  | JSX.Element
+  | string
+  | Array<JSX.Element | string | undefined | null>;
 }
 
 export const PageSkeleton = ({ className, children }: Props) => {

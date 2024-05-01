@@ -1,30 +1,17 @@
 import { NewsStatusEnum } from '@shared/constants';
 import { SortOrder } from '@shared/types';
-import { IUser } from './user.interface';
+import { IDictionary } from './dictionary.interface';
+import { BaseEntity } from './global.interface';
+import { IFile } from './image.interface';
 
-export type INews = {
-  id: number;
-  cover?: string;
-  user: IUser;
-  title: {
-    en: string;
-    ru: string;
-    be: string;
-  };
-  user_id: number;
-  is_draft: 0 | 1;
-  status: keyof typeof NewsStatusEnum;
-  created_at: number;
-  updated_at: number;
-  html_content: {
-    en: string;
-    ru: string;
-    be: string;
-  };
-  published_at: number;
-  target_date: number; //number of !!!SECONDS!!! since midnight, January 1, 1970 UTC
-  meeting_link: string;
-};
+export interface INews extends BaseEntity {
+  title: IDictionary;
+  description: IDictionary;
+  image: IFile;
+  titleId: number;
+  descriptionId: number;
+  imageId: number;
+}
 
 export interface INewsFilter {
   status?: keyof typeof NewsStatusEnum;

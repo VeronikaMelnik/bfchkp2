@@ -1,5 +1,3 @@
-import { extractTextFromHtml } from '@features/utils/html';
-import { imageParser } from '@features/utils/imageParser';
 import { NewsCard, PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { useNewsListPage } from '../hook';
@@ -17,15 +15,14 @@ export default () => {
       />
       <div className={styles.wrapper}>
         {news.map((el) => {
-          const cover = el.cover || imageParser(el.html_content[lang])[0];
           return (
             <NewsCard
               link={AppRoutes[AppRoutesEnum.NEWS_CURRENT](el.id)}
               title={el.title[lang]}
-              text={extractTextFromHtml(el.html_content[lang])}
-              image={cover}
+              text={el.description[lang]}
+              image={el.image.url}
               key={`news-card-${el.id}`}
-              published_date={new Date(el.published_at * 1000)}
+              published_date={new Date(el.createdAt)}
             />
           );
         })}

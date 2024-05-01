@@ -6,14 +6,17 @@ export interface BaseResponse<T> {
 }
 
 export interface ListParams {
-  page?: number;
-  perPage?: number;
+  page: number;
+  perPage: number;
   searchValue?: string;
 }
 
 export interface PaginationResponse {
-  count_on_page: number;
-  current_page: number;
-  total_count: number;
-  total_pages: number;
+  total: number;
+}
+
+export interface BaseEntity {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
 }

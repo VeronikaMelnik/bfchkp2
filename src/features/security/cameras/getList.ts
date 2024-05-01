@@ -36,7 +36,7 @@ export const useCamerasList = () => {
         );
         if (data?.data?.cameras) {
           setData(data.data.cameras);
-          setTotal(data.data.total_pages);
+          setTotal(data.data.total);
         } else {
           toast.error(t('errors.getError'));
         }

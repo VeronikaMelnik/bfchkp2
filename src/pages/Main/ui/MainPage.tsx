@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { EventsSlider } from '@widgets/events';
 import { NewsSlider } from '@widgets/news';
 import { PageSkeleton } from '@entities/components';
 import { Card, Title } from '@shared/ui';
@@ -27,7 +26,6 @@ const MainPage = () => {
         <Title variant="h2" fontWeight="semibold">
           {t('poster')}
         </Title>
-        <EventsSlider {...sliderConfig} />
       </Card>
     </PageSkeleton>
   );

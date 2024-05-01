@@ -15,15 +15,6 @@ export const useTableConfig: () => Array<ConfigItemType> = () => {
       width: 92,
     },
     {
-      name: 'status',
-      label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('table.status')}
-        </Text>
-      ),
-      width: 121,
-    },
-    {
       name: 'title',
       label: (
         <Text fontWeight="regular" variant="body14">

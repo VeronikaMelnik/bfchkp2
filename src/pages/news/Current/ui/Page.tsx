@@ -1,15 +1,8 @@
-import sanitizeHtml from 'sanitize-html';
 import { ContentWidget } from '@widgets/Content';
 import { PageHeader, PageSkeleton } from '@entities/components';
-import {
-  AppRoutes,
-  AppRoutesEnum,
-  LanguageEnum,
-  allowedAttributesSchema,
-  allowedIframeHostnamesSchema,
-  allowedTagsSanitizer,
-} from '@shared/constants';
+import { AppRoutes, AppRoutesEnum, LanguageEnum } from '@shared/constants';
 import { useCurrentNews } from '../hook';
+import styles from './Page.module.scss';
 
 export default () => {
   const { isLoading, news, i18n, t } = useCurrentNews();
@@ -22,20 +15,12 @@ export default () => {
           { href: '', title: news?.title[i18n.language as LanguageEnum] || '' },
         ]}
       />
+      <img src={news?.image.url} className={styles.newsImage} />
       <ContentWidget
-        html={
-          news &&
-          sanitizeHtml(news.html_content[i18n.language as LanguageEnum], {
-            allowedTags: allowedTagsSanitizer,
-            allowedAttributes: allowedAttributesSchema,
-            allowedIframeHostnames: allowedIframeHostnamesSchema,
-          })
-        }
-        created_at={news && new Date(news.created_at * 1000)}
+        html={news && news.description[i18n.language as LanguageEnum]}
+        created_at={news && new Date(news.createdAt)}
         isLoading={isLoading}
         title={news?.title[i18n.language as LanguageEnum]}
-        date={news?.target_date ? new Date(news.target_date * 1000) : undefined}
-        link={news?.meeting_link}
       />
     </PageSkeleton>
   );
