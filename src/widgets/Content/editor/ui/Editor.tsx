@@ -47,10 +47,7 @@ export const ContentEditor = ({
   loading,
   values,
 }: Props) => {
-  const { t } = useEditorWidget({
-    handleUploadImage,
-    setFieldValue,
-  });
+  const { t } = useEditorWidget();
   return (
     <Card
       loading={loading}
