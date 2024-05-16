@@ -15,7 +15,13 @@
       "placeholder": "News Title"
     },
     "cover": {
-      "label": "Cover Image"
+      "label": "Cover Image",
+      "title_ru": "Title in Russian",
+      "title_be": "Title in Belarusian",
+      "title_en": "Title in English",
+      "description_ru": "Description in Russian",
+      "description_be": "Description in Belarusian",
+      "description_en": "Description in English"
     },
     "content": {
       "label": "News Text"

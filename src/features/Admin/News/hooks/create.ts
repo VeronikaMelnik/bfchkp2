@@ -14,9 +14,9 @@ export const useCreateNews = () => {
       en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
     }),
     description: z.object({
-      ru: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-      be: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-      en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      ru: z.string().min(1, t('errors.required')),
+      be: z.string().min(1, t('errors.required')),
+      en: z.string().min(1, t('errors.required')),
     }),
   });
 

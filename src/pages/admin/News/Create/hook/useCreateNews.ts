@@ -70,6 +70,9 @@ export const useCreateNewsPage = () => {
           en: description_en,
         },
       });
+      // if (data && data.id && image) {
+      //   await handleUploadImage(image, data.id);
+      // }
       if (data) {
         navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
       }
@@ -96,5 +99,6 @@ export const useCreateNewsPage = () => {
     getInputProps,
     open,
     image,
+    // setImage,
   };
 };

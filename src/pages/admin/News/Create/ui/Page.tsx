@@ -12,10 +12,15 @@ const Page = () => {
     values,
     isValid,
     t,
+    // getInputProps,
+    // handleUploadImage,
+    // open,
+    // setImage,
+    // image,
   } = useCreateNewsPage();
-
   return (
     <PageSkeleton>
+      {/* <input {...getInputProps()} /> */}
       <PageHeader
         breadcrumbs={[
           {
@@ -32,7 +37,7 @@ const Page = () => {
             setFieldValue('title_ru', ev.target.value);
           }}
           error={errors.title_ru}
-          label={t('controls.publish')}
+          label={t('editor.content.title_ru')}
         />
         <TextField
           value={values.title_be}
@@ -40,7 +45,7 @@ const Page = () => {
             setFieldValue('title_be', ev.target.value);
           }}
           error={errors.title_be}
-          label={t('controls.publish')}
+          label={t('editor.content.title_be')}
         />
         <TextField
           value={values.title_en}
@@ -48,7 +53,7 @@ const Page = () => {
             setFieldValue('title_en', ev.target.value);
           }}
           error={errors.title_en}
-          label={t('controls.publish')}
+          label={t('editor.content.title_en')}
         />
         <TextField
           value={values.description_ru}
@@ -56,7 +61,7 @@ const Page = () => {
             setFieldValue('description_ru', ev.target.value);
           }}
           error={errors.description_ru}
-          label={t('controls.publish')}
+          label={t('editor.content.description_ru')}
         />
         <TextField
           value={values.description_be}
@@ -64,7 +69,7 @@ const Page = () => {
             setFieldValue('description_be', ev.target.value);
           }}
           error={errors.description_be}
-          label={t('controls.publish')}
+          label={t('editor.description_be')}
         />
         <TextField
           value={values.description_en}
@@ -72,9 +77,18 @@ const Page = () => {
             setFieldValue('description_en', ev.target.value);
           }}
           error={errors.description_en}
-          label={t('controls.publish')}
+          label={t('editor.description_en')}
         />
-
+        {/* <div>
+          {!image ? (
+            <Button variant={'light'} type="button" onClick={open}>
+              <IconStaple width={24} height={24} />
+              {t('editor.cover.label')}
+            </Button>
+          ) : (
+            <Cover src={''} onRemove={() => setImage(undefined)} />
+          )}
+        </div> */}
         <Button type={'submit'} disabled={!isValid}>
           {t('controls.publish')}
         </Button>
