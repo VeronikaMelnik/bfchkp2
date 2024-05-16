@@ -20,7 +20,7 @@ export default () => {
               link={AppRoutes[AppRoutesEnum.NEWS_CURRENT](el.id)}
               title={el.title[lang]}
               text={el.description[lang]}
-              image={el.image.url}
+              image={el.image?.url}
               key={`news-card-${el.id}`}
               published_date={new Date(el.createdAt)}
             />

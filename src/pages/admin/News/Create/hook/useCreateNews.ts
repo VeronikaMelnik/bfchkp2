@@ -1,18 +1,22 @@
 import { useFormik } from 'formik';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useCreateNews } from '@features/Admin';
-import { useUploadImage } from '@features/Image/hooks/useUploadImage';
-import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { useCreateNews, useUploadNewsImage } from '@features/Admin';
+import {
+  AppRoutes,
+  AppRoutesEnum,
+  IMAGE_TYPES,
+  MAX_IMAGE_SIZE,
+} from '@shared/constants';
 
 export const useCreateNewsPage = () => {
   const { create, validate } = useCreateNews();
   const { t } = useTranslation('news');
-  const [status, setStatus] = useState<0 | 1 | 2>(0);
-  const [open, setOpen] = useState(false);
+  const [image, setImage] = useState<File>();
   const navigate = useNavigate();
-  const { handleUploadImage } = useUploadImage();
+  const { handleUploadImage } = useUploadNewsImage();
 
   const initialValues = {
     title_ru: '',
@@ -25,25 +29,72 @@ export const useCreateNewsPage = () => {
 
   const { values, errors, setFieldValue, handleSubmit, isValid } = useFormik({
     initialValues,
-    validate: (values) => validate({ ...values, status }),
-    onSubmit: async (body) => {
-      const data = await create({ ...body, status });
+    validate: ({
+      title_ru,
+      title_be,
+      title_en,
+      description_be,
+      description_en,
+      description_ru,
+    }) => {
+      return validate({
+        title: {
+          ru: title_ru,
+          be: title_be,
+          en: title_en,
+        },
+        description: {
+          ru: description_ru,
+          be: description_be,
+          en: description_en,
+        },
+      });
+    },
+    onSubmit: async ({
+      title_ru,
+      title_be,
+      title_en,
+      description_be,
+      description_en,
+      description_ru,
+    }) => {
+      const data = await create({
+        title: {
+          ru: title_ru,
+          be: title_be,
+          en: title_en,
+        },
+        description: {
+          ru: description_ru,
+          be: description_be,
+          en: description_en,
+        },
+      });
       if (data) {
         navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
       }
     },
   });
+  const onDrop = useCallback(async (files: File[]) => {
+    setImage(files[0]);
+  }, []);
+  const { getInputProps, open } = useDropzone({
+    maxFiles: 1,
+    accept: IMAGE_TYPES,
+    maxSize: 4 * MAX_IMAGE_SIZE,
+    onDrop,
+  });
 
   return {
     handleUploadImage,
-    setIsDraft: setStatus,
     values,
     errors,
     setFieldValue,
     handleSubmit,
     isValid,
-    open,
-    setOpen,
     t,
+    getInputProps,
+    open,
+    image,
   };
 };

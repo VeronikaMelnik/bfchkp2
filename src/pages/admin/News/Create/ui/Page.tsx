@@ -1,6 +1,5 @@
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { IconEyeOpen } from '@shared/icons';
 import { Button, TextField } from '@shared/ui';
 import { useCreateNewsPage } from '../hook/';
 
@@ -12,7 +11,6 @@ const Page = () => {
     setFieldValue,
     values,
     isValid,
-    setOpen,
     t,
   } = useCreateNewsPage();
 
@@ -26,17 +24,6 @@ const Page = () => {
           },
           { href: '', title: t('routes.create') },
         ]}
-        controls={
-          <Button
-            variant="white"
-            size="small"
-            onClick={() => setOpen(true)}
-            disabled={!isValid || values.title_ru === ''}
-          >
-            <IconEyeOpen width={20} height={20} />
-            {t('controls.preview')}
-          </Button>
-        }
       />
       <form onSubmit={handleSubmit}>
         <TextField
@@ -45,8 +32,52 @@ const Page = () => {
             setFieldValue('title_ru', ev.target.value);
           }}
           error={errors.title_ru}
-          label={'title_ru'}
+          label={t('controls.publish')}
         />
+        <TextField
+          value={values.title_be}
+          onChange={(ev) => {
+            setFieldValue('title_be', ev.target.value);
+          }}
+          error={errors.title_be}
+          label={t('controls.publish')}
+        />
+        <TextField
+          value={values.title_en}
+          onChange={(ev) => {
+            setFieldValue('title_en', ev.target.value);
+          }}
+          error={errors.title_en}
+          label={t('controls.publish')}
+        />
+        <TextField
+          value={values.description_ru}
+          onChange={(ev) => {
+            setFieldValue('description_ru', ev.target.value);
+          }}
+          error={errors.description_ru}
+          label={t('controls.publish')}
+        />
+        <TextField
+          value={values.description_be}
+          onChange={(ev) => {
+            setFieldValue('description_be', ev.target.value);
+          }}
+          error={errors.description_be}
+          label={t('controls.publish')}
+        />
+        <TextField
+          value={values.description_en}
+          onChange={(ev) => {
+            setFieldValue('description_en', ev.target.value);
+          }}
+          error={errors.description_en}
+          label={t('controls.publish')}
+        />
+
+        <Button type={'submit'} disabled={!isValid}>
+          {t('controls.publish')}
+        </Button>
       </form>
     </PageSkeleton>
   );

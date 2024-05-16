@@ -6,36 +6,19 @@ import { axiosApi } from '@entities/api';
 import { BaseResponse, INews } from '@entities/types';
 
 export const useCreateNews = () => {
-  const { t } = useTranslation('news');
-  const schema = z
-    .object({
-      title_ru: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
-      title_be: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
-      title_en: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
-      description_ru: z
-        .string()
-        .min(1, t('errors.required'))
-        .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      description_be: z
-        .string()
-        .min(1, t('errors.required'))
-        .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      description_en: z
-        .string()
-        .min(1, t('errors.required'))
-        .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      status: z.number().int().min(0).max(2),
-    })
-    .required();
+  const { t } = useTranslation();
+  const schema = z.object({
+    title: z.object({
+      ru: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      be: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+    }),
+    description: z.object({
+      ru: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      be: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+    }),
+  });
 
   type ValuesType = z.infer<typeof schema>;
 
@@ -61,7 +44,7 @@ export const useCreateNews = () => {
       try {
         const {
           data: { data },
-        } = await axiosApi.put<BaseResponse<INews>>('api/admin/news', news);
+        } = await axiosApi.post<BaseResponse<INews>>('api/admin/news', news);
         toast.success(t('toast.createSuccess'));
         return data;
       } catch (error) {
