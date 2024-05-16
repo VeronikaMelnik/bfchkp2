@@ -3,7 +3,6 @@ import { NavItemProps } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import {
   IconHome,
-  IconNewspaper,
   IconMask,
   IconLoudspeaker,
   IconWrench,
@@ -19,12 +18,6 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.main'),
       icon: IconHome,
-      href: AppRoutes[AppRoutesEnum.MAIN](),
-      isLink: true,
-    },
-    {
-      title: t('sidebar.news'),
-      icon: IconNewspaper,
       href: AppRoutes[AppRoutesEnum.NEWS](),
       isLink: true,
     },

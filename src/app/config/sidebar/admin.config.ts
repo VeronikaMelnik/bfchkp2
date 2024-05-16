@@ -21,7 +21,7 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.main'),
       icon: IconHome,
-      href: AppRoutes[AppRoutesEnum.ADMIN](),
+      href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
       isLink: true,
     },
     {
@@ -71,13 +71,9 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.admin'),
       icon: IconBriefcase,
-      href: AppRoutes[AppRoutesEnum.ADMIN](),
+      href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
       isLink: false,
       breadcrumbs: [
-        {
-          href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
-          title: t('sidebar.news'),
-        },
         {
           href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
           title: t('sidebar.events'),

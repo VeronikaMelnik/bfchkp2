@@ -4,7 +4,8 @@
   "link": "Link for online participation",
   "versions": {
     "ru": "Russian Version",
-    "en": "English Version"
+    "en": "English Version",
+    "be": "Belarusian Version"
   },
   "controls": {
     "publish": "Publish",

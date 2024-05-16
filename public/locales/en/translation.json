@@ -2,7 +2,6 @@
   "sidebar": {
     "main": "Main",
     "admin": "Administration",
-    "news": "News",
     "events": "Events",
     "meetings": "Meetings",
     "notifications": "Notifications",
@@ -33,6 +32,9 @@
     "login": "Log In",
     "logout": "Logout",
     "register": "Register"
+  },
+  "footer": {
+    "days": "Monday-Friday"
   },
   "poster": "Poster",
   "not_found": {

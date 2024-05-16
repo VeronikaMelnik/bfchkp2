@@ -1,42 +1,21 @@
-import { ContentCreateActions } from '@widgets/Content';
-import { ContentEditor, ContentWithLanguageSelection } from '@widgets/Content/';
-import { Modal, PageHeader, PageSkeleton } from '@entities/components';
+import { PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconEyeOpen } from '@shared/icons';
-import { Button } from '@shared/ui';
+import { Button, TextField } from '@shared/ui';
 import { useCreateNewsPage } from '../hook/';
 
 const Page = () => {
   const {
-    handleUploadImage,
-    setIsDraft,
+    // handleUploadImage,
     errors,
     handleSubmit,
     setFieldValue,
     values,
     isValid,
-    open,
     setOpen,
     t,
   } = useCreateNewsPage();
 
-  const modalConfig = {
-    en: {
-      created_at: new Date(),
-      html: values.html_content_en,
-      title: values.title_en,
-    },
-    ru: {
-      created_at: new Date(),
-      html: values.html_content_ru,
-      title: values.title_ru,
-    },
-    be: {
-      created_at: new Date(),
-      html: values.html_content_be,
-      title: values.title_be,
-    },
-  };
   return (
     <PageSkeleton>
       <PageHeader
@@ -60,22 +39,13 @@ const Page = () => {
         }
       />
       <form onSubmit={handleSubmit}>
-        <Modal
-          isOpen={open}
-          onClose={() => {
-            setOpen(false);
+        <TextField
+          value={values.title_ru}
+          onChange={(ev) => {
+            setFieldValue('title_ru', ev.target.value);
           }}
-        >
-          <ContentWithLanguageSelection config={modalConfig} />
-        </Modal>
-        <ContentEditor
-          handleUploadImage={handleUploadImage}
-          errors={errors}
-          setFieldValue={setFieldValue}
-          values={values}
-          controls={
-            <ContentCreateActions isValid={isValid} setStatus={setIsDraft} />
-          }
+          error={errors.title_ru}
+          label={'title_ru'}
         />
       </form>
     </PageSkeleton>

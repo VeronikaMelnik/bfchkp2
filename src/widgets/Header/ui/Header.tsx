@@ -40,7 +40,7 @@ export const Header = ({ className }: Props) => {
     <>
       <header className={classNames(styles.wrapper, className)}>
         <div className={styles.logo}>
-          <Link to={AppRoutes[AppRoutesEnum.MAIN]()}>
+          <Link to={AppRoutes[AppRoutesEnum.NEWS]()}>
             <IconLogo width={140} />
           </Link>
         </div>

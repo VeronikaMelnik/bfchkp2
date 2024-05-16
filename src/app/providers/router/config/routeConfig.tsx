@@ -1,28 +1,13 @@
 import { AdminNewsListPage, CreateNewsPage } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { ForbiddenPage } from '@pages/Forbidden';
-import { RequestMainPage } from '@pages/invocation';
-import { CreateRequestPage } from '@pages/invocation/requests/Create';
-import { CurrentRequestPage } from '@pages/invocation/requests/Current';
-import { MainPage } from '@pages/Main';
 import { CurrentNewsPage } from '@pages/news';
 import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
-import {
-  SecurityAccessPage,
-  SecurityPage,
-  SecurityVideoPage,
-} from '@pages/Security';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
 
 export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
-  [AppRoutesEnum.ADMIN]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
   [AppRoutesEnum.ADMIN_NEWS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
     element: <AdminNewsListPage />,
@@ -139,13 +124,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SECURITY]: {
     path: AppRoutes[AppRoutesEnum.SECURITY](),
-    element: <SecurityPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.SECURITY_ACCESS]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
-    element: <SecurityAccessPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
@@ -157,7 +142,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SECURITY_VIDEO]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
-    element: <SecurityVideoPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
@@ -199,11 +184,6 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <RegistrationPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.MAIN]: {
-    path: AppRoutes[AppRoutesEnum.MAIN](),
-    element: <MainPage />,
-    authOnly: false,
-  },
 
   [AppRoutesEnum.NEWS]: {
     path: AppRoutes[AppRoutesEnum.NEWS](),
@@ -227,19 +207,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.REQUESTS]: {
     path: AppRoutes[AppRoutesEnum.REQUESTS](),
-    element: <RequestMainPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     // acceptedRoles: [],
   },
   [AppRoutesEnum.REQUESTS_CREATE]: {
     path: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
-    element: <CreateRequestPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     // acceptedRoles: [],
   },
   [AppRoutesEnum.REQUESTS_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.REQUESTS_CURRENT](':id'),
-    element: <CurrentRequestPage />,
+    element: <NotFoundPage />,
     authOnly: true,
     // acceptedRoles: [],
   },

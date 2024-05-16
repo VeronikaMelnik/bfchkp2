@@ -1,19 +1,19 @@
+/* eslint-disable prettier/prettier */
 import classNames from 'classnames';
 import { FormikErrors } from 'formik';
-import { Cover, CustomDatePicker, QuillEditor } from '@entities/components';
+import { QuillEditor } from '@entities/components';
 import { IFile } from '@entities/types';
-import { IconStaple } from '@shared/icons';
-import { Button, Card, TextField, Title } from '@shared/ui';
+import { Card, TextField, Title } from '@shared/ui';
 import { useEditorWidget } from '../hook/';
 import styles from './Editor.module.scss';
 
 type News = {
-  cover?: string | null;
   title_ru?: string;
   title_en?: string;
-  html_content_ru?: string;
-  html_content_en?: string;
-  target_date?: Date;
+  title_be?: string;
+  description_ru?: string;
+  description_en?: string;
+  description_be?: string;
   meeting_link?: string | null;
 };
 
@@ -31,12 +31,11 @@ interface Props {
   ) =>
     | Promise<void>
     | Promise<
-        FormikErrors<{
-          title: string;
-          html_content: string;
-          cover: string;
-        }>
-      >;
+      FormikErrors<{
+        title: string;
+        description: string;
+      }>
+    >;
 }
 
 export const ContentEditor = ({
@@ -48,7 +47,7 @@ export const ContentEditor = ({
   loading,
   values,
 }: Props) => {
-  const { getInputProps, open, isLoading, t } = useEditorWidget({
+  const { t } = useEditorWidget({
     handleUploadImage,
     setFieldValue,
   });
@@ -60,15 +59,6 @@ export const ContentEditor = ({
       flexDirection="column"
       gap={20}
     >
-      <input {...getInputProps()} />
-      {Object.keys(values).includes('target_date') && (
-        <CustomDatePicker
-          label={t('editor.date.label')}
-          error={errors.target_date as string}
-          startDate={values.target_date || new Date()}
-          setStartDate={(val) => setFieldValue('target_date', val)}
-        />
-      )}
 
       {Object.keys(values).includes('meeting_link') && (
         <TextField
@@ -83,27 +73,7 @@ export const ContentEditor = ({
           placeholder={t('editor.link.placeholder')}
         />
       )}
-      {Object.keys(values).includes('cover') && (
-        <div className={styles.cover}>
-          {!values.cover ? (
-            <Button
-              variant={'light'}
-              className={styles.downloadButton}
-              type="button"
-              onClick={open}
-              loading={isLoading}
-            >
-              <IconStaple width={24} height={24} />
-              {t('editor.cover.label')}
-            </Button>
-          ) : (
-            <Cover
-              src={values.cover}
-              onRemove={() => setFieldValue('cover', '')}
-            />
-          )}
-        </div>
-      )}
+
       <Title fontWeight="bold" variant="h2">
         {t('editor.versions.ru')}
       </Title>
@@ -117,12 +87,12 @@ export const ContentEditor = ({
           placeholder={t('editor.title.placeholder')}
         />
       )}
-      {Object.keys(values).includes('html_content_ru') && (
+      {Object.keys(values).includes('description_ru') && (
         <QuillEditor
-          error={errors.html_content_ru}
+          error={errors.description_ru}
           label={t('editor.content.label')}
-          initialValue={values.html_content_ru || ''}
-          setValue={(val) => setFieldValue('html_content_ru', val)}
+          initialValue={values.description_ru || ''}
+          setValue={(val) => setFieldValue('description_ru', val)}
           uploadImage={handleUploadImage}
         />
       )}
@@ -140,12 +110,36 @@ export const ContentEditor = ({
           placeholder={t('editor.title.placeholder')}
         />
       )}
-      {Object.keys(values).includes('html_content_en') && (
+      {Object.keys(values).includes('description_en') && (
         <QuillEditor
-          error={errors.html_content_en}
+          error={errors.description_en}
           label={t('editor.content.label')}
-          initialValue={values.html_content_en || ''}
-          setValue={(val) => setFieldValue('html_content_en', val)}
+          initialValue={values.description_en || ''}
+          setValue={(val) => setFieldValue('description_en', val)}
+          uploadImage={handleUploadImage}
+        />
+      )}
+
+      <div className={styles.divider}></div>
+      <Title fontWeight="bold" variant="h2">
+        {t('editor.versions.be')}
+      </Title>
+      {Object.keys(values).includes('title_be') && (
+        <TextField
+          value={values.title_be}
+          error={errors.title_be}
+          onChange={(ev) => setFieldValue('title_be', ev.target.value)}
+          wrapperClassName={styles.textField}
+          label={t('editor.title.label')}
+          placeholder={t('editor.title.placeholder')}
+        />
+      )}
+      {Object.keys(values).includes('description_be') && (
+        <QuillEditor
+          error={errors.description_be}
+          label={t('editor.content.label')}
+          initialValue={values.description_be || ''}
+          setValue={(val) => setFieldValue('description_be', val)}
           uploadImage={handleUploadImage}
         />
       )}

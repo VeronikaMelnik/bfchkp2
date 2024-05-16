@@ -11,11 +11,8 @@ interface Props {
   config: Record<
     LanguageEnum,
     {
-      created_at?: Date;
       title?: string;
-      html?: string;
-      date?: Date;
-      link?: string;
+      description?: string;
     }
   >;
 }

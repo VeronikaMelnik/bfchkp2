@@ -16,12 +16,11 @@ export const useCreateNewsPage = () => {
 
   const initialValues = {
     title_ru: '',
-    html_content_ru: '',
-    title_en: '',
-    html_content_en: '',
+    description_ru: '',
     title_be: '',
-    html_content_be: '',
-    cover: null,
+    description_be: '',
+    title_en: '',
+    description_en: '',
   };
 
   const { values, errors, setFieldValue, handleSubmit, isValid } = useFormik({

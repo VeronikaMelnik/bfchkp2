@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
+import { useUser } from '@features/User/hook';
 import { axiosApi } from '@entities/api';
 import { ILoginResponse } from '@entities/types';
 import {
@@ -13,6 +14,7 @@ import {
 
 export const useLogin = () => {
   const { t } = useTranslation('auth');
+  const { setToken } = useUser();
   const navigate = useNavigate();
   const schema = z
     .object({
@@ -44,15 +46,13 @@ export const useLogin = () => {
         } = await axiosApi.post<ILoginResponse>('api/auth/login', body);
 
         const email = body.email;
-        let isAdmin = false;
-
-        if (email === 'admin@admin.com') {
-          isAdmin = true;
+        if (token && setToken) {
+          setToken(token);
         }
-        if (isAdmin) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN]());
+        if (email === 'admin@admin.com') {
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
         } else {
-          navigate(AppRoutes[AppRoutesEnum.MAIN]());
+          navigate(AppRoutes[AppRoutesEnum.NEWS]());
         }
         toast.success(`${t('toast.loginSuccess')}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);

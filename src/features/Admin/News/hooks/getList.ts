@@ -22,7 +22,9 @@ export const useGetNewsList = () => {
       try {
         const {
           data: { data },
-        } = await axiosApi.get<BaseResponse<Array<INews>>>('/news', { params });
+        } = await axiosApi.get<BaseResponse<Array<INews>>>('/api/news', {
+          params,
+        });
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

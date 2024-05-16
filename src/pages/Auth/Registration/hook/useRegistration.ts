@@ -56,9 +56,9 @@ export const useRegistration = () => {
           isAdmin = true;
         }
         if (isAdmin) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN]());
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
         } else {
-          navigate(AppRoutes[AppRoutesEnum.MAIN]());
+          navigate(AppRoutes[AppRoutesEnum.NEWS]());
         }
         toast.success(`${t('toast.loginSuccess')}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);

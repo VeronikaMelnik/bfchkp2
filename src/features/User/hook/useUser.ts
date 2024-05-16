@@ -17,5 +17,6 @@ export const useUser = () => {
     setUser,
     handleLogOut,
     isAdmin,
+    setToken,
   };
 };

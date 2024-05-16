@@ -7,7 +7,8 @@
   "editor": {
     "versions": {
       "ru": "Russian Version",
-      "en": "English Version"
+      "en": "English Version",
+      "be": "Belarusian Version"
     },
     "title": {
       "label": "Title",

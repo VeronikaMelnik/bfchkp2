@@ -9,25 +9,31 @@ export const useCreateMeeting = () => {
   const { t } = useTranslation('meetings');
   const schema = z
     .object({
-      title_en: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
       title_ru: z
         .string()
         .min(1, t('errors.required'))
         .max(256, t('errors.max256')),
-      html_content_en: z
+      title_be: z
+        .string()
+        .min(1, t('errors.required'))
+        .max(256, t('errors.max256')),
+      title_en: z
+        .string()
+        .min(1, t('errors.required'))
+        .max(256, t('errors.max256')),
+      description_ru: z
         .string()
         .min(1, t('errors.required'))
         .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      html_content_ru: z
+      description_be: z
         .string()
         .min(1, t('errors.required'))
         .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      cover: z.string().url().nullable(),
+      description_en: z
+        .string()
+        .min(1, t('errors.required'))
+        .refine((val) => val !== '<p><br></p>', t('errors.required')),
       status: z.number().int().min(0).max(2),
-      target_date: z.date(),
       meeting_link: z.string().url(t('errors.invalidFormat')).nullable(),
     })
     .required();
@@ -58,7 +64,6 @@ export const useCreateMeeting = () => {
           data: { data },
         } = await axiosApi.put<BaseResponse<INews>>('/news', {
           ...event,
-          target_date: Math.ceil(new Date(event.target_date).getTime() / 1000),
           is_meeting: 1,
         });
         toast.success(t('toast.createSuccess'));

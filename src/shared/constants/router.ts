@@ -3,7 +3,6 @@ export enum AppRoutesEnum {
   NEWS_CURRENT,
   EVENT_CURRENT,
   MEETINGS_CURRENT,
-  MAIN,
   FORBIDDEN,
   NEWS,
   POSTER,
@@ -19,8 +18,6 @@ export enum AppRoutesEnum {
   SHUTDOWNS,
   KNOWLEDGE,
   SETTINGS,
-
-  ADMIN,
 
   ACCOUNTING,
   STATISTIC,
@@ -60,14 +57,12 @@ export enum AppRoutesEnum {
 }
 
 export const AppRoutes = {
-  [AppRoutesEnum.MAIN]: () => '/',
-  [AppRoutesEnum.ADMIN]: () => '/admin',
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
   [AppRoutesEnum.MEETINGS_CURRENT]: (id: number | string) => `/meeting/${id}`,
   [AppRoutesEnum.LOGIN]: () => '/login',
   [AppRoutesEnum.REGISTRATION]: () => '/registration',
-  [AppRoutesEnum.NEWS]: () => '/news',
-  [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,
+  [AppRoutesEnum.NEWS]: () => '/',
+  [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/${id}`,
   [AppRoutesEnum.POSTER]: () => '/poster',
   [AppRoutesEnum.ACTIVITY]: () => '/activity',
   [AppRoutesEnum.SERVICES]: () => '/services',
@@ -97,7 +92,7 @@ export const AppRoutes = {
   [AppRoutesEnum.STATISTIC]: () => '/admin/statistic',
   [AppRoutesEnum.ACCOUNTING]: () => '/admin/accounting',
 
-  [AppRoutesEnum.ADMIN_NEWS]: () => '/admin/news',
+  [AppRoutesEnum.ADMIN_NEWS]: () => '/admin',
   [AppRoutesEnum.ADMIN_EVENTS]: () => '/admin/events',
   [AppRoutesEnum.ADMIN_MEETINGS]: () => '/admin/meeting',
   [AppRoutesEnum.ADMIN_LOYALTY]: () => '/admin/loyalty',
