@@ -4,7 +4,7 @@ import {
   Pagination,
   PerPage,
 } from '@entities/components';
-import { IconBriefcase, IconLoupe, IconPlus } from '@shared/icons';
+import { IconLoupe, IconPlus } from '@shared/icons';
 import { Button, Card, TextField } from '@shared/ui';
 import { Table } from '@shared/ui/Table';
 import { useTableConfig, useDataFormatHelper } from '../constants';
@@ -24,8 +24,6 @@ const Page = () => {
     setPerPage,
     isLoading,
     t,
-    toggleStatusFilter,
-    status,
   } = useNewsList();
   const tableConfig = useTableConfig();
   return (
@@ -37,10 +35,6 @@ const Page = () => {
         <Button onClick={handleCreateClick}>
           <IconPlus width={24} height={24} />
           {t('controls.create')}
-        </Button>
-        <Button variant="light" onClick={toggleStatusFilter}>
-          <IconBriefcase width={24} height={24} />
-          {t(status === 2 ? 'controls.actual' : 'controls.archive')}
         </Button>
         <TextField
           value={search}

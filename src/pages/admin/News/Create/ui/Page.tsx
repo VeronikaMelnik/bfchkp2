@@ -69,7 +69,7 @@ const Page = () => {
             setFieldValue('description_be', ev.target.value);
           }}
           error={errors.description_be}
-          label={t('editor.description_be')}
+          label={t('editor.content.description_be')}
         />
         <TextField
           value={values.description_en}
@@ -77,7 +77,7 @@ const Page = () => {
             setFieldValue('description_en', ev.target.value);
           }}
           error={errors.description_en}
-          label={t('editor.description_en')}
+          label={t('editor.content.description_en')}
         />
         {/* <div>
           {!image ? (

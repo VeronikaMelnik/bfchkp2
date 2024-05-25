@@ -1,0 +1,37 @@
+{
+  "routes": {
+    "results": "Competition results",
+    "edit": "Result editing",
+    "create": "Result creating"
+  },
+  "table": {
+    "index": "№",
+    "place": "place",
+    "name": "place",
+    "lastName": "lastName",
+    "championship": "championship",
+    "date": "competition date"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Move to Archive",
+    "actual": "Go to Actual",
+    "find": "Search",
+    "delete": "Delete",
+    "preview": "Preview"
+  },
+  "toast": {
+    "deleteSuccess": "Result deleted successfully",
+    "deleteError": "Failed to delete result",
+    "updateSuccess": "Result updated successfully",
+    "updateError": "Failed to update result",
+    "createSuccess": "Result created successfully",
+    "createError": "Failed to create result",
+    "notFound": "Failed to retrieve result",
+    "listError": "Failed to retrieve results list"
+  }
+}

@@ -5,78 +5,68 @@ import {
   IconHome,
   IconMask,
   IconLoudspeaker,
-  IconWrench,
   IconDocumentHolder,
   IconCalendarX,
   IconQuestion,
-  IconGear,
 } from '@shared/icons';
 
 export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
   const { t } = useTranslation();
   return [
     {
-      title: t('sidebar.main'),
+      title: t('sidebar.news'),
       icon: IconHome,
       href: AppRoutes[AppRoutesEnum.NEWS](),
       isLink: true,
     },
     {
-      title: t('sidebar.poster'),
+      title: t('sidebar.user'),
       icon: IconMask,
-      href: AppRoutes[AppRoutesEnum.POSTER](),
+      href: AppRoutes[AppRoutesEnum.USER](),
       isLink: true,
     },
     {
-      title: t('sidebar.activity'),
-      icon: IconLoudspeaker,
-      href: AppRoutes[AppRoutesEnum.ACTIVITY](),
-      isLink: true,
-    },
-    {
-      title: t('sidebar.services'),
-      icon: IconWrench,
-      href: AppRoutes[AppRoutesEnum.SERVICES](),
-      isLink: true,
-    },
-    {
-      title: t('sidebar.invocation'),
+      title: t('sidebar.championships'),
       icon: IconDocumentHolder,
-      href: '',
-      isLink: false,
+      href: AppRoutes[AppRoutesEnum.CHAMPIONSHIPS](),
+      isLink: true,
       breadcrumbs: [
         {
-          href: AppRoutes[AppRoutesEnum.REQUESTS](),
-          title: t('sidebar.requests'),
+          href: AppRoutes[AppRoutesEnum.RESULTS](),
+          title: t('sidebar.results'),
         },
         {
-          href: AppRoutes[AppRoutesEnum.APPLICATIONS](),
-          title: t('sidebar.applications'),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
+          href: AppRoutes[AppRoutesEnum.JUDGES](),
+          title: t('sidebar.judges'),
         },
       ],
     },
     {
-      title: t('sidebar.shutdowns'),
+      title: t('sidebar.teams'),
+      icon: IconLoudspeaker,
+      href: AppRoutes[AppRoutesEnum.TEAMS](),
+      isLink: true,
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.COACHES](),
+          title: t('sidebar.coaches'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.MEMBERS](),
+          title: t('sidebar.members'),
+        },
+      ],
+    },
+    {
+      title: t('sidebar.disciplines'),
       icon: IconCalendarX,
-      href: AppRoutes[AppRoutesEnum.SHUTDOWNS](),
+      href: AppRoutes[AppRoutesEnum.DISCIPLINES](),
       isLink: true,
     },
     {
-      title: t('sidebar.knowledge'),
+      title: t('sidebar.titles'),
       icon: IconQuestion,
-      href: AppRoutes[AppRoutesEnum.KNOWLEDGE](),
-      isLink: true,
-    },
-    {
-      title: t('sidebar.settings'),
-      icon: IconGear,
-      href: AppRoutes[AppRoutesEnum.SETTINGS](),
+      href: AppRoutes[AppRoutesEnum.TITLES](),
       isLink: true,
     },
   ];

@@ -2,7 +2,7 @@
   "popup": {
     "preview": "Preview",
     "edit": "Edit",
-    "archive": "To Archive"
+    "delete": "Delete"
   },
   "badges": {
     "drafts": "Draft",
@@ -10,7 +10,7 @@
     "archive": "Archive"
   },
   "toast": {
-    "archiveSuccess": "Successfully moved to the archive",
-    "archiveError": "Error when moving to archive"
+    "deleteSuccess": "News deleted successfully",
+    "deleteError": "Failed to delete news"
   }
 }

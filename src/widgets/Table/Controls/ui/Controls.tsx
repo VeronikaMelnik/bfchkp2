@@ -20,7 +20,7 @@ export const TableControls = ({
 }: Props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const {
-    handleArchive,
+    handleDelete,
     handleGoToDetails,
     handleGoToUpdate,
     isShow,
@@ -42,7 +42,7 @@ export const TableControls = ({
       <IconDottedLine width={20} height={20} />
       {isShow && (
         <PopUpMenu
-          handleArchive={handleArchive}
+          handleDelete={handleDelete}
           handleGoToDetails={handleGoToDetails}
           handleGoToUpdate={handleGoToUpdate}
         />

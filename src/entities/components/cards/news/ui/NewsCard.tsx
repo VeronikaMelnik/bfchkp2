@@ -10,6 +10,7 @@ interface Props {
   title: string;
   text: string;
   link?: string;
+
   published_date: Date;
 }
 

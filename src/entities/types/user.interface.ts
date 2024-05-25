@@ -3,6 +3,7 @@ import { BaseEntity } from './global.interface';
 export interface IUserShort {
   id: number;
   email: string;
+  password?: string;
 }
 
 export interface IUser extends IUserShort {

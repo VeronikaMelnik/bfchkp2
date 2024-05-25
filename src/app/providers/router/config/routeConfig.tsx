@@ -1,9 +1,25 @@
-import { AdminNewsListPage, CreateNewsPage } from '@pages/admin';
+import {
+  AdminNewsListPage,
+  AdminTeamsListPage,
+  CreateNewsPage,
+} from '@pages/admin';
+import { AdminMembersListPage } from '@pages/admin/Members';
+import { UpdateNewsPage } from '@pages/admin/News/Update';
+import { AdminResutsListPage } from '@pages/admin/Results';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
+import { CoachesPage } from '@pages/coaches';
+import { DisciplinesPage } from '@pages/disciplines';
 import { ForbiddenPage } from '@pages/Forbidden';
+import { JudgesPage } from '@pages/judges';
+import { UpdateUserPage } from '@pages/me';
+import { UserPage } from '@pages/me/Current';
+import { MembersPage } from '@pages/members';
 import { CurrentNewsPage } from '@pages/news';
 import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
+import { ResultsPage } from '@pages/results';
+import { TeamsPage } from '@pages/teams';
+import { TitlesPage } from '@pages/titles';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
 
@@ -16,7 +32,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.UPDATE_NEWS]: {
     path: AppRoutes[AppRoutesEnum.UPDATE_NEWS](':id'),
-    element: <NotFoundPage />,
+    element: <UpdateNewsPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
@@ -25,6 +41,51 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <CreateNewsPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.ADMIN_RESULTS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_RESULTS](),
+    element: <AdminResutsListPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.UPDATE_RESULTS]: {
+    path: AppRoutes[AppRoutesEnum.UPDATE_RESULTS](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.CREATE_RESULTS]: {
+    path: AppRoutes[AppRoutesEnum.CREATE_RESULTS](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ADMIN_MEMBERS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_MEMBERS](),
+    element: <AdminMembersListPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.UPDATE_MEMBERS]: {
+    path: AppRoutes[AppRoutesEnum.UPDATE_MEMBERS](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.CREATE_MEMBERS]: {
+    path: AppRoutes[AppRoutesEnum.CREATE_MEMBERS](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ADMIN_TEAMS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_TEAMS](),
+    element: <AdminTeamsListPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.UPDATE_TEAMS]: {
+    path: AppRoutes[AppRoutesEnum.UPDATE_TEAMS](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.CREATE_TEAMS]: {
+    path: AppRoutes[AppRoutesEnum.CREATE_TEAMS](),
+    element: <NotFoundPage />,
+    authOnly: true,
   },
   [AppRoutesEnum.ADMIN_EVENTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
@@ -188,6 +249,57 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.NEWS]: {
     path: AppRoutes[AppRoutesEnum.NEWS](),
     element: <NewsListPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.USER]: {
+    path: AppRoutes[AppRoutesEnum.USER](),
+    element: <UserPage />,
+    authOnly: true,
+  },
+
+  [AppRoutesEnum.UPDATE_USER]: {
+    path: AppRoutes[AppRoutesEnum.UPDATE_USER](),
+    element: <UpdateUserPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.CHAMPIONSHIPS]: {
+    path: AppRoutes[AppRoutesEnum.CHAMPIONSHIPS](),
+    element: <NotFoundPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.RESULTS]: {
+    path: AppRoutes[AppRoutesEnum.RESULTS](),
+    element: <ResultsPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.JUDGES]: {
+    path: AppRoutes[AppRoutesEnum.JUDGES](),
+    element: <JudgesPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.TEAMS]: {
+    path: AppRoutes[AppRoutesEnum.TEAMS](),
+    element: <TeamsPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.COACHES]: {
+    path: AppRoutes[AppRoutesEnum.COACHES](),
+    element: <CoachesPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.MEMBERS]: {
+    path: AppRoutes[AppRoutesEnum.MEMBERS](),
+    element: <MembersPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.DISCIPLINES]: {
+    path: AppRoutes[AppRoutesEnum.DISCIPLINES](),
+    element: <DisciplinesPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.TITLES]: {
+    path: AppRoutes[AppRoutesEnum.TITLES](),
+    element: <TitlesPage />,
     authOnly: false,
   },
   [AppRoutesEnum.POSTER]: {

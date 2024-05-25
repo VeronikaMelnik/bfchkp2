@@ -4,6 +4,12 @@ export const NewsStatusEnum = {
   2: 'archive',
 };
 
+export const JudgesStatusEnum = {
+  0: 'drafts',
+  1: 'publish',
+  2: 'archive',
+};
+
 export const RequestStatusEnum = {
   1: 'new',
   2: 'passed',

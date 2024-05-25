@@ -8,6 +8,16 @@ export enum AppRoutesEnum {
   POSTER,
   ACTIVITY,
   SERVICES,
+  CHAMPIONSHIPS,
+  RESULTS,
+  JUDGES,
+  TEAMS,
+  COACHES,
+  MEMBERS,
+  DISCIPLINES,
+  TITLES,
+  USER,
+  UPDATE_USER,
 
   REQUESTS,
   REQUESTS_CURRENT,
@@ -37,6 +47,22 @@ export enum AppRoutesEnum {
   ADMIN_TECHNICAL_WORKS,
   ADMIN_VOTING,
   ADMIN_LOYALTY,
+
+  // Admin results
+  ADMIN_RESULTS,
+  UPDATE_RESULTS,
+  CREATE_RESULTS,
+
+  // Admin teams
+  ADMIN_TEAMS,
+  UPDATE_TEAMS,
+  CREATE_TEAMS,
+
+  // Admin members
+  ADMIN_MEMBERS,
+  UPDATE_MEMBERS,
+  CREATE_MEMBERS,
+
   // Auth
   LOGIN,
   REGISTRATION,
@@ -66,6 +92,16 @@ export const AppRoutes = {
   [AppRoutesEnum.POSTER]: () => '/poster',
   [AppRoutesEnum.ACTIVITY]: () => '/activity',
   [AppRoutesEnum.SERVICES]: () => '/services',
+  [AppRoutesEnum.CHAMPIONSHIPS]: () => '/championships',
+  [AppRoutesEnum.RESULTS]: () => '/results',
+  [AppRoutesEnum.JUDGES]: () => '/judges',
+  [AppRoutesEnum.TEAMS]: () => '/teams',
+  [AppRoutesEnum.COACHES]: () => '/coaches',
+  [AppRoutesEnum.MEMBERS]: () => '/members',
+  [AppRoutesEnum.DISCIPLINES]: () => '/disciplines',
+  [AppRoutesEnum.TITLES]: () => '/titles',
+  [AppRoutesEnum.USER]: () => '/user',
+  [AppRoutesEnum.UPDATE_USER]: () => `/user/update`,
 
   [AppRoutesEnum.REQUESTS]: () => '/requests',
   [AppRoutesEnum.REQUESTS_CREATE]: () => '/requests/create',
@@ -93,6 +129,9 @@ export const AppRoutes = {
   [AppRoutesEnum.ACCOUNTING]: () => '/admin/accounting',
 
   [AppRoutesEnum.ADMIN_NEWS]: () => '/admin',
+  [AppRoutesEnum.ADMIN_TEAMS]: () => '/admin/teams',
+  [AppRoutesEnum.ADMIN_RESULTS]: () => '/admin/results',
+  [AppRoutesEnum.ADMIN_MEMBERS]: () => '/admin/members',
   [AppRoutesEnum.ADMIN_EVENTS]: () => '/admin/events',
   [AppRoutesEnum.ADMIN_MEETINGS]: () => '/admin/meeting',
   [AppRoutesEnum.ADMIN_LOYALTY]: () => '/admin/loyalty',
@@ -103,11 +142,19 @@ export const AppRoutes = {
   [AppRoutesEnum.CREATE_EVENT]: () => '/admin/events/create',
   [AppRoutesEnum.CREATE_MEETINGS]: () => '/admin/meeting/create',
   [AppRoutesEnum.CREATE_NEWS]: () => '/admin/news/create',
+  [AppRoutesEnum.CREATE_RESULTS]: () => '/admin/results/create',
+  [AppRoutesEnum.CREATE_TEAMS]: () => '/admin/teams/create',
+  [AppRoutesEnum.CREATE_MEMBERS]: () => '/admin/members/create',
 
   [AppRoutesEnum.UPDATE_EVENT]: (id: number | string) => `/admin/events/${id}`,
   [AppRoutesEnum.UPDATE_MEETINGS]: (id: number | string) =>
     `/admin/meeting/${id}`,
   [AppRoutesEnum.UPDATE_NEWS]: (id: number | string) => `/admin/news/${id}`,
+  [AppRoutesEnum.UPDATE_RESULTS]: (id: number | string) =>
+    `/admin/results/${id}`,
+  [AppRoutesEnum.UPDATE_TEAMS]: (id: number | string) => `/admin/teams/${id}`,
+  [AppRoutesEnum.UPDATE_MEMBERS]: (id: number | string) =>
+    `/admin/members/${id}`,
 
   [AppRoutesEnum.FORBIDDEN]: () => '/forbidden',
 

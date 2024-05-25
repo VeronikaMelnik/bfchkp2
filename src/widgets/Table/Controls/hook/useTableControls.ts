@@ -23,15 +23,25 @@ export const useTableControls = ({
 
   const [isShow, setIsShow] = useState(false);
 
-  const handleArchive = useCallback(async () => {
+  /*
+  try {
+    const {
+      data: { data },
+    } = await axiosApi.post<BaseResponse<INews>>('api/admin/news', news);
+    toast.success(t('toast.createSuccess'));
+    return data;
+  } catch (error) {
+    console.error(error);
+    toast.error(t('toast.createError'));
+  }
+*/
+  const handleDelete = useCallback(async () => {
     try {
-      await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
-        status: 2,
-      });
-      toast.success(t('toast.archiveSuccess'));
+      await axiosApi.delete<BaseResponse<INews>>(`api/admin/news/${id}`);
+      toast.success(t('toast.deleteSuccess'));
     } catch (error) {
       console.error(error);
-      toast.error(t('toast.archiveError'));
+      toast.error(t('toast.deleteError'));
     }
   }, [id, t]);
 
@@ -60,7 +70,7 @@ export const useTableControls = ({
   }, [wrapperRef]);
 
   return {
-    handleArchive,
+    handleDelete,
     handleGoToUpdate,
     handleGoToDetails,
     isShow,

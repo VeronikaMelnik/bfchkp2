@@ -1,0 +1,26 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  height: 120px;
+  gap: 4px;
+  justify-content: center;
+}
+
+.title {
+  max-height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-80);
+}
+
+.lastName {
+  padding-left: 6px;
+}
+
+.textContent {
+  max-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-50);
+}

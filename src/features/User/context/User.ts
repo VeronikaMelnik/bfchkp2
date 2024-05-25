@@ -4,6 +4,8 @@ import { IUser } from '@entities/types';
 export interface UserContextProps {
   user?: IUser;
   isAdmin?: boolean;
+  isCoach?: boolean;
+  isJudge?: boolean;
   setUser?: (user?: IUser) => void;
   isLoading?: boolean;
   setIsLoading?: (val: boolean) => void;

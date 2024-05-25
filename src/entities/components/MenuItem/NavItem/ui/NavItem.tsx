@@ -29,17 +29,23 @@ export const NavItem = ({
 
   if (isLink) {
     return (
-      <NavLink
-        to={href}
-        className={classNames(styles.item, styles.navLink, {
-          [styles.active]: isActive,
-        })}
-      >
-        <Icon width={20} theme={isActive ? 'dark' : 'light'} />
-        <Text fontWeight="medium" variant="body14">
-          {title}
-        </Text>
-      </NavLink>
+      <div>
+        <NavLink
+          to={href}
+          className={classNames(styles.item, styles.navLink, {
+            [styles.active]: isActive,
+          })}
+        >
+          <Icon width={20} theme={isActive ? 'dark' : 'light'} />
+          <Text fontWeight="medium" variant="body14">
+            {title}
+          </Text>
+        </NavLink>
+
+        <div className={styles.wrapper}>
+          {<ul className={styles.list}>{breadcrumbElementArr}</ul>}
+        </div>
+      </div>
     );
   } else {
     return (

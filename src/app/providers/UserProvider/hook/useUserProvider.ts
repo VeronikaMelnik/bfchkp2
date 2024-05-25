@@ -11,10 +11,26 @@ export const useUserProvider = () => {
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isCoach, setIsCoach] = useState(false);
+  const [isJudge, setIsJudge] = useState(false);
 
   const handleSetUser = useCallback((user?: IUser) => {
     const isUserAdmin = (user && ROLES_ADMIN.includes(user?.id)) || false;
+    const coachesTable = [
+      15, 17, 18, 14, 26, 10, 11, 27, 28, 29, 13, 19, 20, 30, 21, 22, 12,
+    ];
+    const isUserCoach =
+      user && user.person && user.person.id
+        ? coachesTable.includes(user.person.id)
+        : false;
+    const judgesTable = [12, 13, 14, 16, 17, 18, 22, 25, 26];
+    const isUserJudge =
+      user && user.person && user.person.id
+        ? judgesTable.includes(user.person.id)
+        : false;
     setIsAdmin(isUserAdmin);
+    setIsCoach(isUserCoach);
+    setIsJudge(isUserJudge);
     setUser(user);
   }, []);
 
@@ -44,6 +60,8 @@ export const useUserProvider = () => {
   const value = useMemo(
     () => ({
       isAdmin,
+      isCoach,
+      isJudge,
       user,
       setUser: handleSetUser,
       isLoading,
@@ -51,7 +69,7 @@ export const useUserProvider = () => {
       token,
       setToken,
     }),
-    [handleSetUser, isAdmin, isLoading, token, user],
+    [handleSetUser, isAdmin, isCoach, isJudge, isLoading, token, user],
   );
 
   return {

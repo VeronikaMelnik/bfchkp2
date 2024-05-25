@@ -5,43 +5,26 @@ import { SafeParseError, z } from 'zod';
 import { axiosApi } from '@entities/api';
 import { BaseResponse, INews } from '@entities/types';
 
-export const useUpdateNews = (id: string) => {
+export const useUpdateNews = () => {
   const { t } = useTranslation('news');
-  const schema = z
-    .object({
-      title_ru: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
-      title_be: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
-      title_en: z
-        .string()
-        .min(1, t('errors.required'))
-        .max(256, t('errors.max256')),
-      description_ru: z
-        .string()
-        .min(1, t('errors.required'))
-        .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      description_be: z
-        .string()
-        .min(1, t('errors.required'))
-        .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      description_en: z
-        .string()
-        .min(1, t('errors.required'))
-        .refine((val) => val !== '<p><br></p>', t('errors.required')),
-      status: z.number().int().min(0).max(2),
-    })
-    .required();
+  const schema = z.object({
+    title: z.object({
+      ru: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      be: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+    }),
+    description: z.object({
+      ru: z.string().min(1, t('errors.required')),
+      be: z.string().min(1, t('errors.required')),
+      en: z.string().min(1, t('errors.required')),
+    }),
+  });
 
   type ValuesType = z.infer<typeof schema>;
 
   const validate = useCallback(
-    (news: ValuesType) => {
-      const res = schema.safeParse(news) as SafeParseError<ValuesType>;
+    (data: unknown) => {
+      const res = schema.safeParse(data) as SafeParseError<ValuesType>;
       if (res.error) {
         return res.error.formErrors.fieldErrors;
       }
@@ -49,9 +32,13 @@ export const useUpdateNews = (id: string) => {
     [schema],
   );
 
-  const create = useCallback(
-    async (news: ValuesType) => {
-      const errors = validate(news);
+  type Props = {
+    body: Partial<ValuesType>;
+    id: number | string;
+  };
+  const update = useCallback(
+    async ({ body, id }: Props) => {
+      const errors = validate(body);
       if (errors) {
         Object.entries(errors).forEach(([key, value]) => {
           toast.error(`${key}: ${value}`);
@@ -59,9 +46,10 @@ export const useUpdateNews = (id: string) => {
         return;
       }
       try {
-        const {
-          data: { data },
-        } = await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, news);
+        const { data } = await axiosApi.patch<BaseResponse<INews>>(
+          `api/admin/news/${id}`,
+          { ...body },
+        );
         toast.success(t('toast.updateSuccess'));
         return data;
       } catch (error) {
@@ -69,11 +57,11 @@ export const useUpdateNews = (id: string) => {
         toast.error(t('toast.updateError'));
       }
     },
-    [id, t, validate],
+    [t, validate],
   );
 
   return {
-    create,
+    update,
     validate,
   };
 };

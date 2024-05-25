@@ -32,4 +32,9 @@ export interface BuildOptions {
   port: number;
   apiUrl: string;
   project: "storybook" | "frontend" | "jest";
+  resolve?: {
+    fallback: {
+      crypto: string;
+    };
+  };
 }
