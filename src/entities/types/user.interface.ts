@@ -1,4 +1,5 @@
 import { BaseEntity } from './global.interface';
+import { IFile } from './image.interface';
 
 export interface IUserShort {
   id: number;
@@ -15,4 +16,5 @@ export interface IParent {}
 export interface IPerson extends BaseEntity {
   name: string;
   lastName: string;
+  image: IFile;
 }

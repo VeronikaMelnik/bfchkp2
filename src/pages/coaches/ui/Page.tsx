@@ -20,6 +20,7 @@ export default () => {
         {coaches.map((el) => {
           return (
             <CoachesCard
+              image={el.person.image?.url}
               experience={`${t('coaches.experience')} ${el.experience} ${t('coaches.years')}`}
               name={el.person.name}
               lastName={el.person.lastName}

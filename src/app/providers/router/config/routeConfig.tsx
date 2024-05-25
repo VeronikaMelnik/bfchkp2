@@ -23,7 +23,7 @@ import { TitlesPage } from '@pages/titles';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
 
-export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
+export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   [AppRoutesEnum.ADMIN_NEWS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
     element: <AdminNewsListPage />,

@@ -7,7 +7,7 @@ import { BaseResponse, INews } from '@entities/types';
 export const useDeleteNews = () => {
   const { t } = useTranslation();
 
-  const handleDelete = useCallback(
+  const onDelete = useCallback(
     async (id: string | number) => {
       try {
         const {
@@ -24,6 +24,6 @@ export const useDeleteNews = () => {
   );
 
   return {
-    handleDelete,
+    onDelete,
   };
 };

@@ -80,9 +80,9 @@ export const useUpdateNewsPage = () => {
           },
           id,
         });
-        // if (data && data.id && image) {
-        //   await handleUploadImage(image, data.id);
-        // }
+        if (data && data.data && data.data.id && image) {
+          await handleUploadImage(image, data.data.id);
+        }
         if (data) {
           navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
         }
@@ -124,5 +124,6 @@ export const useUpdateNewsPage = () => {
     getInputProps,
     open,
     image,
+    setImage,
   };
 };

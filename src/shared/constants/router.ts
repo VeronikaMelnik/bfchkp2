@@ -80,6 +80,7 @@ export enum AppRoutesEnum {
   CREATE_MEETINGS,
   // not found
   NOT_FOUND,
+  ADMIN_ROLES,
 }
 
 export const AppRoutes = {

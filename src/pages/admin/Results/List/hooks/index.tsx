@@ -2,69 +2,85 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
+import { useDeleteNews } from '@features/Admin/News/hooks/delete';
 import { useGetResultsList } from '@features/Admin/Results';
-import { INewsFilter, INewsSort, IResult, ListParams } from '@entities/types';
+import { IResult } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   INITIAL_PER_PAGE,
   NewsStatusEnum,
 } from '@shared/constants';
+import { useTableHeader, useTableRows } from '../helper';
 
-export const useResultsList = () => {
+export const useList = () => {
   const { t } = useTranslation('results');
-  const { getData } = useGetResultsList();
+  const { getData, total } = useGetResultsList();
   const [search, setSearch] = useState('');
+  const { onDelete } = useDeleteNews();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [data, setData] = useState<Array<IResult>>([]);
   const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
-  const [isLoading, setIsLoading] = useState(true);
-  const [debounced] = useDebounce(search, 500);
+  const [isLoading] = useState(true);
+  const [active, setActive] = useState<string | number>();
   const navigate = useNavigate();
   const location = useLocation();
-
-  interface Params extends ListParams {
-    sort: INewsSort;
-    filter: INewsFilter;
-  }
+  const [debounced] = useDebounce(search, 500);
 
   const handleGetData = useCallback(async () => {
-    setIsLoading(true);
-    const params: Params = {
+    const newData = await getData({
       page,
       perPage,
       searchValue: debounced,
-      filter: {
-        status,
-      },
-      sort: {
-        created_at: 'asc',
-      },
-    };
-    setTotal(100);
-    const results = await getData(params);
-    setIsLoading(false);
-    if (results) {
-      setData(results);
-    } else {
-      navigate(-1);
+    });
+    if (newData) {
+      setData(newData);
     }
-  }, [debounced, getData, navigate, page, perPage, status]);
+  }, [getData, page, perPage, debounced]);
 
   useEffect(() => {
     handleGetData();
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(AppRoutes[AppRoutesEnum.CREATE_NEWS]());
+    navigate(AppRoutes[AppRoutesEnum.CREATE_RESULTS]());
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =
     useCallback(({ selected }) => {
       setPage(selected + 1);
     }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+    setActive(undefined);
+  }, []);
+
+  const handleOpenModal = useCallback(
+    (id: string | number) => () => {
+      setIsModalOpen(true);
+      setActive(id);
+    },
+    [],
+  );
+
+  const handleDelete = useCallback(() => {
+    if (!active) {
+      return;
+    }
+    onDelete(active);
+    handleCloseModal();
+    handleGetData();
+  }, [active, handleCloseModal, handleGetData, onDelete]);
+
+  const tableHeader = useTableHeader();
+
+  const tableData = useTableRows({
+    data,
+    onDelete: handleOpenModal,
+  });
 
   const handleToggleStatusFilter = useCallback(() => {
     setStatus((val) => (val ? undefined : 2));
@@ -81,9 +97,14 @@ export const useResultsList = () => {
     setPage: handleSetPage,
     perPage,
     setPerPage,
-    total,
+    tableHeader,
+    tableData,
     t,
+    total,
     status,
+    isModalOpen,
+    handleDelete,
+    handleCloseModal,
     toggleStatusFilter: handleToggleStatusFilter,
   };
 };

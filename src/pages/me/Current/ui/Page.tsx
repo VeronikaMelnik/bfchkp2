@@ -32,6 +32,7 @@ export default () => {
       </Card>
       {/* <img src={news?.image.url} className={styles.newsImage} /> */}
       <CoachesCard
+        image={users?.person.image?.url}
         experience={users?.email}
         name={users?.person.name}
         lastName={users?.person.lastName}

@@ -19,6 +19,10 @@ export default () => {
         {judges.map((el) => {
           return (
             <JudgesCard
+              image={
+                el.person.image?.url ||
+                'https://png.pngtree.com/thumb_back/fw800/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg'
+              }
               name={el.person.name}
               lastName={el.person.lastName}
               key={`news-card-${el.id}`}

@@ -3,55 +3,42 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { useGetMembersList } from '@features/Admin/Members';
-import { IMember, INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { useDeleteNews } from '@features/Admin/News/hooks/delete';
+import { IMember } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   INITIAL_PER_PAGE,
   NewsStatusEnum,
 } from '@shared/constants';
+import { useTableHeader, useTableRows } from '../helper';
 
-export const useMembersList = () => {
+export const useList = () => {
   const { t } = useTranslation('members');
-  const { getData } = useGetMembersList();
+  const { getData, total } = useGetMembersList();
   const [search, setSearch] = useState('');
+  const { onDelete } = useDeleteNews();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [data, setData] = useState<Array<IMember>>([]);
   const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
-  const [isLoading, setIsLoading] = useState(true);
-  const [debounced] = useDebounce(search, 500);
+  const [isLoading] = useState(true);
+  const [active, setActive] = useState<string | number>();
   const navigate = useNavigate();
   const location = useLocation();
-
-  interface Params extends ListParams {
-    sort: INewsSort;
-    filter: INewsFilter;
-  }
+  const [debounced] = useDebounce(search, 500);
 
   const handleGetData = useCallback(async () => {
-    setIsLoading(true);
-    const params: Params = {
+    const newData = await getData({
       page,
       perPage,
       searchValue: debounced,
-      filter: {
-        status,
-      },
-      sort: {
-        created_at: 'asc',
-      },
-    };
-    setTotal(100);
-    const teams = await getData(params);
-    setIsLoading(false);
-    if (teams) {
-      setData(teams);
-    } else {
-      navigate(-1);
+    });
+    if (newData) {
+      setData(newData);
     }
-  }, [debounced, getData, navigate, page, perPage, status]);
+  }, [getData, page, perPage, debounced]);
 
   useEffect(() => {
     handleGetData();
@@ -65,6 +52,35 @@ export const useMembersList = () => {
     useCallback(({ selected }) => {
       setPage(selected + 1);
     }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+    setActive(undefined);
+  }, []);
+
+  const handleOpenModal = useCallback(
+    (id: string | number) => () => {
+      setIsModalOpen(true);
+      setActive(id);
+    },
+    [],
+  );
+
+  const handleDelete = useCallback(() => {
+    if (!active) {
+      return;
+    }
+    onDelete(active);
+    handleCloseModal();
+    handleGetData();
+  }, [active, handleCloseModal, handleGetData, onDelete]);
+
+  const tableHeader = useTableHeader();
+
+  const tableData = useTableRows({
+    data,
+    onDelete: handleOpenModal,
+  });
 
   const handleToggleStatusFilter = useCallback(() => {
     setStatus((val) => (val ? undefined : 2));
@@ -81,9 +97,14 @@ export const useMembersList = () => {
     setPage: handleSetPage,
     perPage,
     setPerPage,
-    total,
+    tableHeader,
+    tableData,
     t,
+    total,
     status,
+    isModalOpen,
+    handleDelete,
+    handleCloseModal,
     toggleStatusFilter: handleToggleStatusFilter,
   };
 };

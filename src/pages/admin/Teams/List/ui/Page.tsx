@@ -1,36 +1,61 @@
-import { PageHeader, PageSkeleton } from '@entities/components';
-import { IconLoupe, IconPlus } from '@shared/icons';
-import { Button, Card, TextField } from '@shared/ui';
+import { Link } from 'react-router-dom';
+import {
+  Modal,
+  PageHeader,
+  PageSkeleton,
+  Pagination,
+  PerPage,
+} from '@entities/components';
+import { ModalDelete } from '@entities/components/ModalDelete';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconPlus } from '@shared/icons';
+import { Button, Card } from '@shared/ui';
 import { Table } from '@shared/ui/Table';
-import { useTableConfig, useDataFormatHelper } from '../constants';
-import { useTeamsList } from '../hooks';
+import { useList } from '../hooks';
 import styles from './Page.module.scss';
 
 const Page = () => {
-  const { location, data, handleCreateClick, search, setSearch, isLoading, t } =
-    useTeamsList();
-  const tableConfig = useTableConfig();
+  const {
+    location,
+    total,
+    setPage,
+    page,
+    tableHeader,
+    tableData,
+    perPage,
+    setPerPage,
+    t,
+    handleCloseModal,
+    handleDelete,
+    isModalOpen,
+  } = useList();
   return (
     <PageSkeleton>
-      <PageHeader
-        breadcrumbs={[{ href: location.pathname, title: t('routes.teams') }]}
-      />
-      <Card padding={12} gap={20} loading={isLoading} loaderSize={32}>
-        <Button onClick={handleCreateClick}>
-          <IconPlus width={24} height={24} />
-          {t('controls.create')}
-        </Button>
-        <TextField
-          value={search}
-          onChange={(ev) => setSearch(ev.target.value)}
-          wrapperClassName={styles.input}
-          placeholder={t('controls.find')}
-          leftItem={<IconLoupe width={20} height={20} />}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <ModalDelete
+          handleCloseModal={handleCloseModal}
+          handleDelete={handleDelete}
+          text={t('remove.text')}
+          title={t('remove.title')}
         />
-      </Card>
-      <Card className={styles.card} flexDirection="column" loading={isLoading}>
-        <Table config={tableConfig} items={useDataFormatHelper(data)} />
-        <div className={styles.controls}></div>
+      </Modal>
+      <PageHeader
+        breadcrumbs={[{ href: location.pathname, title: t('routes.news') }]}
+        controls={
+          <Link to={AppRoutes[AppRoutesEnum.CREATE_TEAMS]()}>
+            <Button variant="primary" size="small">
+              <IconPlus width={20} height={20} />
+              {t('actions.add')}
+            </Button>
+          </Link>
+        }
+      />
+      <Card className={styles.card} flexDirection="column">
+        <Table config={tableHeader} items={tableData} />
+        <div className={styles.controls}>
+          <PerPage active={perPage} setActive={setPerPage} />
+          <Pagination page={page} total={total} onChange={setPage} />
+        </div>
       </Card>
     </PageSkeleton>
   );

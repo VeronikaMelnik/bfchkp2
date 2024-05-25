@@ -1,26 +1,25 @@
-import { PageHeader, PageSkeleton } from '@entities/components';
+import { Cover, PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconStaple } from '@shared/icons';
 import { Button, TextField } from '@shared/ui';
 import { useUpdateNewsPage } from '../hook';
 
 const Page = () => {
   const {
-    // handleUploadImage,
     errors,
     handleSubmit,
     setFieldValue,
     values,
     isValid,
     t,
-    // getInputProps,
-    // handleUploadImage,
-    // open,
-    // setImage,
-    // image,
+    getInputProps,
+    open,
+    image,
+    setImage,
   } = useUpdateNewsPage();
   return (
     <PageSkeleton>
-      {/* <input {...getInputProps()} /> */}
+      <input {...getInputProps()} />
       <PageHeader
         breadcrumbs={[
           {
@@ -79,7 +78,7 @@ const Page = () => {
           error={errors.description_en}
           label={t('editor.content.description_en')}
         />
-        {/* <div>
+        <div>
           {!image ? (
             <Button variant={'light'} type="button" onClick={open}>
               <IconStaple width={24} height={24} />
@@ -88,7 +87,7 @@ const Page = () => {
           ) : (
             <Cover src={''} onRemove={() => setImage(undefined)} />
           )}
-        </div> */}
+        </div>
         <Button type={'submit'} disabled={!isValid}>
           {t('controls.refresh')}
         </Button>
