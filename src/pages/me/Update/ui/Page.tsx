@@ -1,13 +1,24 @@
-import { PageHeader, PageSkeleton } from '@entities/components';
+import { Cover, PageHeader, PageSkeleton } from '@entities/components';
+import { IconStaple } from '@shared/icons';
 import { Button, TextField } from '@shared/ui';
 import { useUpdateUserPage } from '../hook';
 
 const Page = () => {
-  const { errors, handleSubmit, setFieldValue, values, isValid, t } =
-    useUpdateUserPage();
+  const {
+    errors,
+    handleSubmit,
+    setFieldValue,
+    values,
+    isValid,
+    t,
+    getInputProps,
+    open,
+    image,
+    setImage,
+  } = useUpdateUserPage();
   return (
     <PageSkeleton>
-      {/* <input {...getInputProps()} /> */}
+      <input {...getInputProps()} />
       <PageHeader breadcrumbs={[{ href: '', title: t('routes.edit') }]} />
       <form onSubmit={handleSubmit}>
         <TextField
@@ -42,6 +53,16 @@ const Page = () => {
           error={errors.password}
           label={t('editor.content.password')}
         />
+        <div>
+          {!image ? (
+            <Button variant={'light'} type="button" onClick={open}>
+              <IconStaple width={24} height={24} />
+              {t('editor.cover.label')}
+            </Button>
+          ) : (
+            <Cover src={''} onRemove={() => setImage(undefined)} />
+          )}
+        </div>
         <Button type={'submit'} disabled={!isValid}>
           {t('controls.refresh')}
         </Button>

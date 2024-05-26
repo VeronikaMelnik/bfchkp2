@@ -1,15 +1,24 @@
 import { useFormik } from 'formik';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetCurrentUser } from '@features/User/hook/getCurrent';
 import { useUpdateUser } from '@features/User/hook/update';
-import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { useUploadUserImage } from '@features/User/hook/useUploadUserImage';
+import {
+  AppRoutes,
+  AppRoutesEnum,
+  IMAGE_TYPES,
+  MAX_IMAGE_SIZE,
+} from '@shared/constants';
 
 export const useUpdateUserPage = () => {
   const { id } = useParams<{ id: string }>() as { id: string };
   const { update, validate } = useUpdateUser();
   const { t } = useTranslation('users');
+  const [image, setImage] = useState<File>();
+  const { handleUploadImage } = useUploadUserImage();
   const navigate = useNavigate();
   const { getData } = useGetCurrentUser();
 
@@ -41,11 +50,23 @@ export const useUpdateUserPage = () => {
           },
           id,
         });
+        if (image) {
+          await handleUploadImage(image);
+        }
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
+          navigate(AppRoutes[AppRoutesEnum.NEWS]());
         }
       },
     });
+  const onDrop = useCallback(async (files: File[]) => {
+    setImage(files[0]);
+  }, []);
+  const { getInputProps, open } = useDropzone({
+    maxFiles: 1,
+    accept: IMAGE_TYPES,
+    maxSize: 4 * MAX_IMAGE_SIZE,
+    onDrop,
+  });
 
   const handleGetData = useCallback(async () => {
     const oldData = await getData();
@@ -61,12 +82,16 @@ export const useUpdateUserPage = () => {
     handleGetData();
   }, [handleGetData]);
   return {
+    handleUploadImage,
     values,
     errors,
     setFieldValue,
     handleSubmit,
     isValid,
     t,
+    getInputProps,
     open,
+    image,
+    setImage,
   };
 };

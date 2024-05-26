@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { useGetMembersList } from '@features/Admin/Members';
-import { useDeleteNews } from '@features/Admin/News/hooks/delete';
+import { useDeleteMembers } from '@features/Admin/Members/hooks/delete';
 import { IMember } from '@entities/types';
 import {
   AppRoutes,
@@ -17,7 +17,7 @@ export const useList = () => {
   const { t } = useTranslation('members');
   const { getData, total } = useGetMembersList();
   const [search, setSearch] = useState('');
-  const { onDelete } = useDeleteNews();
+  const { onDelete } = useDeleteMembers();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
@@ -45,7 +45,7 @@ export const useList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(AppRoutes[AppRoutesEnum.CREATE_NEWS]());
+    navigate(AppRoutes[AppRoutesEnum.CREATE_MEMBERS]());
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =

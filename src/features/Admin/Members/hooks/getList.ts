@@ -21,7 +21,7 @@ export const useGetMembersList = () => {
         } = await axiosApi.get<Members>('/api/admin/members', {
           params,
         });
-        setTotal(total);
+        setTotal(Math.floor(total / params.perPage));
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

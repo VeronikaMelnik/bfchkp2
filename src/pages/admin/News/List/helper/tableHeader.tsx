@@ -15,13 +15,13 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
       width: 92,
     },
     {
-      name: 'descipription',
+      name: 'title',
       label: (
         <Text fontWeight="regular" variant="body14">
           {t('header.newsTitle')}
         </Text>
       ),
-      width: 230,
+      width: 300,
     },
     {
       name: 'text',
@@ -30,7 +30,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('header.newsText')}
         </Text>
       ),
-      width: 350,
+      width: 650,
     },
     {
       name: 'date',

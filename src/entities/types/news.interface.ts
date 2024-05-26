@@ -5,6 +5,7 @@ import { BaseEntity } from './global.interface';
 import { IFile } from './image.interface';
 
 export interface INews extends BaseEntity {
+  data: INews | undefined;
   title: IDictionary;
   description: IDictionary;
   image: IFile;

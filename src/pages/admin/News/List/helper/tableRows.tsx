@@ -19,10 +19,11 @@ export const useTableRows = ({ data, onDelete }: Props) => {
           {title[i18n.language as LanguageEnum]}
         </TableText>
       ),
-      date: <TableText>{format(new Date(createdAt), 'dd.MM.yy')}</TableText>,
       text: <TableText>{description[i18n.language as LanguageEnum]}</TableText>,
+      date: <TableText>{format(new Date(createdAt), 'dd.MM.yy')}</TableText>,
       controls: (
         <TableControls
+          getDetailsRoute={AppRoutes[AppRoutesEnum.NEWS_CURRENT]}
           getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_NEWS]}
           onDelete={onDelete(id)}
           id={id}

@@ -2,11 +2,15 @@ import {
   AdminNewsListPage,
   AdminTeamsListPage,
   CreateNewsPage,
+  CreateTeamsPage,
+  UpdateTeamsPage,
 } from '@pages/admin';
-import { AdminMembersListPage } from '@pages/admin/Members';
+import { AdminMembersListPage, CreateMembersPage } from '@pages/admin/Members';
 import { UpdateNewsPage } from '@pages/admin/News/Update';
 import { AdminResutsListPage } from '@pages/admin/Results';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
+import { ChampionshipsListPage } from '@pages/championships';
+import { CurrentChampionshipsPage } from '@pages/championships/Current';
 import { CoachesPage } from '@pages/coaches';
 import { DisciplinesPage } from '@pages/disciplines';
 import { ForbiddenPage } from '@pages/Forbidden';
@@ -69,7 +73,7 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   },
   [AppRoutesEnum.CREATE_MEMBERS]: {
     path: AppRoutes[AppRoutesEnum.CREATE_MEMBERS](),
-    element: <NotFoundPage />,
+    element: <CreateMembersPage />,
     authOnly: true,
   },
   [AppRoutesEnum.ADMIN_TEAMS]: {
@@ -79,12 +83,12 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   },
   [AppRoutesEnum.UPDATE_TEAMS]: {
     path: AppRoutes[AppRoutesEnum.UPDATE_TEAMS](':id'),
-    element: <NotFoundPage />,
+    element: <UpdateTeamsPage />,
     authOnly: true,
   },
   [AppRoutesEnum.CREATE_TEAMS]: {
     path: AppRoutes[AppRoutesEnum.CREATE_TEAMS](),
-    element: <NotFoundPage />,
+    element: <CreateTeamsPage />,
     authOnly: true,
   },
   [AppRoutesEnum.ADMIN_EVENTS]: {
@@ -225,6 +229,11 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
     element: <CurrentNewsPage />,
     authOnly: false,
   },
+  [AppRoutesEnum.CHAMPIONSHIPS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.CHAMPIONSHIPS_CURRENT](':id'),
+    element: <CurrentChampionshipsPage />,
+    authOnly: false,
+  },
   [AppRoutesEnum.EVENT_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.EVENT_CURRENT](':id'),
     element: <NotFoundPage />,
@@ -264,7 +273,7 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   },
   [AppRoutesEnum.CHAMPIONSHIPS]: {
     path: AppRoutes[AppRoutesEnum.CHAMPIONSHIPS](),
-    element: <NotFoundPage />,
+    element: <ChampionshipsListPage />,
     authOnly: false,
   },
   [AppRoutesEnum.RESULTS]: {

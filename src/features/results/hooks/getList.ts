@@ -32,8 +32,7 @@ export const useGetUserResultsList = () => {
         } = await axiosApi.get<Data>('/judges/results', {
           params,
         });
-        // toDo: update from server
-        setTotal(Math.ceil(total / params.perPage));
+        setTotal(Math.floor(total / params.perPage));
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

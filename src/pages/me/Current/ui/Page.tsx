@@ -1,5 +1,5 @@
 import { PageHeader, PageSkeleton } from '@entities/components';
-import { CoachesCard } from '@entities/components/cards/coaches';
+import { UserCard } from '@entities/components/cards/me';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
 import { Button, Card } from '@shared/ui';
@@ -25,13 +25,8 @@ export default () => {
           <IconPlus width={24} height={24} />
           {t('controls.edit')}
         </Button>
-        <Button onClick={handleEditClick}>
-          <IconPlus width={24} height={24} />
-          {t('controls.editPhoto')}
-        </Button>
       </Card>
-      {/* <img src={news?.image.url} className={styles.newsImage} /> */}
-      <CoachesCard
+      <UserCard
         image={users?.person.image?.url}
         experience={users?.email}
         name={users?.person.name}

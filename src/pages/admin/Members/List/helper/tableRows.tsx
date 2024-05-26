@@ -1,6 +1,5 @@
 import { TableControls, TableText } from '@entities/components';
 import { IMember } from '@entities/types';
-import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 interface Props {
   data: Array<IMember>;
@@ -14,13 +13,7 @@ export const useTableRows = ({ data, onDelete }: Props) => {
       name: <TableText fontWeight="medium">{person.name}</TableText>,
       lastName: <TableText fontWeight="medium">{person.lastName}</TableText>,
       team: <TableText fontWeight="medium">{team.name}</TableText>,
-      controls: (
-        <TableControls
-          getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_MEMBERS]}
-          onDelete={onDelete(id)}
-          id={id}
-        />
-      ),
+      controls: <TableControls onDelete={onDelete(id)} id={id} />,
     };
   });
 };

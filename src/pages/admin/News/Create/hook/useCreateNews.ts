@@ -1,22 +1,13 @@
 import { useFormik } from 'formik';
-import { useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useCreateNews, useUploadNewsImage } from '@features/Admin';
-import {
-  AppRoutes,
-  AppRoutesEnum,
-  IMAGE_TYPES,
-  MAX_IMAGE_SIZE,
-} from '@shared/constants';
+import { useCreateNews } from '@features/Admin';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCreateNewsPage = () => {
   const { create, validate } = useCreateNews();
   const { t } = useTranslation('news');
-  const [image, setImage] = useState<File>();
   const navigate = useNavigate();
-  const { handleUploadImage } = useUploadNewsImage();
 
   const initialValues = {
     title_ru: '',
@@ -70,35 +61,19 @@ export const useCreateNewsPage = () => {
           en: description_en,
         },
       });
-      // if (data && data.id && image) {
-      //   await handleUploadImage(image, data.id);
-      // }
       if (data) {
         navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
       }
     },
   });
-  const onDrop = useCallback(async (files: File[]) => {
-    setImage(files[0]);
-  }, []);
-  const { getInputProps, open } = useDropzone({
-    maxFiles: 1,
-    accept: IMAGE_TYPES,
-    maxSize: 4 * MAX_IMAGE_SIZE,
-    onDrop,
-  });
 
   return {
-    handleUploadImage,
     values,
     errors,
     setFieldValue,
     handleSubmit,
     isValid,
     t,
-    getInputProps,
     open,
-    image,
-    // setImage,
   };
 };

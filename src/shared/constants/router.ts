@@ -1,6 +1,7 @@
 export enum AppRoutesEnum {
   // User pages
   NEWS_CURRENT,
+  CHAMPIONSHIPS_CURRENT,
   EVENT_CURRENT,
   MEETINGS_CURRENT,
   FORBIDDEN,
@@ -81,6 +82,7 @@ export enum AppRoutesEnum {
   // not found
   NOT_FOUND,
   ADMIN_ROLES,
+  MAIN,
 }
 
 export const AppRoutes = {
@@ -94,6 +96,8 @@ export const AppRoutes = {
   [AppRoutesEnum.ACTIVITY]: () => '/activity',
   [AppRoutesEnum.SERVICES]: () => '/services',
   [AppRoutesEnum.CHAMPIONSHIPS]: () => '/championships',
+  [AppRoutesEnum.CHAMPIONSHIPS_CURRENT]: (id: number | string) =>
+    `/championship/${id}`,
   [AppRoutesEnum.RESULTS]: () => '/results',
   [AppRoutesEnum.JUDGES]: () => '/judges',
   [AppRoutesEnum.TEAMS]: () => '/teams',

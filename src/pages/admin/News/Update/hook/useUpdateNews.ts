@@ -84,7 +84,7 @@ export const useUpdateNewsPage = () => {
           await handleUploadImage(image, data.data.id);
         }
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
+          navigate(AppRoutes[AppRoutesEnum.NEWS]());
         }
       },
     });

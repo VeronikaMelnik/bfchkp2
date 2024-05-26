@@ -33,5 +33,5 @@ export const useCurrentUser = () => {
     navigate(AppRoutes[AppRoutesEnum.UPDATE_USER]());
   }, [navigate]);
 
-  return { users, isLoading, t, handleEditClick };
+  return { setUsers, users, isLoading, t, handleEditClick };
 };

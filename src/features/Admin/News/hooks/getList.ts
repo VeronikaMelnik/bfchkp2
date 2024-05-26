@@ -21,7 +21,7 @@ export const useGetNewsList = () => {
         } = await axiosApi.get<Result>('/api/news', {
           params,
         });
-        setTotal(total);
+        setTotal(Math.floor(total / params.perPage));
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

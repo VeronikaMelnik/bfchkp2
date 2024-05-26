@@ -4,23 +4,10 @@ import { Button, TextField } from '@shared/ui';
 import { useCreateNewsPage } from '../hook/';
 
 const Page = () => {
-  const {
-    // handleUploadImage,
-    errors,
-    handleSubmit,
-    setFieldValue,
-    values,
-    isValid,
-    t,
-    // getInputProps,
-    // handleUploadImage,
-    // open,
-    // setImage,
-    // image,
-  } = useCreateNewsPage();
+  const { errors, handleSubmit, setFieldValue, values, isValid, t } =
+    useCreateNewsPage();
   return (
     <PageSkeleton>
-      {/* <input {...getInputProps()} /> */}
       <PageHeader
         breadcrumbs={[
           {
@@ -79,16 +66,6 @@ const Page = () => {
           error={errors.description_en}
           label={t('editor.content.description_en')}
         />
-        {/* <div>
-          {!image ? (
-            <Button variant={'light'} type="button" onClick={open}>
-              <IconStaple width={24} height={24} />
-              {t('editor.cover.label')}
-            </Button>
-          ) : (
-            <Cover src={''} onRemove={() => setImage(undefined)} />
-          )}
-        </div> */}
         <Button type={'submit'} disabled={!isValid}>
           {t('controls.publish')}
         </Button>

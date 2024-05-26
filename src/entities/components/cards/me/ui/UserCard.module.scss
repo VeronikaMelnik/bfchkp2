@@ -1,0 +1,53 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  height: 120px;
+  gap: 16px;
+}
+
+.imageWrapper {
+  display: flex;
+  position: relative;
+  width: 50%;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: contain;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  max-height: 500px;
+  width: auto;
+}
+
+.timeStamp {
+  position: absolute;
+  top: 12px;
+  left: 9px;
+  z-index: 2;
+  font-weight: 400;
+}
+
+.title {
+  max-height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-80);
+}
+
+.name {
+  font-size: 21px;
+}
+
+.lastName {
+  padding-left: 6px;
+  font-size: 21px;
+}
+
+.textContent {
+  max-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-50);
+}

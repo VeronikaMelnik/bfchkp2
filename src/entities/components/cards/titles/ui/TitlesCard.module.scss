@@ -7,6 +7,14 @@
   justify-content: center;
 }
 
+.timeStamp {
+  position: absolute;
+  top: 12px;
+  left: 9px;
+  z-index: 2;
+  font-weight: 400;
+}
+
 .title {
   max-height: 48px;
   text-overflow: ellipsis;

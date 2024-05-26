@@ -28,8 +28,7 @@ export const useGetUserEventsList = () => {
         } = await axiosApi.get<BaseResponse<Array<INews>>>('/events', {
           params,
         });
-        // toDo: update from server
-        setTotal(data.length);
+        setTotal(Math.floor(total / params.perPage));
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));
@@ -38,7 +37,7 @@ export const useGetUserEventsList = () => {
         setIsLoading(false);
       }
     },
-    [t],
+    [t, total],
   );
 
   return {
