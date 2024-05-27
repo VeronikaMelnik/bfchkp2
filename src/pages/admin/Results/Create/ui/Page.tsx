@@ -1,28 +1,30 @@
 import { isValid } from 'date-fns';
 import { PageHeader, PageSkeleton, StyledSelect } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { Button } from '@shared/ui';
-import { useCreateMembersPage } from '../hook/';
+import { Button, TextField } from '@shared/ui';
+import { useCreateResultsPage } from '../hook/';
 import styles from './Page.module.scss';
 
 const Page = () => {
   const {
     handleSubmit,
     t,
-    handleChangeTeamSelection,
-    teamsOptions,
-    isTeamsLoading,
+    handleChangeChampionshipSelection,
+    championshipsOptions,
+    isChampionshipsLoading,
     handleChangeMemberSelection,
     membersOptions,
     isMembersLoading,
-  } = useCreateMembersPage();
+    handlePlaceChange,
+    place,
+  } = useCreateResultsPage();
   return (
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.MEMBERS](),
-            title: t('routes.members'),
+            href: AppRoutes[AppRoutesEnum.RESULTS](),
+            title: t('routes.results'),
           },
           { href: '', title: t('routes.create') },
         ]}
@@ -31,11 +33,11 @@ const Page = () => {
         <div className={styles.form}>
           <StyledSelect
             isClearable={false}
-            label={t('editor.team.label')}
-            placeholder={t('editor.team.placeholder')}
-            onChange={handleChangeTeamSelection}
-            options={teamsOptions}
-            isLoading={isTeamsLoading}
+            label={t('editor.championship.label')}
+            placeholder={t('editor.championship.placeholder')}
+            onChange={handleChangeChampionshipSelection}
+            options={championshipsOptions}
+            isLoading={isChampionshipsLoading}
             className={styles.select}
           />
           <StyledSelect
@@ -47,7 +49,13 @@ const Page = () => {
             isLoading={isMembersLoading}
             className={styles.select}
           />
+          <TextField
+            value={place}
+            onChange={handlePlaceChange}
+            label={t('editor.place.label')}
+          />
         </div>
+
         <Button type={'submit'} disabled={!isValid}>
           {t('controls.publish')}
         </Button>

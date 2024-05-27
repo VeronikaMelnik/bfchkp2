@@ -1,3 +1,4 @@
+import { formatDate } from 'date-fns';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { CoachesCard } from '@entities/components/cards/coaches';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
@@ -21,10 +22,11 @@ export default () => {
         {results.map((el) => {
           return (
             <CoachesCard
+              image={el.member.person.image?.url}
               experience={el.championship.name}
               name={`${t('table.place_place')} ${el.place} —   ${el.member.person.name}`}
               lastName={el.member.person.lastName}
-              team={`${el.championship.date}`}
+              team={formatDate(el.championship.date, 'dd.MM.yyyy')}
               key={`news-card-${el.id}`}
             />
           );

@@ -7,7 +7,6 @@ import {
   INewsSort,
   ListParams,
 } from '@entities/types';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 
 interface Params extends ListParams {
   sort: INewsSort;
@@ -22,12 +21,12 @@ export const useChampionshipsListPage = () => {
   useEffect(() => {
     const newsParams: Params = {
       page: 1,
-      perPage: INITIAL_PER_PAGE,
+      perPage: 50,
       filter: {
         status: 1,
       },
       sort: {
-        created_at: 'asc',
+        id: 'asc',
       },
     };
     getData(newsParams).then((val) => {

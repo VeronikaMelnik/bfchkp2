@@ -9,17 +9,17 @@
 .imageWrapper {
   display: flex;
   position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 307 / 180;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .image {
   object-fit: cover;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-  width: 100%;
+  height: 320px;
+  width: auto;
+  max-width: 300px;
 }
 
 .timeStamp {

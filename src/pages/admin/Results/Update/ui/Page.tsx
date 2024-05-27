@@ -1,44 +1,51 @@
 import { isValid } from 'date-fns';
 import { PageHeader, PageSkeleton, StyledSelect } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { Button } from '@shared/ui';
-import { useCreateMembersPage } from '../hook/';
+import { Button, TextField } from '@shared/ui';
+import { useUpdateResultsPage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
   const {
     handleSubmit,
     t,
-    handleChangeTeamSelection,
-    teamsOptions,
-    isTeamsLoading,
+    handleChangeChampionshipSelection,
+    championshipsOptions,
+    isChampionshipsLoading,
     handleChangeMemberSelection,
     membersOptions,
     isMembersLoading,
-  } = useCreateMembersPage();
+    handlePlaceChange,
+    place,
+    selectedChampionship,
+    selectedMember,
+    isCurrentResultLoading,
+  } = useUpdateResultsPage();
   return (
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.MEMBERS](),
-            title: t('routes.members'),
+            href: AppRoutes[AppRoutesEnum.RESULTS](),
+            title: t('routes.results'),
           },
-          { href: '', title: t('routes.create') },
+          { href: '', title: t('routes.update') },
         ]}
       />
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.form}>
           <StyledSelect
+            value={selectedChampionship}
             isClearable={false}
-            label={t('editor.team.label')}
-            placeholder={t('editor.team.placeholder')}
-            onChange={handleChangeTeamSelection}
-            options={teamsOptions}
-            isLoading={isTeamsLoading}
+            label={t('editor.championship.label')}
+            placeholder={t('editor.championship.placeholder')}
+            onChange={handleChangeChampionshipSelection}
+            options={championshipsOptions}
+            isLoading={isChampionshipsLoading}
             className={styles.select}
           />
           <StyledSelect
+            value={selectedMember}
             isClearable={false}
             label={t('editor.member.label')}
             placeholder={t('editor.member.placeholder')}
@@ -47,9 +54,15 @@ const Page = () => {
             isLoading={isMembersLoading}
             className={styles.select}
           />
+          <TextField
+            value={place}
+            onChange={handlePlaceChange}
+            label={t('editor.place.label')}
+          />
         </div>
-        <Button type={'submit'} disabled={!isValid}>
-          {t('controls.publish')}
+
+        <Button type={'submit'} disabled={!isValid || isCurrentResultLoading}>
+          {t('controls.update')}
         </Button>
       </form>
     </PageSkeleton>

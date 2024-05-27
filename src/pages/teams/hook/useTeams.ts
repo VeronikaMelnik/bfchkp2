@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useGetUserTeamsList } from '@features/teams';
 import { INewsFilter, INewsSort, ListParams } from '@entities/types';
 import { ITeam } from '@entities/types/team.interface';
-import { INITIAL_PER_PAGE, LanguageEnum } from '@shared/constants';
 
 interface Params extends ListParams {
   sort: INewsSort;
@@ -11,19 +10,19 @@ interface Params extends ListParams {
 }
 
 export const useTeamsListPage = () => {
-  const { t, i18n } = useTranslation('teams');
+  const { t } = useTranslation('teams');
   const { getData, isLoading } = useGetUserTeamsList();
   const [teams, setTeam] = useState<Array<ITeam>>([]);
 
   useEffect(() => {
     const teamsParams: Params = {
       page: 1,
-      perPage: INITIAL_PER_PAGE,
+      perPage: 50,
       filter: {
         status: 1,
       },
       sort: {
-        created_at: 'asc',
+        id: 'asc',
       },
     };
     getData(teamsParams).then((val) => {
@@ -32,5 +31,5 @@ export const useTeamsListPage = () => {
       }
     });
   }, [getData]);
-  return { teams, isLoading, t, i18n, lang: i18n.language as LanguageEnum };
+  return { teams, isLoading, t };
 };

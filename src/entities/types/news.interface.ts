@@ -18,4 +18,4 @@ export interface INewsFilter {
   status?: keyof typeof NewsStatusEnum;
 }
 
-export type INewsSort = { created_at: SortOrder } | { status: SortOrder };
+export type INewsSort = { id: SortOrder } | { status: SortOrder };

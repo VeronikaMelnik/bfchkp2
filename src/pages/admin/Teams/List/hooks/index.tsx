@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
-import { useDeleteNews } from '@features/Admin/News/hooks/delete';
 import { useGetTeamsList } from '@features/Admin/Teams';
+import { useDeleteTeam } from '@features/Admin/Teams/hooks/delete';
 import { ITeam } from '@entities/types/team.interface';
 import {
   AppRoutes,
@@ -17,7 +17,7 @@ export const useList = () => {
   const { t } = useTranslation('teams');
   const { getData, total } = useGetTeamsList();
   const [search, setSearch] = useState('');
-  const { onDelete } = useDeleteNews();
+  const { onDelete } = useDeleteTeam();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);

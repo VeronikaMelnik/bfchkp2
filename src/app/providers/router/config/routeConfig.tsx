@@ -8,6 +8,8 @@ import {
 import { AdminMembersListPage, CreateMembersPage } from '@pages/admin/Members';
 import { UpdateNewsPage } from '@pages/admin/News/Update';
 import { AdminResutsListPage } from '@pages/admin/Results';
+import { CreateResultsPage } from '@pages/admin/Results/Create';
+import { UpdateResultsPage } from '@pages/admin/Results/Update';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { ChampionshipsListPage } from '@pages/championships';
 import { CurrentChampionshipsPage } from '@pages/championships/Current';
@@ -53,12 +55,12 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   },
   [AppRoutesEnum.UPDATE_RESULTS]: {
     path: AppRoutes[AppRoutesEnum.UPDATE_RESULTS](':id'),
-    element: <NotFoundPage />,
+    element: <UpdateResultsPage />,
     authOnly: true,
   },
   [AppRoutesEnum.CREATE_RESULTS]: {
     path: AppRoutes[AppRoutesEnum.CREATE_RESULTS](),
-    element: <NotFoundPage />,
+    element: <CreateResultsPage />,
     authOnly: true,
   },
   [AppRoutesEnum.ADMIN_MEMBERS]: {
@@ -91,135 +93,9 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
     element: <CreateTeamsPage />,
     authOnly: true,
   },
-  [AppRoutesEnum.ADMIN_EVENTS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.UPDATE_EVENT]: {
-    path: AppRoutes[AppRoutesEnum.UPDATE_EVENT](':id'),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.CREATE_EVENT]: {
-    path: AppRoutes[AppRoutesEnum.CREATE_EVENT](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ADMIN_MEETINGS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.UPDATE_MEETINGS]: {
-    path: AppRoutes[AppRoutesEnum.UPDATE_MEETINGS](':id'),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.CREATE_MEETINGS]: {
-    path: AppRoutes[AppRoutesEnum.CREATE_MEETINGS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ADMIN_LOYALTY]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ADMIN_NOTIFICATIONS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_NOTIFICATIONS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ADMIN_VOTING]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_VOTING](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ADMIN_SETTINGS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
+
   [AppRoutesEnum.USERS]: {
     path: AppRoutes[AppRoutesEnum.USERS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.PASSPORT]: {
-    path: AppRoutes[AppRoutesEnum.PASSPORT](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.INFORM]: {
-    path: AppRoutes[AppRoutesEnum.INFORM](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.INVOCATION]: {
-    path: AppRoutes[AppRoutesEnum.INVOCATION](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ENGINEERING]: {
-    path: AppRoutes[AppRoutesEnum.ENGINEERING](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.SECURITY]: {
-    path: AppRoutes[AppRoutesEnum.SECURITY](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.SECURITY_ACCESS]: {
-    path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.SECURITY_INTERCOM]: {
-    path: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.SECURITY_VIDEO]: {
-    path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-
-  [AppRoutesEnum.STATISTIC]: {
-    path: AppRoutes[AppRoutesEnum.STATISTIC](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
-  },
-  [AppRoutesEnum.ACCOUNTING]: {
-    path: AppRoutes[AppRoutesEnum.ACCOUNTING](),
     element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
@@ -326,54 +202,6 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
     element: <NotFoundPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.REQUESTS]: {
-    path: AppRoutes[AppRoutesEnum.REQUESTS](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    // acceptedRoles: [],
-  },
-  [AppRoutesEnum.REQUESTS_CREATE]: {
-    path: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    // acceptedRoles: [],
-  },
-  [AppRoutesEnum.REQUESTS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.REQUESTS_CURRENT](':id'),
-    element: <NotFoundPage />,
-    authOnly: true,
-    // acceptedRoles: [],
-  },
-  [AppRoutesEnum.APPLICATIONS]: {
-    path: AppRoutes[AppRoutesEnum.APPLICATIONS](),
-    element: <NotFoundPage />,
-    // element: <ApplicationsMainPage />,
-    authOnly: true,
-    // acceptedRoles: [],
-  },
-  [AppRoutesEnum.APPLICATIONS_CREATE]: {
-    path: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
-    element: <NotFoundPage />,
-    // element: <CreateApplicationPage />,
-    authOnly: true,
-    // acceptedRoles: [],
-  },
-  [AppRoutesEnum.SHUTDOWNS]: {
-    path: AppRoutes[AppRoutesEnum.SHUTDOWNS](),
-    element: <NotFoundPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.KNOWLEDGE]: {
-    path: AppRoutes[AppRoutesEnum.KNOWLEDGE](),
-    element: <NotFoundPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.SETTINGS]: {
-    path: AppRoutes[AppRoutesEnum.SETTINGS](),
-    element: <NotFoundPage />,
-    authOnly: false,
-  },
-
   [AppRoutesEnum.FORBIDDEN]: {
     path: AppRoutes[AppRoutesEnum.FORBIDDEN](),
     element: <ForbiddenPage />,

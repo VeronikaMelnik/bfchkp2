@@ -11,7 +11,6 @@ export const useGetUserJudgesList = () => {
     setIsLoading(true);
     try {
       const { data } = await axiosApi.get<Array<IJudge>>('/judges');
-      // toDo: update from server
       return data;
     } catch (error) {
       toast.error(t('toast.listError'));

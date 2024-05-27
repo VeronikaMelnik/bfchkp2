@@ -1,3 +1,4 @@
+import { formatDate } from 'date-fns';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { ChampionshipsCard } from '@entities/components/cards/championships';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
@@ -11,21 +12,22 @@ export default () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('routes.news') },
+          {
+            href: AppRoutes[AppRoutesEnum.NEWS](),
+            title: t('routes.news'),
+          },
         ]}
       />
       <div className={styles.wrapper}>
-        {news.map((el) => {
-          return (
-            <ChampionshipsCard
-              link={AppRoutes[AppRoutesEnum.CHAMPIONSHIPS_CURRENT](el.id)}
-              name={`${el.date}`}
-              nameTitle={el.name}
-              key={`news-card-${el.id}`}
-              published_date={new Date(el.createdAt)}
-            />
-          );
-        })}
+        {news.map((el) => (
+          <ChampionshipsCard
+            link={''}
+            nameTitle={el.name}
+            judges={[el.championShipJudges?.judge?.person.name] || undefined}
+            key={`news-card-${el.id}`}
+            published_date={formatDate(el.date, 'dd.MM.yyyy')}
+          />
+        ))}
       </div>
     </PageSkeleton>
   );

@@ -1,8 +1,10 @@
+import { IChampionshipDiscipline } from './championshipJudge.interface';
+import { IChampionshipJudge } from './championshipJudge.interface copy';
 import { BaseEntity } from './global.interface';
 
-export interface IChampionshipShort extends BaseEntity {
+export interface IChampionship extends BaseEntity {
   name: string;
   date: Date;
+  championShipJudges: IChampionshipJudge;
+  championShipDisciplines: IChampionshipDiscipline;
 }
-
-export interface IChampionship extends IChampionshipShort {}

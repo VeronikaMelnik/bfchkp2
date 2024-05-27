@@ -22,7 +22,7 @@ export const useGetTeamsList = () => {
         } = await axiosApi.get<Result>('/coaches/teams', {
           params,
         });
-        setTotal(Math.floor(total / params.perPage));
+        setTotal(total);
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

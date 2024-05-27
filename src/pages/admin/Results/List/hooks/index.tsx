@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
-import { useDeleteNews } from '@features/Admin/News/hooks/delete';
 import { useGetResultsList } from '@features/Admin/Results';
+import { useDeleteResults } from '@features/Admin/Results/hooks/delete';
 import { IResult } from '@entities/types';
 import {
   AppRoutes,
@@ -17,7 +17,7 @@ export const useList = () => {
   const { t } = useTranslation('results');
   const { getData, total } = useGetResultsList();
   const [search, setSearch] = useState('');
-  const { onDelete } = useDeleteNews();
+  const { onDelete } = useDeleteResults();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);

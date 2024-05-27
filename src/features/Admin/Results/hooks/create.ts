@@ -3,16 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { SafeParseError, z } from 'zod';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, IMember } from '@entities/types';
+import { BaseResponse, IResult } from '@entities/types';
 
-export const useCreateMembers = () => {
+export const useCreateResults = () => {
   const { t } = useTranslation();
   const schema = z.object({
-    teamId: z
+    place: z.number().min(1, t('errors.required')).max(256, t('errors.max256')),
+    memberId: z
       .number()
       .min(1, t('errors.required'))
       .max(256, t('errors.max256')),
-    personId: z
+    championshipId: z
       .number()
       .min(1, t('errors.required'))
       .max(256, t('errors.max256')),
@@ -21,8 +22,8 @@ export const useCreateMembers = () => {
   type ValuesType = z.infer<typeof schema>;
 
   const validate = useCallback(
-    (members: ValuesType) => {
-      const res = schema.safeParse(members) as SafeParseError<ValuesType>;
+    (results: ValuesType) => {
+      const res = schema.safeParse(results) as SafeParseError<ValuesType>;
       if (res.error) {
         return res.error.formErrors.fieldErrors;
       }
@@ -31,8 +32,8 @@ export const useCreateMembers = () => {
   );
 
   const create = useCallback(
-    async (members: ValuesType) => {
-      const errors = validate(members);
+    async (results: ValuesType) => {
+      const errors = validate(results);
       if (errors) {
         Object.entries(errors).forEach(([key, value]) => {
           toast.error(`${key}: ${value}`);
@@ -42,9 +43,9 @@ export const useCreateMembers = () => {
       try {
         const {
           data: { data },
-        } = await axiosApi.post<BaseResponse<IMember>>(
-          'api/admin/team/members',
-          members,
+        } = await axiosApi.post<BaseResponse<IResult>>(
+          'api/admin/result',
+          results,
         );
         toast.success(t('toast.createSuccess'));
         return data;

@@ -32,7 +32,7 @@ export const useGetUserTeamsList = () => {
         } = await axiosApi.get<Data>('/coaches/teams', {
           params,
         });
-        setTotal(Math.floor(total / params.perPage));
+        setTotal(total);
         return data;
       } catch (error) {
         toast.error(t('toast.listError'));

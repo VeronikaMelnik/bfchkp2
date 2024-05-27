@@ -28,7 +28,7 @@ export const useNewsSlider = ({ defaultSlide = 0 }: Props) => {
         status: 1,
       },
       sort: {
-        created_at: 'asc',
+        id: 'asc',
       },
     };
     getData(newsParams).then((val) => {

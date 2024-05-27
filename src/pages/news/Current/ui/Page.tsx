@@ -15,7 +15,10 @@ export default () => {
           { href: '', title: news?.title[i18n.language as LanguageEnum] || '' },
         ]}
       />
-      <img src={news?.image.url} className={styles.newsImage} />
+      <img
+        src={news?.image?.url || 'https://i.postimg.cc/LXtx1fzJ/sdefrgtbh.jpg'}
+        className={styles.newsImage}
+      />
       <ContentWidget
         html={news && news.description[i18n.language as LanguageEnum]}
         created_at={news && new Date(news.createdAt)}

@@ -21,16 +21,16 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('header.championshipPlace')}
         </Text>
       ),
-      width: 230,
+      width: 130,
     },
     {
       name: 'name',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.championshipPlace')}
+          {t('header.championship')}
         </Text>
       ),
-      width: 350,
+      width: 250,
     },
     {
       name: 'personName',

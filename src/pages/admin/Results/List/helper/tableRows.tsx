@@ -17,7 +17,7 @@ export const useTableRows = ({ data, onDelete }: Props) => {
       personLastName: <TableText>{member.person.lastName}</TableText>,
       controls: (
         <TableControls
-          getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_NEWS]}
+          getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_RESULTS]}
           onDelete={onDelete(id)}
           id={id}
         />

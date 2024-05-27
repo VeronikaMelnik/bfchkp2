@@ -18,6 +18,7 @@ export default () => {
         {teams.map((el) => {
           return (
             <CoachesCard
+              image={el.logo || 'https://i.postimg.cc/NMqNFbrh/23.jpg'}
               experience={el.city}
               name={el.name}
               lastName={''}

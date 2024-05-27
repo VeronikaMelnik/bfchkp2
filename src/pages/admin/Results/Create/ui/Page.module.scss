@@ -1,0 +1,21 @@
+.select {
+  display: inline-block;
+  width: 80%;
+  z-index: 3;
+
+  &_role {
+    width: 448px;
+    z-index: 1;
+    position: absolute;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4vh;
+
+  >* {
+    flex-basis: 48%;
+  }
+}
