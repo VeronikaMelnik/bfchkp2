@@ -11,7 +11,7 @@ export default () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('routes.teams') },
+          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('sidebar.teams') },
         ]}
       />
       <div className={styles.wrapper}>

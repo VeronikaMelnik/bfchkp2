@@ -18,7 +18,7 @@ import {
 export const useUpdateNewsPage = () => {
   const { id } = useParams<{ id: string }>() as { id: string };
   const { update, validate } = useUpdateNews();
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const [image, setImage] = useState<File>();
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadNewsImage();

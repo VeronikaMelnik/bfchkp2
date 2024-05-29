@@ -20,7 +20,7 @@ interface Data extends PaginationResponse {
 }
 
 export const useGetUserTeamsList = () => {
-  const { t } = useTranslation('teams');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const getData = useCallback(

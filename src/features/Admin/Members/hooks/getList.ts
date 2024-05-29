@@ -11,7 +11,7 @@ interface Members {
 }
 
 export const useGetMembersList = () => {
-  const { t } = useTranslation('members');
+  const { t } = useTranslation();
   const [total, setTotal] = useState(0);
   const getData = useCallback(
     async (params: Params) => {

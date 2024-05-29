@@ -3,13 +3,13 @@ import { Text } from '@shared/ui';
 import { ConfigItemType } from '@shared/ui/Table';
 
 export const useTableHeader: () => Array<ConfigItemType> = () => {
-  const { t } = useTranslation('table');
+  const { t } = useTranslation();
   return [
     {
       name: 'id',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('table.index')}
+          {t('field.index')}
         </Text>
       ),
       width: 92,
@@ -18,25 +18,25 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
       name: 'title',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.newsTitle')}
+          {t('field.title')}
         </Text>
       ),
-      width: 300,
+      width: 100,
     },
     {
       name: 'text',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.newsText')}
+          {t('field.description')}
         </Text>
       ),
-      width: 650,
+      width: 250,
     },
     {
       name: 'date',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.newsDate')}
+          {t('field.date')}
         </Text>
       ),
     },

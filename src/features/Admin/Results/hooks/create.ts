@@ -8,15 +8,15 @@ import { BaseResponse, IResult } from '@entities/types';
 export const useCreateResults = () => {
   const { t } = useTranslation();
   const schema = z.object({
-    place: z.number().min(1, t('errors.required')).max(256, t('errors.max256')),
+    place: z.number().min(1, t('error.required')).max(256, t('error.max256')),
     memberId: z
       .number()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+      .min(1, t('error.required'))
+      .max(256, t('error.max256')),
     championshipId: z
       .number()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+      .min(1, t('error.required'))
+      .max(256, t('error.max256')),
   });
 
   type ValuesType = z.infer<typeof schema>;
@@ -47,11 +47,11 @@ export const useCreateResults = () => {
           'api/admin/result',
           results,
         );
-        toast.success(t('toast.createSuccess'));
+        toast.success(t('success.create'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.createError'));
+        toast.error(t('error.create'));
       }
     },
     [t, validate],

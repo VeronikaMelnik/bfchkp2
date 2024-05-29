@@ -16,10 +16,10 @@ export const useGetCurrentMember = (id: string) => {
       if (data) {
         return data;
       } else {
-        toast.error(t('errors.getError'));
+        toast.error(t('error.getError'));
       }
     } catch (error) {
-      toast.error(t('errors.getError'));
+      toast.error(t('error.getError'));
       console.error(error);
     } finally {
       setIsLoading(false);

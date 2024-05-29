@@ -11,7 +11,7 @@ interface Result {
 }
 
 export const useGetNewsList = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const [total, setTotal] = useState(0);
   const getData = useCallback(
     async (params: Params) => {

@@ -23,7 +23,7 @@ export const ContentUpdateActions = ({
   handleDelete,
 }: Props) => {
   const [openModal, setOpenModal] = useState(false);
-  const { t } = useTranslation('content');
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (

@@ -15,7 +15,7 @@ export const ContentCreateActions = ({
   isValid,
   setStatus,
 }: Props) => {
-  const { t } = useTranslation('content');
+  const { t } = useTranslation();
   return (
     <div className={classNames(styles.submitBlock, className)}>
       <Button

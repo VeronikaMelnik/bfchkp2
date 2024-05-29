@@ -20,11 +20,14 @@ export default () => {
         {coaches.map((el) => {
           return (
             <CoachesCard
-              image={el.person.image?.url}
-              experience={`${t('coaches.experience')} ${el.experience} ${t('coaches.years')}`}
+              image={
+                el.person.image?.url ||
+                'https://cdn-icons-png.flaticon.com/512/4837/4837857.png'
+              }
+              experience={`${t('table.experience')} ${el.experience} ${t('table.years')}`}
               name={el.person.name}
               lastName={el.person.lastName}
-              team={`${t('coaches.team')} ${el.team.name}`}
+              team={`${t('table.team')} ${el.team.name}`}
               key={`news-card-${el.id}`}
             />
           );

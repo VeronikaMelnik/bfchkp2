@@ -35,10 +35,10 @@ export const useGetChampionships = () => {
           setOptions(res);
           return data;
         } else {
-          toast.error(t('errors.getError'));
+          toast.error(t('error.getError'));
         }
       } catch (error) {
-        toast.error(t('errors.getError'));
+        toast.error(t('error.getError'));
         console.error(error);
       } finally {
         setIsLoading(false);

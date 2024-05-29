@@ -6,7 +6,7 @@ import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCreateTeamsPage = () => {
   const { create, validate } = useCreateTeams();
-  const { t } = useTranslation('teams');
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const initialValues = {

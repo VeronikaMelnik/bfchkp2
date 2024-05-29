@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const StatusLabel = ({ className, status }: Props) => {
-  const { t } = useTranslation('invocation');
+  const { t } = useTranslation();
   const iconConfig = {
     '1': <IconStar />,
     '2': <IconClockPast />,

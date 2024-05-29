@@ -10,7 +10,6 @@ interface Props {
   title: string;
   text: string;
   link?: string;
-
   published_date: Date;
 }
 
@@ -28,11 +27,11 @@ export const NewsCard = ({
         padding={0}
         flexDirection="column"
         gap={0}
-        className={classNames(className)}
+        className={classNames(className, styles['news-card'])}
       >
-        <div className={styles.imageWrapper}>
+        <div className={styles['image-wrapper']}>
           <img className={styles.image} src={image} alt={title} />
-          <Badge color="dark" className={styles.timeStamp}>
+          <Badge color="dark" className={styles.timestamp}>
             {format(published_date, 'dd.MM.yyyy')}
           </Badge>
         </div>

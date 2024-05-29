@@ -39,12 +39,14 @@
   border: var(--border-width) solid var(--dark-20) !important;
   border-radius: var(--radius-sm) !important;
   box-shadow: none !important;
+  padding: 4px 0;
 }
 
 .containerFocused {
   border: var(--border-width) solid var(--dark-30) !important;
   border-radius: var(--radius-sm) !important;
   box-shadow: none !important;
+  padding: 4px 0;
 }
 
 .menu {

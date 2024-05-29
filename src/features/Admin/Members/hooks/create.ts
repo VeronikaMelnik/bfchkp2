@@ -8,14 +8,11 @@ import { BaseResponse, IMember } from '@entities/types';
 export const useCreateMembers = () => {
   const { t } = useTranslation();
   const schema = z.object({
-    teamId: z
-      .number()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+    teamId: z.number().min(1, t('error.required')).max(256, t('error.max256')),
     personId: z
       .number()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+      .min(1, t('error.required'))
+      .max(256, t('error.max256')),
   });
 
   type ValuesType = z.infer<typeof schema>;
@@ -46,11 +43,11 @@ export const useCreateMembers = () => {
           'api/admin/team/members',
           members,
         );
-        toast.success(t('toast.createSuccess'));
+        toast.success(t('success.create'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.createError'));
+        toast.error(t('error.create'));
       }
     },
     [t, validate],

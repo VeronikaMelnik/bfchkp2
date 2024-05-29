@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const LinkDetails = ({ className, href }: Props) => {
-  const { t } = useTranslation('content');
+  const { t } = useTranslation();
   return (
     <div className={classNames(styles.wrapper, className)}>
       <Text className={styles.label} variant="body14" fontWeight="regular">

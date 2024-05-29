@@ -9,14 +9,14 @@ export const useCreateNews = () => {
   const { t } = useTranslation();
   const schema = z.object({
     title: z.object({
-      ru: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-      be: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-      en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      ru: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+      be: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+      en: z.string().min(1, t('error.required')).max(256, t('error.max256')),
     }),
     description: z.object({
-      ru: z.string().min(1, t('errors.required')),
-      be: z.string().min(1, t('errors.required')),
-      en: z.string().min(1, t('errors.required')),
+      ru: z.string().min(1, t('error.required')),
+      be: z.string().min(1, t('error.required')),
+      en: z.string().min(1, t('error.required')),
     }),
   });
 
@@ -45,11 +45,11 @@ export const useCreateNews = () => {
         const {
           data: { data },
         } = await axiosApi.post<BaseResponse<INews>>('api/admin/news', news);
-        toast.success(t('toast.createSuccess'));
+        toast.success(t('success.create'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.createError'));
+        toast.error(t('error.create'));
       }
     },
     [t, validate],

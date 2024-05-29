@@ -7,7 +7,7 @@ import { IUser } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCurrentUser = () => {
-  const { t } = useTranslation('users');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
   const [users, setUsers] = useState<IUser>();

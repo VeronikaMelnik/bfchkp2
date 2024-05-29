@@ -5,7 +5,7 @@ import { axiosApi } from '@entities/api';
 import { IDiscipline } from '@entities/types';
 
 export const useGetUserDisciplinesList = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const getData = useCallback(async () => {
     setIsLoading(true);

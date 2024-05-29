@@ -24,9 +24,9 @@ const Page = () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
-            title: t('routes.news'),
+            title: t('sidebar.news'),
           },
-          { href: '', title: t('routes.edit') },
+          { href: '', title: t('sidebar.edit') },
         ]}
       />
       <form onSubmit={handleSubmit}>
@@ -36,7 +36,7 @@ const Page = () => {
             setFieldValue('title_ru', ev.target.value);
           }}
           error={errors.title_ru}
-          label={t('editor.content.title_ru')}
+          label={t('field.title_ru')}
         />
         <TextField
           value={values.title_be}
@@ -44,7 +44,7 @@ const Page = () => {
             setFieldValue('title_be', ev.target.value);
           }}
           error={errors.title_be}
-          label={t('editor.content.title_be')}
+          label={t('field.title_be')}
         />
         <TextField
           value={values.title_en}
@@ -52,7 +52,7 @@ const Page = () => {
             setFieldValue('title_en', ev.target.value);
           }}
           error={errors.title_en}
-          label={t('editor.content.title_en')}
+          label={t('field.title_en')}
         />
         <TextField
           value={values.description_ru}
@@ -60,7 +60,7 @@ const Page = () => {
             setFieldValue('description_ru', ev.target.value);
           }}
           error={errors.description_ru}
-          label={t('editor.content.description_ru')}
+          label={t('field.description_ru')}
         />
         <TextField
           value={values.description_be}
@@ -68,7 +68,7 @@ const Page = () => {
             setFieldValue('description_be', ev.target.value);
           }}
           error={errors.description_be}
-          label={t('editor.content.description_be')}
+          label={t('field.description_be')}
         />
         <TextField
           value={values.description_en}
@@ -76,13 +76,13 @@ const Page = () => {
             setFieldValue('description_en', ev.target.value);
           }}
           error={errors.description_en}
-          label={t('editor.content.description_en')}
+          label={t('field.description_en')}
         />
         <div>
           {!image ? (
             <Button variant={'light'} type="button" onClick={open}>
               <IconStaple width={24} height={24} />
-              {t('editor.cover.label')}
+              {t('controls.image')}
             </Button>
           ) : (
             <Cover src={''} onRemove={() => setImage(undefined)} />

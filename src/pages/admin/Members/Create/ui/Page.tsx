@@ -21,18 +21,18 @@ const Page = () => {
       <PageHeader
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.MEMBERS](),
-            title: t('routes.members'),
+            href: AppRoutes[AppRoutesEnum.ADMIN_MEMBERS](),
+            title: t('sidebar.members'),
           },
-          { href: '', title: t('routes.create') },
+          { href: '', title: t('sidebar.create') },
         ]}
       />
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.form}>
           <StyledSelect
             isClearable={false}
-            label={t('editor.team.label')}
-            placeholder={t('editor.team.placeholder')}
+            label={t('field.teamName')}
+            placeholder={t('field.teamName')}
             onChange={handleChangeTeamSelection}
             options={teamsOptions}
             isLoading={isTeamsLoading}
@@ -40,8 +40,8 @@ const Page = () => {
           />
           <StyledSelect
             isClearable={false}
-            label={t('editor.member.label')}
-            placeholder={t('editor.member.placeholder')}
+            label={t('field.memberNameLastName')}
+            placeholder={t('field.memberNameLastName')}
             onChange={handleChangeMemberSelection}
             options={membersOptions}
             isLoading={isMembersLoading}

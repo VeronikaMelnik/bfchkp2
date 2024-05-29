@@ -15,11 +15,11 @@ export const useDeleteResults = () => {
         } = await axiosApi.delete<BaseResponse<IResult>>(
           `/api/admin/result/${id}`,
         );
-        toast.success(t('toast.deleteSuccess'));
+        toast.success(t('success.delete'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.deleteError'));
+        toast.error(t('error.delete'));
       }
     },
     [t],

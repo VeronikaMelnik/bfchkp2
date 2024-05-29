@@ -14,8 +14,8 @@ export default () => {
         hideTitle
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.UPDATE_USER](),
-            title: t('routes.users'),
+            href: AppRoutes[AppRoutesEnum.USER](),
+            title: t('sidebar.user'),
           },
           { href: '', title: users?.person.name || '' },
         ]}
@@ -27,7 +27,10 @@ export default () => {
         </Button>
       </Card>
       <UserCard
-        image={users?.person.image?.url}
+        image={
+          users?.person.image?.url ||
+          'https://cdn-icons-png.flaticon.com/512/4837/4837857.png'
+        }
         experience={users?.email}
         name={users?.person.name}
         lastName={users?.person.lastName}

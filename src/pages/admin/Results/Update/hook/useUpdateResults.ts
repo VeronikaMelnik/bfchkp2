@@ -8,7 +8,7 @@ import { ISelectOption } from '@entities/components/editor';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useUpdateResultsPage = () => {
-  const { t } = useTranslation('results');
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { update } = useUpdateResults(parseInt(id!));
   const [selectedChampionship, setSelectedChampionship] =
@@ -100,11 +100,11 @@ export const useUpdateResultsPage = () => {
   useEffect(() => {
     getChampionships({
       page: 1,
-      perPage: 10,
+      perPage: 100,
     });
     getMembers({
       page: 1,
-      perPage: 10,
+      perPage: 100,
     });
     handleGetData();
   }, [getChampionships, getMembers, handleGetData]);

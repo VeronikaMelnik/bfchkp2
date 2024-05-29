@@ -11,10 +11,10 @@ const Page = () => {
       <PageHeader
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.TEAMS](),
-            title: t('routes.teams'),
+            href: AppRoutes[AppRoutesEnum.ADMIN_TEAMS](),
+            title: t('sidebar.teams'),
           },
-          { href: '', title: t('routes.create') },
+          { href: '', title: t('sidebar.create') },
         ]}
       />
       <form onSubmit={handleSubmit}>
@@ -24,7 +24,7 @@ const Page = () => {
             setFieldValue('name', ev.target.value);
           }}
           error={errors.name}
-          label={t('editor.content.name')}
+          label={t('field.teamName')}
         />
         <TextField
           value={values.city}
@@ -32,7 +32,7 @@ const Page = () => {
             setFieldValue('city', ev.target.value);
           }}
           error={errors.city}
-          label={t('editor.content.city')}
+          label={t('field.city')}
         />
         <TextField
           value={values.address}
@@ -40,10 +40,10 @@ const Page = () => {
             setFieldValue('address', ev.target.value);
           }}
           error={errors.address}
-          label={t('editor.content.address')}
+          label={t('field.address')}
         />
         <Button type={'submit'} disabled={!isValid}>
-          {t('controls.publish')}
+          {t('controls.refresh')}
         </Button>
       </form>
     </PageSkeleton>

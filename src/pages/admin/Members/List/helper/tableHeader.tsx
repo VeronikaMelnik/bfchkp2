@@ -3,13 +3,13 @@ import { Text } from '@shared/ui';
 import { ConfigItemType } from '@shared/ui/Table';
 
 export const useTableHeader: () => Array<ConfigItemType> = () => {
-  const { t } = useTranslation('table');
+  const { t } = useTranslation();
   return [
     {
       name: 'id',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('table.index')}
+          {t('field.index')}
         </Text>
       ),
       width: 92,
@@ -18,7 +18,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
       name: 'name',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.membersName')}
+          {t('field.name')}
         </Text>
       ),
       width: 230,
@@ -27,16 +27,16 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
       name: 'lastName',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.membersLastName')}
+          {t('field.lastName')}
         </Text>
       ),
-      width: 350,
+      width: 50,
     },
     {
       name: 'team',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.membersTeam')}
+          {t('field.team')}
         </Text>
       ),
     },

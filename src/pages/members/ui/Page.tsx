@@ -11,7 +11,10 @@ export default () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('routes.members') },
+          {
+            href: AppRoutes[AppRoutesEnum.NEWS](),
+            title: t('sidebar.members'),
+          },
         ]}
       />
       <div className={styles.wrapper}>
@@ -20,7 +23,7 @@ export default () => {
             <CoachesCard
               image={
                 el.person.image?.url ||
-                'https://png.pngtree.com/thumb_back/fw800/background/20230610/pngtree-picture-of-a-blue-bird-on-a-black-background-image_2937385.jpg'
+                'https://cdn-icons-png.flaticon.com/512/4837/4837857.png'
               }
               experience={el.team.name}
               name={el.person.name}

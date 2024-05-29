@@ -26,10 +26,10 @@ const Page = () => {
       <PageHeader
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.RESULTS](),
-            title: t('routes.results'),
+            href: AppRoutes[AppRoutesEnum.ADMIN_RESULTS](),
+            title: t('sidebar.results'),
           },
-          { href: '', title: t('routes.update') },
+          { href: '', title: t('sidebar.edit') },
         ]}
       />
       <form onSubmit={handleSubmit} className={styles.container}>
@@ -37,8 +37,8 @@ const Page = () => {
           <StyledSelect
             value={selectedChampionship}
             isClearable={false}
-            label={t('editor.championship.label')}
-            placeholder={t('editor.championship.placeholder')}
+            label={t('field.championshipName')}
+            placeholder={t('field.championshipName')}
             onChange={handleChangeChampionshipSelection}
             options={championshipsOptions}
             isLoading={isChampionshipsLoading}
@@ -47,8 +47,8 @@ const Page = () => {
           <StyledSelect
             value={selectedMember}
             isClearable={false}
-            label={t('editor.member.label')}
-            placeholder={t('editor.member.placeholder')}
+            label={t('field.memberNameLastName')}
+            placeholder={t('field.memberNameLastName')}
             onChange={handleChangeMemberSelection}
             options={membersOptions}
             isLoading={isMembersLoading}
@@ -57,12 +57,12 @@ const Page = () => {
           <TextField
             value={place}
             onChange={handlePlaceChange}
-            label={t('editor.place.label')}
+            label={t('field.place')}
           />
         </div>
 
         <Button type={'submit'} disabled={!isValid || isCurrentResultLoading}>
-          {t('controls.update')}
+          {t('controls.add')}
         </Button>
       </form>
     </PageSkeleton>

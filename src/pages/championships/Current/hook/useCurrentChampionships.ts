@@ -6,7 +6,7 @@ import { axiosApi } from '@entities/api';
 import { IChampionship } from '@entities/types';
 
 export const useCurrentChampionships = () => {
-  const { t } = useTranslation('championships');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
   const [championships, setChampionships] = useState<IChampionship>();

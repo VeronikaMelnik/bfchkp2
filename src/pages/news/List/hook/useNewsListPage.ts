@@ -10,7 +10,7 @@ interface Params extends ListParams {
 }
 
 export const useNewsListPage = () => {
-  const { t, i18n } = useTranslation('news');
+  const { t, i18n } = useTranslation();
   const { getData, isLoading } = useGetUserNewsList();
   const [news, setNews] = useState<Array<INews>>([]);
 

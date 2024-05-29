@@ -7,14 +7,11 @@ import { BaseResponse } from '@entities/types';
 import { ITeam } from '@entities/types/team.interface';
 
 export const useUpdateTeams = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const schema = z.object({
-    name: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-    city: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-    address: z
-      .string()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+    name: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+    city: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+    address: z.string().min(1, t('error.required')).max(256, t('error.max256')),
   });
 
   type ValuesType = z.infer<typeof schema>;

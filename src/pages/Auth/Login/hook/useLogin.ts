@@ -13,7 +13,7 @@ import {
 } from '@shared/constants';
 
 export const useLogin = () => {
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation();
   const { setToken } = useUser();
   const navigate = useNavigate();
   const schema = z
@@ -54,11 +54,11 @@ export const useLogin = () => {
         } else {
           navigate(AppRoutes[AppRoutesEnum.NEWS]());
         }
-        toast.success(`${t('toast.loginSuccess')}`);
+        toast.success(`${t('success.login')}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.loginError'));
+        toast.error(t('error.login'));
       }
     },
   });

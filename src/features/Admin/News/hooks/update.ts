@@ -6,17 +6,17 @@ import { axiosApi } from '@entities/api';
 import { BaseResponse, INews } from '@entities/types';
 
 export const useUpdateNews = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const schema = z.object({
     title: z.object({
-      ru: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-      be: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-      en: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+      ru: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+      be: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+      en: z.string().min(1, t('error.required')).max(256, t('error.max256')),
     }),
     description: z.object({
-      ru: z.string().min(1, t('errors.required')),
-      be: z.string().min(1, t('errors.required')),
-      en: z.string().min(1, t('errors.required')),
+      ru: z.string().min(1, t('error.required')),
+      be: z.string().min(1, t('error.required')),
+      en: z.string().min(1, t('error.required')),
     }),
   });
 
@@ -50,7 +50,7 @@ export const useUpdateNews = () => {
           `api/admin/news/${id}`,
           { ...body },
         );
-        toast.success(t('toast.updateSuccess'));
+        toast.success(t('success.update'));
         return data;
       } catch (error) {
         console.error(error);

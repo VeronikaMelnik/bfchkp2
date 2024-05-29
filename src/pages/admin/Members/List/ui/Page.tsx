@@ -40,12 +40,12 @@ const Page = () => {
         />
       </Modal>
       <PageHeader
-        breadcrumbs={[{ href: location.pathname, title: t('routes.members') }]}
+        breadcrumbs={[{ href: location.pathname, title: t('sidebar.members') }]}
         controls={
           <Link to={AppRoutes[AppRoutesEnum.CREATE_MEMBERS]()}>
             <Button variant="primary" size="small">
               <IconPlus width={20} height={20} />
-              {t('actions.add')}
+              {t('controls.add')}
             </Button>
           </Link>
         }

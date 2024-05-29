@@ -16,7 +16,7 @@ export const Footer = ({ className }: Props) => {
     <footer className={classNames(styles.wrapper, className)}>
       <IconLogo theme="light" height={50} />
       <Title variant="h4" fontWeight="normal">
-        ОО "Белорусская федерация чирлидинга и команд поддержки"
+        {t('footer.bfchkp')}
       </Title>
       <div className={styles.contacts}>
         <a href={'tel:+375293267922'}>

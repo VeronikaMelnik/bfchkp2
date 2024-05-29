@@ -9,7 +9,7 @@ import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 export const useUpdateTeamsPage = () => {
   const { id } = useParams<{ id: string }>() as { id: string };
   const { update, validate } = useUpdateTeams();
-  const { t } = useTranslation('teams');
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { getData } = useGetCurrentTeam();
 

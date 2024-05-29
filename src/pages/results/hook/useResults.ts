@@ -9,7 +9,7 @@ interface Params extends ListParams {
 }
 
 export const useResultsListPage = () => {
-  const { t } = useTranslation('results');
+  const { t } = useTranslation();
   const { getData, isLoading } = useGetUserResultsList();
   const [results, setResult] = useState<Array<IResult>>([]);
 

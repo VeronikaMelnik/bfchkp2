@@ -19,7 +19,7 @@ const Page = () => {
   return (
     <PageSkeleton>
       <input {...getInputProps()} />
-      <PageHeader breadcrumbs={[{ href: '', title: t('routes.edit') }]} />
+      <PageHeader breadcrumbs={[{ href: '', title: t('sidebar.edit') }]} />
       <form onSubmit={handleSubmit}>
         <TextField
           value={values.email}
@@ -27,7 +27,7 @@ const Page = () => {
             setFieldValue('email', ev.target.value);
           }}
           error={errors.email}
-          label={t('editor.content.email')}
+          label={t('field.email')}
         />
         <TextField
           value={values.name}
@@ -35,7 +35,7 @@ const Page = () => {
             setFieldValue('name', ev.target.value);
           }}
           error={errors.name}
-          label={t('editor.content.name')}
+          label={t('field.name')}
         />
         <TextField
           value={values.lastName}
@@ -43,7 +43,7 @@ const Page = () => {
             setFieldValue('lastName', ev.target.value);
           }}
           error={errors.lastName}
-          label={t('editor.content.lastName')}
+          label={t('field.lastName')}
         />
         <TextField
           value={values.password}
@@ -51,13 +51,13 @@ const Page = () => {
             setFieldValue('password', ev.target.value);
           }}
           error={errors.password}
-          label={t('editor.content.password')}
+          label={t('field.password')}
         />
         <div>
           {!image ? (
             <Button variant={'light'} type="button" onClick={open}>
               <IconStaple width={24} height={24} />
-              {t('editor.cover.label')}
+              {t('controls.image')}
             </Button>
           ) : (
             <Cover src={''} onRemove={() => setImage(undefined)} />

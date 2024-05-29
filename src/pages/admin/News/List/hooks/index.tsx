@@ -14,7 +14,7 @@ import {
 import { useTableHeader, useTableRows } from '../helper';
 
 export const useNewsList = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const { getData, total } = useGetNewsList();
   const [search, setSearch] = useState('');
   const { onDelete } = useDeleteNews();

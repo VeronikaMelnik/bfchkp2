@@ -16,7 +16,7 @@ import {
 export const useUpdateUserPage = () => {
   const { id } = useParams<{ id: string }>() as { id: string };
   const { update, validate } = useUpdateUser();
-  const { t } = useTranslation('users');
+  const { t } = useTranslation();
   const [image, setImage] = useState<File>();
   const { handleUploadImage } = useUploadUserImage();
   const navigate = useNavigate();

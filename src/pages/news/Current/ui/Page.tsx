@@ -11,7 +11,7 @@ export default () => {
       <PageHeader
         hideTitle
         breadcrumbs={[
-          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('routes.news') },
+          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('sidebar.news') },
           { href: '', title: news?.title[i18n.language as LanguageEnum] || '' },
         ]}
       />

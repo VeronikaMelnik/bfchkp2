@@ -14,7 +14,7 @@ interface Params extends ListParams {
 }
 
 export const useChampionshipsListPage = () => {
-  const { t } = useTranslation('championships');
+  const { t } = useTranslation();
   const { getData, isLoading } = useGetUserChampionshipsList();
   const [news, setNews] = useState<Array<IChampionship>>([]);
 

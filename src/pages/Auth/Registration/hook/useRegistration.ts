@@ -12,7 +12,7 @@ import {
 } from '@shared/constants';
 
 export const useRegistration = () => {
-  const { t } = useTranslation('auth');
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const schema = z
     .object({
@@ -60,11 +60,11 @@ export const useRegistration = () => {
         } else {
           navigate(AppRoutes[AppRoutesEnum.NEWS]());
         }
-        toast.success(`${t('toast.loginSuccess')}`);
+        toast.success(`${t('success.register')}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.loginError'));
+        toast.error(t('error.register'));
       }
     },
   });

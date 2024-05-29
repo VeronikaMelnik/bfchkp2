@@ -6,7 +6,7 @@ import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCreateNewsPage = () => {
   const { create, validate } = useCreateNews();
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const initialValues = {
@@ -62,7 +62,7 @@ export const useCreateNewsPage = () => {
         },
       });
       if (data) {
-        navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
+        navigate(AppRoutes[AppRoutesEnum.NEWS]());
       }
     },
   });

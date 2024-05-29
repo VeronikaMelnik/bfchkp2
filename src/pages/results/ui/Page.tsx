@@ -14,7 +14,7 @@ export default () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.RESULTS](),
-            title: t('routes.results'),
+            title: t('sidebar.results'),
           },
         ]}
       />
@@ -22,9 +22,12 @@ export default () => {
         {results.map((el) => {
           return (
             <CoachesCard
-              image={el.member.person.image?.url}
+              image={
+                el.member.person.image?.url ||
+                'https://cdn-icons-png.flaticon.com/512/4837/4837857.png'
+              }
               experience={el.championship.name}
-              name={`${t('table.place_place')} ${el.place} —   ${el.member.person.name}`}
+              name={`${t('table.place')} ${el.place} —   ${el.member.person.name}`}
               lastName={el.member.person.lastName}
               team={formatDate(el.championship.date, 'dd.MM.yyyy')}
               key={`news-card-${el.id}`}

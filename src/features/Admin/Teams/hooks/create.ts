@@ -9,12 +9,9 @@ import { ITeam } from '@entities/types/team.interface';
 export const useCreateTeams = () => {
   const { t } = useTranslation();
   const schema = z.object({
-    name: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-    city: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-    address: z
-      .string()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+    name: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+    city: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+    address: z.string().min(1, t('error.required')).max(256, t('error.max256')),
   });
 
   type ValuesType = z.infer<typeof schema>;
@@ -42,11 +39,11 @@ export const useCreateTeams = () => {
         const {
           data: { data },
         } = await axiosApi.post<BaseResponse<ITeam>>('api/admin/team', teams);
-        toast.success(t('toast.createSuccess'));
+        toast.success(t('success.create'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.createError'));
+        toast.error(t('error.create'));
       }
     },
     [t, validate],

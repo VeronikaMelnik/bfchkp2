@@ -19,7 +19,7 @@ export const ModalDelete = ({
   title,
   handleCloseModal,
 }: Props) => {
-  const { t } = useTranslation('content');
+  const { t } = useTranslation();
   return (
     <div className={classNames(styles.wrapper, className)}>
       <Title fontWeight="semibold" variant="h4">

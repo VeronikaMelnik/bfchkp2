@@ -6,18 +6,18 @@ import { axiosApi } from '@entities/api';
 import { BaseResponse, IUser } from '@entities/types';
 
 export const useUpdateUser = () => {
-  const { t } = useTranslation('users');
+  const { t } = useTranslation();
   const schema = z.object({
-    email: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
-    name: z.string().min(1, t('errors.required')).max(256, t('errors.max256')),
+    email: z.string().min(1, t('error.required')).max(256, t('error.max256')),
+    name: z.string().min(1, t('error.required')).max(256, t('error.max256')),
     lastName: z
       .string()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+      .min(1, t('error.required'))
+      .max(256, t('error.max256')),
     password: z
       .string()
-      .min(1, t('errors.required'))
-      .max(256, t('errors.max256')),
+      .min(1, t('error.required'))
+      .max(256, t('error.max256')),
   });
 
   type ValuesType = z.infer<typeof schema>;
@@ -51,7 +51,7 @@ export const useUpdateUser = () => {
         } = await axiosApi.patch<BaseResponse<IUser>>(`api/me`, {
           ...body,
         });
-        toast.success(t('toast.updateSuccess'));
+        toast.success(t('success.update'));
         return data;
       } catch (error) {
         console.error(error);

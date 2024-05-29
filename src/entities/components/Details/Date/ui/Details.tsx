@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const DateDetails = ({ className, date, showLabels = true }: Props) => {
-  const { t } = useTranslation('content');
+  const { t } = useTranslation();
   return (
     <div className={classNames(styles.wrapper, className)}>
       <div className={styles.dateCard}>

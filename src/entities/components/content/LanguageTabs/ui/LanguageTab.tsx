@@ -18,7 +18,7 @@ export const LanguageTab = ({
   tabClassName,
   action,
 }: Props) => {
-  const { t } = useTranslation('content');
+  const { t } = useTranslation();
   const labels = ACCEPTED_LANGUAGES.map((lang) => {
     return (
       <Text variant="body16" fontWeight="medium" key={`tab-label-${lang}`}>

@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { IUser } from '@entities/types';
 import { TOKEN_LOCAL_STORAGE_KEY, ROLES_ADMIN } from '@shared/constants';
 
 export const useUserProvider = () => {
+  const { t } = useTranslation();
   const [user, setUser] = useState<IUser>();
   const [token, setToken] = useState<string | null>(
     localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY),
@@ -46,7 +48,7 @@ export const useUserProvider = () => {
           })
           .catch((err) => {
             console.error(err);
-            toast.error('Не удалось получить данные юзера');
+            toast.error(t('error.getUser'));
             localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
             setToken(null);
           })
@@ -55,7 +57,7 @@ export const useUserProvider = () => {
           });
       }
     }
-  }, [user, isLoading, token, handleSetUser]);
+  }, [user, isLoading, token, handleSetUser, t]);
 
   const value = useMemo(
     () => ({

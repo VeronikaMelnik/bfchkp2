@@ -10,7 +10,7 @@ interface Params extends ListParams {
 }
 
 export const useTeamsListPage = () => {
-  const { t } = useTranslation('teams');
+  const { t } = useTranslation();
   const { getData, isLoading } = useGetUserTeamsList();
   const [teams, setTeam] = useState<Array<ITeam>>([]);
 

@@ -1,143 +1,115 @@
 {
   "sidebar": {
-    "main": "Main",
-    "admin": "Administration",
     "news": "News",
-    "events": "Events",
-    "meetings": "Meetings",
-    "notifications": "Notifications",
-    "voting": "Voting",
-    "technicalWorks": "Technical Works",
-    "loyalty": "Loyalty Program",
-    "advertisement": "Advertising",
-    "employee_announcements": "Employee Announcements",
-    "poster": "Poster",
-    "activity": "Activities",
-    "services": "Services",
-    "invocation": "Requests and Applications",
-    "requests": "Requests",
-    "applications": "Applications",
-    "knowledge": "Knowledge Base",
-    "settings": "Settings",
-    "announcements": "Announcements",
-    "accounting": "Accounting",
-    "statistic": "Reports and Statistics",
-    "security": "Security",
-    "engineering": "Engineering Systems",
-    "inform": "Information",
-    "passport": "Passport Desk",
-    "users": "Users",
-    "access": "Access Control",
-    "intercom": "Intercom",
-    "video": "Video Surveillance",
-    "energy": "Energy resources",
-    "heating": "Heating points",
-    "lifts": "Lifts",
-    "residents": "Residents",
-    "employees": "Employees",
-    "accessRights": "Access Rights",
-    "roles": "Roles"
+    "user": "Personal account",
+    "championships": "Championships",
+    "results": "Competition results",
+    "judges": "Judges",
+    "teams": "Teams",
+    "coaches": "Coaches",
+    "members": "Federation members",
+    "disciplines": "Disciplines",
+    "titles": "Titles",
+    "login": "Login",
+    "registration": "Registration",
+    "create": "Create",
+    "edit": "Edit"
   },
   "header": {
     "login": "Login",
+    "register": "Register",
     "logout": "Logout"
   },
-  "poster": "Poster",
+  "field": {
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "lastName": "Last Name",
+    "index": "№",
+    "team": "Team",
+    "title": "Title",
+    "description": "Description",
+    "date": "Creation date",
+    "place": "Place",
+    "city": "City",
+    "address": "Address",
+    "title_ru": "Title in Russian",
+    "title_be": "Title in Belarusian",
+    "title_en": "Title in English",
+    "description_ru": "Description in Russian",
+    "description_be": "Description in Belarusian",
+    "description_en": "Description in English",
+    "championshipName": "Championship name",
+    "teamName": "Team name",
+    "memberNameLastName": "User's first and last name"
+  },
+  "button": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "error": {
+    "login": "Failed to login",
+    "register": "Failed to register",
+    "getUser": "Failed to get user data",
+    "required": "This field is required",
+    "create": "Failed to add record",
+    "update": "Failed to update information",
+    "delete": "Failed to delete record"
+  },
+  "success": {
+    "login": "You have logged in successfully!",
+    "register": "You have registered successfully!",
+    "create": "Record added successfully!",
+    "update": "Information updated successfully!",
+    "delete": "Record deleted successfully!"
+  },
+  "controls": {
+    "publish": "Publish",
+    "image": "Upload photo",
+    "refresh": "Refresh",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "draft": "Save draft",
+    "create": "Create",
+    "find": "Search",
+    "delete": "Delete",
+    "add": "Add"
+  },
+  "table": {
+    "place": "Place: ",
+    "experience": "Experience: ",
+    "years": " year/s",
+    "team": "Team: ",
+    "member": "Federation member: "
+  },
+  "footer": {
+    "days": "Monday - Friday",
+    "bfchkp": "PA 'Belarusian Federation of Cheerleading and Support Teams'"
+  },
   "not_found": {
-    "title": "Page Not Found",
-    "text": "Wrong address or this page does not exist",
-    "back": "Go Back",
-    "toMain": "Home"
+    "title": "Page not found",
+    "text": "The address is incorrectly typed or such a page does not exist",
+    "back": "Go back",
+    "toMain": "To main page"
   },
   "forbidden": {
     "title": "Access error",
-    "text": "The page may not be available or you may not have permission to open it.",
-    "back": "Go Back",
-    "toMain": "Home"
-  },
-  "toast": {
-    "deleteSuccess": "Deleted successfully",
-    "deleteError": "Could not delete",
-    "updateSuccess": "Updated successfully",
-    "updateError": "Could not update",
-    "createSuccess": "Created successfully",
-    "createError": "Could not create",
-    "notFound": "Could not retrieve data from server",
-    "unforeseen": "Unforeseen error"
-  },
-  "errors": {
-    "required": "Field is required",
-    "max256": "Title should be less than 256 characters",
-    "invalidFormat": "Invalid format",
-    "invalidIp": "Invalid IP address",
-    "getError": "Could not retrieve data from server",
-    "video": "Sorry, your browser does not support embedded video.",
-    "passwordPattern": "Password must be at least 8 characters and contain at least one number and one uppercase letter",
-    "passwordMatch": "Passwords do not match"
+    "text": "The page may be unavailable or there is no permission to open it.",
+    "back": "Go back",
+    "toMain": "To main page"
   },
   "actions": {
     "reset": "Reset"
   },
-  "controls": {
-    "publish": "Publish",
-    "refresh": "Refresh",
-    "cancel": "Cancel",
-    "draft": "Save Draft",
-    "create": "Create",
-    "archive": "Go to Archived",
-    "actual": "Go to Current",
-    "find": "Search",
-    "delete": "Delete",
-    "greetings": "Good Day",
-    "preview": "Preview",
-    "addPhone": "Add Phone Number"
-  },
   "remove": {
-    "title": "Are you sure you want to delete? This action cannot be undone",
+    "title": "Are you sure you want to delete?",
     "text": "This action cannot be undone"
   },
-  "search": "Search",
-  "greetings": "Good Day",
-  "all": "All",
-  "month": [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ],
+  "search": "search",
   "popup": {
     "preview": "Preview",
     "edit": "Edit",
-    "map": "Open on Map",
     "delete": "Delete",
-    "open": "Open",
-    "markAsFailed": "Mark as failed",
-    "personal_notification": "Personal notification"
-  },
-  "period": {
-    "from": "From",
-    "to": "To"
-  },
-  "footer": {
-    "northWaterfront": "OOO «Managing Organization North Waterfront»",
-    "address": "g. Minsk, ul. Sverdlova 11, of.329",
-    "advertisement": "Buy an apartment in 'North Waterfront'",
-    "therms": "Terms of Use",
-    "privacy": "Privacy Policy"
-  },
-  "filters": {
-    "all": "All",
-    "actual": "Actual",
-    "closed": "Closed"
-  },
-  "discount": "Discount",
-  "rarus": "Migration to 1C Rarus"
+    "open": "Open"
+  }
 }

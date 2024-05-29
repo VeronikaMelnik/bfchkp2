@@ -5,7 +5,7 @@ import { axiosApi } from '@entities/api';
 import { IJudge } from '@entities/types';
 
 export const useGetUserJudgesList = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const getData = useCallback(async () => {
     setIsLoading(true);

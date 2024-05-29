@@ -6,22 +6,22 @@ export default () => {
   const { errors, handleSubmit, setFieldValue, values, t } = useLogin();
   return (
     <PageSkeleton>
-      <PageHeader breadcrumbs={[{ href: '', title: t('route') }]} />
+      <PageHeader breadcrumbs={[{ href: '', title: t('sidebar.login') }]} />
       <form onSubmit={handleSubmit}>
         <Card padding={12} gap={20} flexDirection="column">
           <TextField
             value={values.email}
             onChange={(ev) => setFieldValue('email', ev.target.value)}
-            label={t('email.label')}
+            label={t('field.email')}
             error={errors.email}
           />
           <PasswordField
             value={values.password}
             onChange={(ev) => setFieldValue('password', ev.target.value)}
-            label={t('password.label')}
+            label={t('field.password')}
             error={errors.password}
           />
-          <Button type="submit">{t('controls.login')}</Button>
+          <Button type="submit">{t('button.login')}</Button>
         </Card>
       </form>
     </PageSkeleton>

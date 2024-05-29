@@ -9,7 +9,7 @@ interface Params extends ListParams {
 }
 
 export const useMembersListPage = () => {
-  const { t } = useTranslation('members');
+  const { t } = useTranslation();
   const { getData, isLoading } = useGetUserMembersList();
   const [members, setMember] = useState<Array<IMember>>([]);
 

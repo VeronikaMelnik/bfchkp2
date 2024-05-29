@@ -6,7 +6,7 @@ import { axiosApi } from '@entities/api';
 import { INews } from '@entities/types';
 
 export const useCurrentNews = () => {
-  const { t, i18n } = useTranslation('news');
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
   const [news, setNews] = useState<INews>();

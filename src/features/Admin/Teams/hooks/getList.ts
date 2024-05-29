@@ -12,7 +12,7 @@ interface Result {
 }
 
 export const useGetTeamsList = () => {
-  const { t } = useTranslation('teams');
+  const { t } = useTranslation();
   const [total, setTotal] = useState(0);
   const getData = useCallback(
     async (params: Params) => {

@@ -12,7 +12,7 @@ export default () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.CHAMPIONSHIPS](),
-            title: t('routes.championships'),
+            title: t('sidebar.championships'),
           },
           { href: '', title: championships?.name || '' },
         ]}

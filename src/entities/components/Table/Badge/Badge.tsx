@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const TableBadge = ({ className, status }: Props) => {
-  const { t } = useTranslation('table');
+  const { t } = useTranslation();
 
   const ColorEnum: Record<
     keyof typeof NewsStatusEnum,

@@ -13,7 +13,7 @@ interface Team {
 }
 
 export const useGetTeams = () => {
-  const { t } = useTranslation('teams');
+  const { t } = useTranslation();
   const [total, setTotal] = useState(0);
   const [options, setOptions] = useState<Array<ISelectOption>>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,10 +36,10 @@ export const useGetTeams = () => {
           setOptions(res);
           return data;
         } else {
-          toast.error(t('errors.getError'));
+          toast.error(t('error.getError'));
         }
       } catch (error) {
-        toast.error(t('errors.getError'));
+        toast.error(t('error.getError'));
         console.error(error);
       } finally {
         setIsLoading(false);

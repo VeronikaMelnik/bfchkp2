@@ -14,7 +14,7 @@ export default () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.NEWS](),
-            title: t('routes.news'),
+            title: t('sidebar.championships'),
           },
         ]}
       />
