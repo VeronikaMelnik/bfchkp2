@@ -13,7 +13,7 @@ export const useGetUserJudgesList = () => {
       const { data } = await axiosApi.get<Array<IJudge>>('/judges');
       return data;
     } catch (error) {
-      toast.error(t('toast.listError'));
+      toast.error(t('error.list'));
       console.error(error);
     } finally {
       setIsLoading(false);

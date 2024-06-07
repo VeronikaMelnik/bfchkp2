@@ -17,7 +17,6 @@ export const NavItem = ({
   title,
   breadcrumbs,
   isLink,
-  // acceptedGroups,
   onClick,
 }: Props) => {
   const {

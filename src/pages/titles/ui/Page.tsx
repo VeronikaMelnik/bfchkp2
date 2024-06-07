@@ -22,6 +22,7 @@ export default () => {
             <TitlesCard
               nameTitle={el.name}
               name={`${t('table.member')} ${el.member.person.name}`}
+              championship={el.result.championship.name}
               lastName={el.member.person.lastName}
               key={`news-card-${el.id}`}
             />

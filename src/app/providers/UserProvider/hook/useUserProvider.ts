@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { IUser } from '@entities/types';
 import { TOKEN_LOCAL_STORAGE_KEY, ROLES_ADMIN } from '@shared/constants';
@@ -19,13 +18,13 @@ export const useUserProvider = () => {
   const handleSetUser = useCallback((user?: IUser) => {
     const isUserAdmin = (user && ROLES_ADMIN.includes(user?.id)) || false;
     const coachesTable = [
-      15, 17, 18, 14, 26, 10, 11, 27, 28, 29, 13, 19, 20, 30, 21, 22, 12,
+      5, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 26, 27, 28, 29, 30,
     ];
     const isUserCoach =
       user && user.person && user.person.id
         ? coachesTable.includes(user.person.id)
         : false;
-    const judgesTable = [12, 13, 14, 16, 17, 18, 22, 25, 26];
+    const judgesTable = [5, 12, 13, 14, 17, 18, 22, 24, 25, 26];
     const isUserJudge =
       user && user.person && user.person.id
         ? judgesTable.includes(user.person.id)
@@ -48,7 +47,6 @@ export const useUserProvider = () => {
           })
           .catch((err) => {
             console.error(err);
-            toast.error(t('error.getUser'));
             localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
             setToken(null);
           })

@@ -12,7 +12,6 @@ import { CreateResultsPage } from '@pages/admin/Results/Create';
 import { UpdateResultsPage } from '@pages/admin/Results/Update';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { ChampionshipsListPage } from '@pages/championships';
-import { CurrentChampionshipsPage } from '@pages/championships/Current';
 import { CoachesPage } from '@pages/coaches';
 import { DisciplinesPage } from '@pages/disciplines';
 import { ForbiddenPage } from '@pages/Forbidden';
@@ -97,27 +96,12 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   [AppRoutesEnum.USERS]: {
     path: AppRoutes[AppRoutesEnum.USERS](),
     element: <NotFoundPage />,
-    authOnly: true,
+    authOnly: false,
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.NEWS_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.NEWS_CURRENT](':id'),
     element: <CurrentNewsPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.CHAMPIONSHIPS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.CHAMPIONSHIPS_CURRENT](':id'),
-    element: <CurrentChampionshipsPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.EVENT_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.EVENT_CURRENT](':id'),
-    element: <NotFoundPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.MEETINGS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.MEETINGS_CURRENT](':id'),
-    element: <NotFoundPage />,
     authOnly: false,
   },
   [AppRoutesEnum.LOGIN]: {
@@ -185,21 +169,6 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
   [AppRoutesEnum.TITLES]: {
     path: AppRoutes[AppRoutesEnum.TITLES](),
     element: <TitlesPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.POSTER]: {
-    path: AppRoutes[AppRoutesEnum.POSTER](),
-    element: <NotFoundPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.ACTIVITY]: {
-    path: AppRoutes[AppRoutesEnum.ACTIVITY](),
-    element: <NotFoundPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.SERVICES]: {
-    path: AppRoutes[AppRoutesEnum.SERVICES](),
-    element: <NotFoundPage />,
     authOnly: false,
   },
   [AppRoutesEnum.FORBIDDEN]: {

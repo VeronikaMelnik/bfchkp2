@@ -21,7 +21,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('field.title')}
         </Text>
       ),
-      width: 100,
+      width: 300,
     },
     {
       name: 'text',
@@ -30,7 +30,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('field.description')}
         </Text>
       ),
-      width: 250,
+      width: 650,
     },
     {
       name: 'date',

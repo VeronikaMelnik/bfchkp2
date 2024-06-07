@@ -54,7 +54,7 @@ export const useUpdateNews = () => {
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.updateError'));
+        toast.error(t('error.update'));
       }
     },
     [t, validate],

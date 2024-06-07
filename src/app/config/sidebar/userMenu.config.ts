@@ -15,5 +15,11 @@ export const useUserMenuConfig: () => Array<NavItemProps> = () => {
       isLink: !user,
       onClick: handleLogOut,
     },
+    {
+      title: t('header.register'),
+      icon: IconHuman,
+      href: AppRoutes[AppRoutesEnum.REGISTRATION](),
+      isLink: !user,
+    },
   ];
 };

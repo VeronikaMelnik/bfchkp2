@@ -14,7 +14,7 @@ export const useGetUserCoachesList = () => {
       // toDo: update from server
       return data;
     } catch (error) {
-      toast.error(t('toast.listError'));
+      toast.error(t('error.list'));
       console.error(error);
     } finally {
       setIsLoading(false);

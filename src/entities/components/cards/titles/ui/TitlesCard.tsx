@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { Card, Text } from '@shared/ui';
+import { Badge, Card, Text } from '@shared/ui';
 import styles from './TitlesCard.module.scss';
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
   nameTitle: string;
   name?: string;
   lastName?: string;
+  championship?: string;
   link?: string;
 }
 
@@ -16,6 +17,7 @@ export const TitlesCard = ({
   nameTitle,
   name,
   lastName,
+  championship,
   link = '',
 }: Props) => {
   return (
@@ -26,6 +28,9 @@ export const TitlesCard = ({
         gap={0}
         className={classNames(className)}
       >
+        <Badge color="dark" className={styles.timeStamp}>
+          {championship}
+        </Badge>
         <div className={styles.text}>
           <Text className={styles.title} fontWeight="semibold" variant="body16">
             {nameTitle}

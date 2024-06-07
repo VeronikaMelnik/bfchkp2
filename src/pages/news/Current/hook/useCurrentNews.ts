@@ -20,7 +20,7 @@ export const useCurrentNews = () => {
       })
       .catch((err) => {
         console.error(err);
-        toast.error(t('toast.notFound'));
+        toast.error(t('error.notFound'));
       })
       .finally(() => {
         setIsLoading(false);

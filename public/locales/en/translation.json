@@ -54,7 +54,9 @@
     "required": "This field is required",
     "create": "Failed to add record",
     "update": "Failed to update information",
-    "delete": "Failed to delete record"
+    "delete": "Failed to delete record",
+    "list": "Failed to get list. You may not be logged in!",
+    "notFound": "Could not find information"
   },
   "success": {
     "login": "You have logged in successfully!",

@@ -25,7 +25,7 @@ export const useGetTeamsList = () => {
         setTotal(total);
         return data;
       } catch (error) {
-        toast.error(t('toast.listError'));
+        toast.error(t('error.list'));
         console.error(error);
       }
     },

@@ -1,3 +1,4 @@
+import { IChampionship } from './championship.interface';
 import { BaseEntity } from './global.interface';
 import { IMember } from './member.interface';
 import { IResult } from './result.interface';
@@ -11,4 +12,5 @@ export interface ITitleShort extends BaseEntity {
 export interface ITitle extends ITitleShort {
   result: IResult;
   member: IMember;
+  championship: IChampionship;
 }

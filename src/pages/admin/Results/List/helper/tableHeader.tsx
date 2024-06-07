@@ -15,6 +15,24 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
       width: 92,
     },
     {
+      name: 'personName',
+      label: (
+        <Text fontWeight="regular" variant="body14">
+          {t('field.name')}
+        </Text>
+      ),
+      width: 10,
+    },
+    {
+      name: 'personLastName',
+      label: (
+        <Text fontWeight="regular" variant="body14">
+          {t('field.lastName')}
+        </Text>
+      ),
+      width: 200,
+    },
+    {
       name: 'place',
       label: (
         <Text fontWeight="regular" variant="body14">
@@ -28,23 +46,6 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
       label: (
         <Text fontWeight="regular" variant="body14">
           {t('field.championshipName')}
-        </Text>
-      ),
-      width: 250,
-    },
-    {
-      name: 'personName',
-      label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('field.name')}
-        </Text>
-      ),
-    },
-    {
-      name: 'personLastName',
-      label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('field.lastName')}
         </Text>
       ),
     },

@@ -44,11 +44,11 @@ export const useUpdateTeams = () => {
           `api/admin/team/${id}`,
           { ...body },
         );
-        toast.success(t('toast.updateSuccess'));
+        toast.success(t('success.update'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.updateError'));
+        toast.error(t('error.update'));
       }
     },
     [t, validate],

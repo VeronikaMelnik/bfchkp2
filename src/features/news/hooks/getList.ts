@@ -35,7 +35,7 @@ export const useGetUserNewsList = () => {
         setTotal(Math.floor(total / params.perPage));
         return data;
       } catch (error) {
-        toast.error(t('toast.listError'));
+        toast.error(t('error.list'));
         console.error(error);
       } finally {
         setIsLoading(false);

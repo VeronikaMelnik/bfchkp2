@@ -12,7 +12,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('field.index')}
         </Text>
       ),
-      width: 92,
+      width: 90,
     },
     {
       name: 'name',
@@ -21,7 +21,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('field.name')}
         </Text>
       ),
-      width: 230,
+      width: 10,
     },
     {
       name: 'lastName',
@@ -30,7 +30,7 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
           {t('field.lastName')}
         </Text>
       ),
-      width: 50,
+      width: 350,
     },
     {
       name: 'team',
