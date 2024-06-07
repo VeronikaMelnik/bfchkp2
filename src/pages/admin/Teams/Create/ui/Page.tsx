@@ -43,7 +43,7 @@ const Page = () => {
           label={t('field.address')}
         />
         <Button type={'submit'} disabled={!isValid}>
-          {t('controls.refresh')}
+          {t('controls.publish')}
         </Button>
       </form>
     </PageSkeleton>
