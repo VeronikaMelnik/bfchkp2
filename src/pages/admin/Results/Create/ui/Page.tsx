@@ -55,10 +55,11 @@ const Page = () => {
             label={t('field.place')}
           />
         </div>
-
-        <Button type={'submit'} disabled={!isValid}>
-          {t('controls.publish')}
-        </Button>
+        <div className={styles.button}>
+          <Button type={'submit'} disabled={!isValid}>
+            {t('controls.publish')}
+          </Button>
+        </div>
       </form>
     </PageSkeleton>
   );
