@@ -13,7 +13,7 @@
   width: 20px;
   height: 20px;
   border-radius: var(--radius-xs);
-  border: var(--border-width) solid var(--dark-20);
+  border: var(--border-width) solid var(--dark-80);
   outline: none;
   cursor: pointer;
 
@@ -26,7 +26,7 @@
   background-color: var(--primary-100);
 
   path {
-    fill: var(--white-100);
+    fill: var(--dark-100);
   }
 }
 

@@ -34,11 +34,11 @@
 }
 
 .white {
-  background-color: var(--dark-10);
-  color: var(--dark-100);
+  background-color: rgba(var(--dark-80-rgb), 0.6);
+  color: var(--white-100);
 }
 
 .dark {
-  background-color: rgba(var(--dark-100-rgb), 0.6);
+  background-color: rgba(var(--dark-80-rgb), 0.6);
   color: var(--white-100);
 }

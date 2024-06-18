@@ -8,12 +8,12 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  border: var(--border-width) solid var(--dark-10);
+  border: var(--border-width) solid var(--dark-90);
   cursor: pointer;
   width: 32px;
   height: 32px;
 }
 
 .active {
-  border-color: var(--dark-30);
+  border-color: var(--dark-70);
 }

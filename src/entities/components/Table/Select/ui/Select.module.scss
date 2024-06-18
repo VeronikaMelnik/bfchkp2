@@ -40,7 +40,7 @@
 }
 
 .container {
-  border: var(--border-width) solid var(--dark-20) !important;
+  border: var(--border-width) solid var(--dark-80) !important;
   border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
   border-bottom: none !important;
   box-shadow: var(--shadow) !important;
@@ -50,19 +50,19 @@
 }
 
 .valueContainer {
-  border: var(--border-width) solid var(--dark-20);
+  border: var(--border-width) solid var(--dark-80);
   border-radius: var(--radius-sm) 0 0 var(--radius-sm);
   border-right: none;
 }
 
 .indicators {
-  border: var(--border-width) solid var(--dark-20);
+  border: var(--border-width) solid var(--dark-80);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   border-left: none;
 }
 
 .menu {
-  border: var(--border-width) solid var(--dark-20) !important;
+  border: var(--border-width) solid var(--dark-80) !important;
   border-top: none !important;
   border-radius: 0 0 var(--radius-sm) var(--radius-sm) !important;
   box-shadow: none !important;
