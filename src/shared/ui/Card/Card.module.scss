@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   position: relative;
-  background-color: var(--white-100);
+  background-color: var(--dark-100);
   padding: 16px;
   border-radius: var(--radius-md);
 }
@@ -15,7 +15,7 @@
   inset: 0;
   position: absolute;
   transition: all var(--animation-duration) ease;
-  background-color: rgba(var(--white-100-rgb), 70%);
+  background-color: rgba(var(--dark-100-rgb), 70%);
   border-radius: var(--radius-xl);
   color: var(--primary-100);
 }

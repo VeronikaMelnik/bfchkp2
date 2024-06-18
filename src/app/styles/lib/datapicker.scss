@@ -1,7 +1,7 @@
 @import "react-datepicker/dist/react-datepicker.css";
 
 .react-datepicker {
-  background-color: var(--white-100);
+  background-color: var(--dark-100);
   box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%);
   border: none;
   color: var(--dark-60);
@@ -64,7 +64,7 @@
 }
 
 .react-datepicker__input-container {
-  background-color: var(--white-100);
+  background-color: var(--dark-100);
   border-radius: var(--radius-sm);
 
   input {
